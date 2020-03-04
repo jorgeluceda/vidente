@@ -1,0 +1,26 @@
+// uses FontAwesome icons to output star rating
+mixin outputRating(rating)
+  //actual stars
+  - for(let i = 1; i <= rating; i++)
+    i.fas.fa-star
+  //empty stars
+  //Note no longer uses fa-star-o to process 
+  - for(let i = rating; i < 5; i++)
+    i.far.fa-star
+
+
+mixin formatDate(dateString)
+  // converts the date provided from a string 
+  // to a date object
+  - const date = new Date(dateString);
+  // sets up array values for the names of the months
+  - const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  // uses javascript data methods to extract
+  // and convert the required parts of the date
+  - const d = date.getDate();
+  - const m = monthNames[date.getMonth()];
+  - const y = date.getFullYear();
+  - const output = `${d} ${m} ${y}`;
+  // puts the parts back together in the desired format
+  // and renders output
+  =output
