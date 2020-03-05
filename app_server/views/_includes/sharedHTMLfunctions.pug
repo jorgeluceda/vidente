@@ -24,3 +24,17 @@ mixin formatDate(dateString)
   // puts the parts back together in the desired format
   // and renders output
   =output
+
+mixin printLabel(label)
+  svg#barcode
+  script.
+    JsBarcode("#barcode", "1234", {
+        format: `!{label.format}`,
+        lineColor: `!{label.lineColor}`,
+        width: !{label.width},
+        height: !{label.height},
+        font: `!{label.font}`,
+        displayValue: !{label.displayValue},
+        text: `!{label.text}`,
+        textPosition: `!{label.textPosition}` 
+    }); 

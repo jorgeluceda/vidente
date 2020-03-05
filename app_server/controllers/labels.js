@@ -98,7 +98,7 @@ const homelist = (req, res) => {
 // to separate concerns
 const renderDetailPage = (req, res, location) => {
     //includes controller code for the Location Information page 
-    res.render('location-info', { 
+    res.render('label-info', { 
         title: 'Location Information - Loc8r',
         location
     });
@@ -133,40 +133,43 @@ const showError = (req, res, status) => {
 // accepts a callback as a third parameter
 // and contains all the code that used to be
 // in the locationInfo controller
-const getLocationInfo = (req, res, callback) => {
-    // append unique location id to generic api path
-    const path = `/api/locations/${req.params.locationid}`;
+const getLabelInfo = (req, res) => {
+    // // append unique location id to generic api path
+    // const path = `/api/locations/${req.params.locationid}`;
 
-    // sets all request options needed to call the API
-    const requestOptions = {
-        url: `${apiOptions.server}${path}`,
-        method: 'GET',
-        json: {}
-    };
+    // // sets all request options needed to call the API
+    // const requestOptions = {
+    //     url: `${apiOptions.server}${path}`,
+    //     method: 'GET',
+    //     json: {}
+    // };
+    renderDetailPage(req, res);
+    // request(requestOptions, (err, {statusCode}, body) => {
+    //     const data = body;
+    //     // checks for a successful response from the API
+    //     if(statusCode == 200) {
+    //         data.coords = {
+    //             lng: body.coords[0],
+    //             lat: body.coords[1]
+    //         };
+    //         //  invokes callback following successful api request
+    //         callback(req, res, data);
 
-    request(requestOptions, (err, {statusCode}, body) => {
-        const data = body;
-        // checks for a successful response from the API
-        if(statusCode == 200) {
-            data.coords = {
-                lng: body.coords[0],
-                lat: body.coords[1]
-            };
-            //  invokes callback following successful api request
-            callback(req, res, data);
-
-        } else {
-            // if check wasn't successful, passes the
-            // error to the showError() function
-            showError(req, res, statusCode);
-        }
-    });
+    //     } else {
+    //         // if check wasn't successful, passes the
+    //         // error to the showError() function
+    //         showError(req, res, statusCode);
+    //     }
+    // });
 };
 
-const locationInfo = (req, res) => {
-    getLocationInfo(req, res, 
-        (req, res, responseData) => renderDetailPage(req, res, responseData)
-    );
+const labelInfo = (req, res) => {
+    console.log("GOT TO LABEL INFO!");
+
+    getLabelInfo(req, res);
+    // getLocationInfo(req, res, 
+    //     (req, res, responseData) => renderDetailPage(req, res, responseData)
+    // );
 };
 
 /* GET 'Add review' page */
@@ -240,8 +243,8 @@ const doAddReview = (req, res) => {
 /* Exposes the index function as a method */
 module.exports = {
     homelist,
-    getLocationInfo,
-    locationInfo,
+    getLabelInfo,
+    labelInfo,
     addReview,
     doAddReview
 };

@@ -42,25 +42,26 @@ block content
             small
             | &nbsp;
             | New Label
-            
+
       .row
           script(src="/javascripts/JsBarcode.all.min.js")
           - for(i = 0; i < 10; i++)
             .card
               .card-block
                 .card-title
-                  span= "Card #" + i
+                  a(href="/label/") Card #1
                   button.close 
                     span.float-right
-                      <i class="fas fa-ellipsis-h" style="color:white;"></i>
-                svg#barcode
-                script.
-                  JsBarcode("#barcode", "1234", {
-                      format: "CODE39",
-                      lineColor: "black",
-                      width: 2,
-                      height: 50,
-                      displayValue: true,
-                      text: "SP17",
-                      textPosition: "bottom"
-                  }).toDataURL("image/png "); 
+                      .fas.fa-times(style="color:white;")
+                
+                - 
+                  label = { 
+                    format: "CODE39", 
+                    lineColor: "black", 
+                    width: 2, height: 50, 
+                    font: "Helvetica", 
+                    displayValue: true, 
+                    text: "SP17", 
+                    textPosition: "bottom"}
+                    
+                +printLabel(label)

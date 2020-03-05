@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 // replaces exising ctrlMain reference with new requires
-const ctrlLocations = require('../controllers/locations');
+const ctrlLocations = require('../controllers/labels');
 const ctrlOthers = require('../controllers/others');
 
 /* Locations pages */
@@ -11,7 +11,9 @@ router.get('/main', ctrlLocations.homelist);
 
 // contains locationid parameter so that we
 // can request a specific location in the API
-router.get('/location/:locationid', ctrlLocations.locationInfo);
+router.get('/label/', ctrlLocations.labelInfo);
+// 
+// router.get('/location/:locationid', ctrlLocations.locationInfo);
 
 router
     // updates router syntax to leverage locationid
