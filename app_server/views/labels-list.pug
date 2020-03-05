@@ -49,7 +49,7 @@ block content
             .card
               .card-block
                 .card-title
-                  a(href="/label/") Card #1
+                  a(href="/label/")= "Card #" + i
                   button.close 
                     span.float-right
                       .fas.fa-times(style="color:white;")
@@ -64,5 +64,4 @@ block content
                     text: "SP17", 
                     textPosition: "bottom"
                   }
-
                 +printLabel(label)
