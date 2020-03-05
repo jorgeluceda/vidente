@@ -164,7 +164,6 @@ const getLabelInfo = (req, res) => {
 };
 
 const labelInfo = (req, res) => {
-    console.log("GOT TO LABEL INFO!");
 
     getLabelInfo(req, res);
     // getLocationInfo(req, res, 

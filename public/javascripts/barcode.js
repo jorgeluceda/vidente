@@ -7,14 +7,3 @@ module.exports = function() {
         displayValue: false
     });
 }
-
-JsBarcode("#barcode", "1234", {
-    format: !{label.lineColor},
-    lineColor: !{label.lineColor},
-    width: !{label.width},
-    height: !{label.height},
-    font: !{label.font},
-    displayValue: !{label.displayValue},
-    text: !{label.text},
-    textPosition: !{label.textPosition} 
-}); 
