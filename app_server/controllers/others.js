@@ -2,13 +2,14 @@
 const about = (req, res) => { //creates index function
     //includes controller code for the homepage 
     res.render('generic-text', { 
-        title: 'About - Loc8r',
+        title: 'About - Vidente',
         pageHeader: {
             title: 'About'
         },
-        content: 'Loc8r was created to help people find places to sit down and get a bit of work done.' +
-                    '<br /><br />' + 'Lorem ipsum dolor, consectetur adipiscingelit.'
-                    + 'Nunc sed lorem ac nisi dignissim accumsan.'
+        content: 'Vidente was created to help businesses generate, print, and manage their inventory.' +
+                    ''
+                    + '</br></br> The name Vidente comes from spanish, and its definition is someone who is able to see'
+                    + ' things that others may miss.'
     });
 };
 

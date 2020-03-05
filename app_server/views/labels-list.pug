@@ -1,0 +1,66 @@
+extends layout
+block content
+  include _includes/sharedHTMLfunctions
+
+  // page headerthat fills the entire width of the screen
+  .row.banner
+
+  .row
+    // container for secondary or sidebar information, spanning
+    // all 12 columns on extra-small and small devices, and 4 
+    // columns on medium devices and larger
+    .col-12.col-md-4
+      .card.card-primary
+        .card-block
+            // One of several Bootstrap card components
+            // used to define information areas - in this case,
+            // categories.
+            h2.card-title Categories
+              .btn.btn-primary.float-right
+                .fas.fa-folder-plus
+                small
+                | &nbsp;
+                | New Category
+            p Favorites
+            p Soap
+
+    // default categories for 
+    // container for the list of locations, spanning all 12
+    // columns on extra-small and small devices, and 8 columns
+    // on medium devices and larger
+    .col-8.col-md-8
+      // Adds a div to the main content area,
+      // and has it display an error message if one 
+      // is sent
+      .error= message
+      .row
+        .col-8.col-sm-4
+          h2= "Favorites"
+        .col-8.col-sm-8
+          .btn.btn-primary.float-right
+            .fas.fa-tags
+            small
+            | &nbsp;
+            | New Label
+            
+      .row
+          script(src="/javascripts/JsBarcode.all.min.js")
+          - for(i = 0; i < 10; i++)
+            .card
+              .card-block
+                .card-title
+                  span= "Card #" + i
+                  button.close 
+                    span.float-right
+                      <i class="fas fa-ellipsis-h" style="color:white;"></i>
+                svg#barcode
+                script.
+                  JsBarcode("#barcode", "1234", {
+                      format: "CODE39",
+                      lineColor: "black",
+                      width: 2,
+                      height: 50,
+                      displayValue: true,
+                      text: "SP17",
+                      textPosition: "bottom"
+                  }).toDataURL("image/png "); 

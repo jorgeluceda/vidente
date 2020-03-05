@@ -24,12 +24,14 @@ const renderHomePage = (req, res, responseBody) => {
         }
 
     }
+
+    
     //includes controller code for the homepage 
-    res.render('locations-list', { 
-        title: 'Loc8r - find a place to work with Wi-Fi',
+    res.render('labels-list', { 
+        title: 'Vidente - The intuitive barcode overseer!',
         pageHeader: {
-            title: 'Loc8r',
-            strapline: 'Find places to work with Wi-Fi near you!'
+            title: 'Vidente',
+            strapline: 'Organize your Point-Of-Sale Barcodes!'
         },
         locations: responseBody,
         message
@@ -84,7 +86,6 @@ const homelist = (req, res) => {
             console.log(err);
         } else if(response.statusCode == 200) {
             renderHomePage(req, res, data);
-            console.log(body);
         } else {
             console.log(response.statusCode);
         }
