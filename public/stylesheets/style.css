@@ -18,8 +18,8 @@ legend {
 }
 
 .navbar {
-  background-color: #ad1d28;
-  border-color: #911821;
+  background-color: #2E5266;
+  border-color: #2E5266;
 }
 
 .navbar-dark .navbar-brand {
@@ -47,7 +47,7 @@ legend {
 }
 
 .card {
-  background-color: #469ea8;
+  background-color: #A2B3BD;
   padding: 1rem;
 }
 
@@ -60,18 +60,18 @@ legend {
 }
 
 .card-primary {
-  border-color: #a2ced3;
+  border-color: #D7DEE2;
   margin-bottom: 0.5rem;
 }
 
 #JPO .card {
-  background-color: white;
+  background-color: #F1E2AA;
   padding: 0.25rem;
   padding-top: 0rem;
 }
 
 .btn.btn-secondary {
-  background-color: #ad1d28;
+  background-color: #D3D0CB;
 }
 
 #JPO div {
@@ -89,7 +89,7 @@ legend {
 
 .banner {
   margin-top: 4em;
-  border-bottom: 1px solid #469ea8;
+  border-bottom: 1px solid #D7DEE2;
   margin-bottom: 1.5em;
   padding-bottom: 0.5em;
 }
@@ -108,8 +108,8 @@ legend {
 }
 
 .badge-default, .btn-primary {
-  background-color: #ad1d28;
-  border-color: #911821;
+  background-color: #E2C044;
+  border-color: #E2C044;
 }
 
 h4 a, h4 a:hover {
@@ -179,7 +179,7 @@ a:hover {
 }
 
 body {
-  font-family: "Cabin", Arial, sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;;
   color: #fff;
-  background-color: #108a93;
+  background-color: #6E8898;
 }
