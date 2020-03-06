@@ -114,7 +114,17 @@ div#JPO
 
         .row
           .col-xs-12.mx-auto
-           +printLabel(label)
+            - 
+              label = { 
+                format: "CODE39", 
+                lineColor: "black", 
+                width: 2, height: 50, 
+                font: "Helvetica", 
+                displayValue: true, 
+                text: "SP17", 
+                textPosition: "bottom"
+              }
+            +printLabel(label)
        
         .row
           .col-xs-12.mx-auto
