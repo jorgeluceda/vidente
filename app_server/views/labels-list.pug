@@ -49,7 +49,7 @@ block content
             .card
               .card-block
                 .card-title
-                  a(href="/label/")= "Card #" + i
+                  a(href="").JPO_open= "Card #" + i
                   button.close 
                     span.float-right
                       .fas.fa-times(style="color:white;")
@@ -65,3 +65,4 @@ block content
                     textPosition: "bottom"
                   }
                 +printLabel(label)
+

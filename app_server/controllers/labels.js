@@ -20,7 +20,7 @@ const renderHomePage = (req, res, responseBody) => {
         // sets a message if the response message
         // is an empty array
         if(!responseBody.length) {
-            message = "No places found nearby"
+            message = "Would you like to add a label?"
         }
 
     }
@@ -33,7 +33,7 @@ const renderHomePage = (req, res, responseBody) => {
             title: 'Vidente',
             strapline: 'Organize your Point-Of-Sale Barcodes!'
         },
-        locations: responseBody,
+        labels: responseBody,
         message
     });
 
@@ -56,40 +56,42 @@ const formatDistance = (distance) => {
 
 /* GET 'home' page */
 const homelist = (req, res) => {
-    const path = '/api/locations';
+    // const path = '/api/locations';
 
-    // defines options for the request.
-    const requestOptions = {
-        url: `${apiOptions.server}${path}`,
-        method: 'GET',
-        json: {},
-        qs: {
-            lng: 25.7544505,
-            lat: -80.2636309,
-            maxDistance: 20000
-        }
-    };
+    // // defines options for the request.
+    // const requestOptions = {
+    //     url: `${apiOptions.server}${path}`,
+    //     method: 'GET',
+    //     json: {},
+    //     qs: {
+    //         lng: 25.7544505,
+    //         lat: -80.2636309,
+    //         maxDistance: 20000
+    //     }
+    // };
 
-    request(requestOptions, (err, response, body) => {
-        let data = [];
+    // request(requestOptions, (err, response, body) => {
+    //     let data = [];
 
-        // format distances only if the API
-        // returned a 200 status and
-        // some data
-        if(response.statusCode == 200 && body.length)
-        data = body.map((item) => {
-            item.distance = formatDistance(item.distance);
-            return item;
-        });
+    //     // format distances only if the API
+    //     // returned a 200 status and
+    //     // some data
+    //     if(response.statusCode == 200 && body.length)
+    //     data = body.map((item) => {
+    //         item.distance = formatDistance(item.distance);
+    //         return item;
+    //     });
 
-        if(err) {
-            console.log(err);
-        } else if(response.statusCode == 200) {
-            renderHomePage(req, res, data);
-        } else {
-            console.log(response.statusCode);
-        }
-    });
+    //     if(err) {
+    //         console.log(err);
+    //     } else if(response.statusCode == 200) {
+    //         renderHomePage(req, res, data);
+    //     } else {
+    //         console.log(response.statusCode);
+    //     }
+    // });
+    data = ['wow'];
+    renderHomePage(req, res, data);
 
 };
 

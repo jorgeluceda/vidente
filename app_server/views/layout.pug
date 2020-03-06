@@ -38,10 +38,10 @@ html
       footer
         .row
           .col-12
-            small &copy; Showcase Project - Jorge Euceda 2020
+            small &copy; Jorge Euceda 2020
             
     // Brings in jQuery and Popper, needed by Bootstrap
-    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+    //- script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49', crossorigin='anonymous')
 
     // Brings in the bootstrap javascript file
@@ -53,3 +53,73 @@ html
     script(src='/javascripts/labels.js')
 
     script(src="/javascripts/jquery.min.js")
+
+    script(src="https://cdn.jsdelivr.net/gh/vast-engineering/jquery-popup-overlay@2/jquery.popupoverlay.min.js")
+
+script.
+  $(document).ready(function() {
+
+    // Initialize the plugin
+    $('#JPO').popup({transition: 'all 0.2s'});
+
+    //- // Set default `pagecontainer` for all popups (optional, but recommended for screen readers and iOS*)
+    //- $.fn.popup.defaults.pagecontainer = '#page'
+
+    $('.close-popup').on('click', function(e){
+      $('#JPO').popup('hide');
+    });
+  });
+
+
+div#JPO
+  include _includes/sharedHTMLfunctions
+  .card
+    .card-block
+      .row
+        .col-xs-6
+            .far.fa-star
+            small &nbsp;Favorite
+            | &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+        .col-xs-6
+          .fas.fa-times.close-popup
+      
+      .card-block.card-block-secondary
+        .col-sm-12(contenteditable="true")
+          h4 Dove Premium Soap
+        .row(style="margin: 0.6rem")
+
+        .row(style="margin-left: 1.25rem")
+          .col-xs-4
+            b.small Category&emsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          .col-xs-2
+            | &emsp;
+          .col-xs-6(contenteditable="true")
+            b.h7 Soap Products
+
+        .row(style="margin-left: 1.25rem")
+          .col-xs-4
+            b.small SKU&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          .col-xs-2
+            | &emsp;
+          .col-xs-6(contenteditable="true")
+            b.h7 SP17
+
+        .row(style="margin-left: 1.25rem")
+          .col-xs-4
+            b.small Date Created
+          .col-xs-2
+            | &emsp;
+          .col-xs-6(contenteditable="true")
+            b.h7 March 6th, 2020
+
+        .row
+          .col-xs-12.mx-auto
+           +printLabel(label)
+       
+        .row
+          .col-xs-12.mx-auto
+            .btn.btn-secondary
+                .fas.fa-user-edit
+                small
+                | &nbsp;
+                | Apply Changes

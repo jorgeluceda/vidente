@@ -4,6 +4,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Lobster', cursive;
 }
 
+#JPO h1, #JPO h2, #JPO h3, #JPO h4, #JPO h5, #JPO h6 {
+  font-family: 'Lobster', cursive;
+  color: black;
+}
+
 h4 {
   margin-bottom: 0;
 }
@@ -48,13 +53,39 @@ legend {
 
 .card-block p {
   line-height: 1.25rem;
+}
 
+.col-xs-4, .col-xs-6 {
+  line-height: 0rem;
 }
 
 .card-primary {
   border-color: #a2ced3;
   margin-bottom: 0.5rem;
 }
+
+#JPO .card {
+  background-color: white;
+  padding: 0.25rem;
+  padding-top: 0rem;
+}
+
+.btn.btn-secondary {
+  background-color: #ad1d28;
+}
+
+#JPO div {
+  margin-top: 0.1rem;
+  margin-left: 0.025rem;
+  margin-right: 0.025rem;
+  margin-bottom: 0.4rem;
+  border-radius: 0.4rem;
+}
+
+#JPO small, #JPO p, #JPO .fas, #JPO .far, #JPO span, #JPO b{
+  color: rgba(0, 0, 0, 0.551);
+}
+
 
 .banner {
   margin-top: 4em;
