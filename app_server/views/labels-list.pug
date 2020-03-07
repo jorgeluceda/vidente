@@ -23,6 +23,7 @@ block content
                 | New Category
             p Favorites
             p Soap
+            
 
     // default categories for 
     // container for the list of locations, spanning all 12
@@ -43,9 +44,9 @@ block content
             | &nbsp;
             | New Label
 
-      .row
-          script(src="/javascripts/JsBarcode.all.min.js")
-          - for(i = 0; i < 10; i++)
+        script(src="/javascripts/JsBarcode.all.min.js")
+        - for(i = 0; i <= 10; i++)
+          .row(style="margin-left: 1.1rem; margin-right: 1.1rem; margin-bottom: 0.5rem;")
             .card
               .card-block
                 .card-title
@@ -53,7 +54,6 @@ block content
                   button.close 
                     span.float-right
                       .fas.fa-times(style="color:white;")
-                
                 - 
                   label = { 
                     format: "CODE39", 
@@ -65,4 +65,3 @@ block content
                     textPosition: "bottom"
                   }
                 +printLabel(label)
-

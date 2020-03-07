@@ -1,0 +1,53 @@
+button, .button {
+    background-color: #b8d1df;
+    color: #fff;
+}
+
+button:hover, .button:hover, button:focus, .button:focus {
+    background-color: #88a0ad;
+}
+
+button:active, .button:active, .active {
+    background-color: #ebffff;
+}
+
+a, .link {
+    color: #b8d1df;
+}
+
+a:hover, .link:hover, a:focus, .link:focus {
+    color: #b8d1df;
+}
+
+a:active, .link:active {
+    color: #88a0ad
+}
+
+i, .icon {
+    background-color: #88a0ad;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.alert.error {
+    background-color: #ffebee;
+    color: #af4448;
+}
+
+.alert.warning {
+    background-color: #fffde7;
+    color: #333333;
+}
+
+.alert.info {
+    background-color: #ebffff;
+    color: #9ebdce;
+}
+
+.alert.success {
+    background-color: #e8f5e9;
+    color: #087f23;
+}
+
+
+
