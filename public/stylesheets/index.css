@@ -56,12 +56,11 @@
 
 @media (max-width: 700px) {
     .grid-page {
-        grid-template-rows: 3.5em 10em auto 3.5em;
+        grid-template-rows: 3.5em 10em auto 3em;
         grid-template-columns: auto;
         grid-template-areas:
             "h h h h h"
             "m m m m m"
-            "c c c c c"
             "c c c c c"
             "f f f f f";
         }
