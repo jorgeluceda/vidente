@@ -43,8 +43,9 @@
 }
 
 .grid-page > .contents > .contents-headline {
-  padding-top: 1.25rem;
+  margin-top: 0.5em;
   padding-bottom: 1.25rem;
+  padding-left: 1em;
 }
 
 
@@ -64,5 +65,11 @@ html, body {
 
   .header > h6 > h6 {
     margin-left: 10px;
+  }
+
+  .grid-page > .contents > .contents-headline {
+    margin-top: 1.5em;
+    margin-bottom: 1.25rem;
+    margin-left: 1em;
   }
 }
