@@ -1,5 +1,7 @@
 extends layout
 block content
+    include _includes/sharedHTMLfunctions
+
     link(rel='stylesheet', href='/stylesheets/index.css')
     link(rel='stylesheet', href='/stylesheets/basic.css')
 
@@ -25,8 +27,22 @@ block content
                 | &emsp;
                 button Add a Label
             .contents-grid
+                script(src="/javascripts/JsBarcode.all.min.js")
                 - for(i = 0; i < 10; i++)
+                    - 
+                        label = { 
+                            format: "CODE39", 
+                            lineColor: "black", 
+                            width: 2, height: 50, 
+                            font: "Helvetica", 
+                            displayValue: true, 
+                            text: `SP${i}`, 
+                                textPosition: "bottom"
+                        }
                     .card
-                        p=`Card Label #${i}`
+                        b(style="margin-bottom: 1rem")=`Card Label #${i}`
+                        +printLabel(label)
+
+     
         .footer
             span © Copyright 2020 - Jorge Euceda
