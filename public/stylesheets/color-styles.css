@@ -1,14 +1,21 @@
 button, .button {
-    background-color: #b8d1df;
-    color: black;
+    background: rgb(98,186,236);
+    background: -moz-linear-gradient(top, rgba(98,186,236,1) 0%, rgba(18,128,211,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(98,186,236,1)), color-stop(100%,rgba(18,128,211,1)));
+    background: -webkit-linear-gradient(top, rgba(98,186,236,1) 0%,rgba(18,128,211,1) 100%);
+    background: -o-linear-gradient(top, rgba(98,186,236,1) 0%,rgba(18,128,211,1) 100%);
+    background: -ms-linear-gradient(top, rgba(98,186,236,1) 0%,rgba(18,128,211,1) 100%);
+    background: linear-gradient(top, rgba(98,186,236,1) 0%,rgba(18,128,211,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62baec', endColorstr='#1280d3',GradientType=0 );
+    color: white;
     padding: 10px;
-    border-width: 2px;
+    border-width: 0;
     border-radius: 5px;
     border-color: #88a0ad;
 }
 
 button:hover, .button:hover, button:focus, .button:focus {
-    background-color: #88a0ad;
+    background-color: rgb(93, 160, 255);
     color: white;
 }
 
