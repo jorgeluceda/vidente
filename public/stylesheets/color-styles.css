@@ -12,6 +12,10 @@ button:hover, .button:hover, button:focus, .button:focus {
     color: white;
 }
 
+.border-bottom {
+    border-bottom: 1px solid #e1e4e8!important ;
+}
+
 button:active, .button:active, .active {
     background-color: #ebffff;
     color: black;

@@ -17,10 +17,12 @@ block content
                 h6 Groups
                 | &emsp;
                 button New Group
+            .border-bottom
 
             .menu-contents
                 p Example Category 1
                 p Example Category 2
+
         .contents
             .contents-headline
                 h6 Category 1
@@ -43,6 +45,7 @@ block content
                         b(style="margin-bottom: 1rem")=`Card Label #${i}`
                         +printLabel(label)
 
+            .border-bottom
      
         .footer
             span © Copyright 2020 - Jorge Euceda
