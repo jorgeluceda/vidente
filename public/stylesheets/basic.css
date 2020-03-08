@@ -54,7 +54,7 @@ html, body {
   background-color: #F6F8FA;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 825px) {
 
   .header > h6 {
     padding: 0px 0px;
