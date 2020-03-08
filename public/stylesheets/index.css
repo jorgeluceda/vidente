@@ -49,7 +49,7 @@
     display: grid;
 }
 
-.contents > .contents-header {
+.contents > .contents-grid {
     /* max-width: 800px; */
     display: grid;
     grid-gap: 5px;
