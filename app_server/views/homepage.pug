@@ -12,7 +12,7 @@ block content
                 h6 Logout
         .menu  
             .menu-header
-                h6 Label Categories
+                h6 Collections
                 | &emsp;
                 .btn hello
 
@@ -20,15 +20,11 @@ block content
                 p Example Category 1
                 p Example Category 2
         .contents
+            .contents-headline
+                h6 Category 1
             .contents-grid
-                .card hello
-                .card hello
-                .card hello
-                .card hello
-                .card hello
-                .card hello                
-                .card hello
-                .card hello
-                .card hello
+                - for(i = 0; i < 10; i++)
+                    .card
+                        p=`Card Label #${i}`
         .footer
             span Copyright - Jorge Euceda 2020

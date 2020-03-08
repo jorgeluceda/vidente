@@ -1,12 +1,9 @@
 .card { 
-    
     background: #fff;
-    border-radius: 2px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 2em;
-    color: #ffeead;
     width: 150px;
     height: 150px; 
     border: 1px solid #d1d5da;
