@@ -1,7 +1,7 @@
 /* Use text for text that's smaller than 20 points, use display for 
    text that's 20 points or larger.
 */
-@font-face {
+/* @font-face {
     font-family: "SF Pro Text";
     src: url(../webfonts/SF-Pro-Text/sf-pro-text_regular.woff2);
 }
@@ -9,10 +9,10 @@
 @font-face {
     font-family: "SF Pro Display";
     src: url(../webfonts/SF-Pro-Display/sf-pro-display_regular.woff2);
-}
+} */
 
 html, body {
-    font-family: 'SF Pro Text', sans-serif;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
@@ -34,7 +34,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    line-height: 1.2;
+    line-height: 1.2rem;
 }
 
 h1, h2, h3 {
@@ -42,7 +42,8 @@ h1, h2, h3 {
 }
 
 h4, h5, h6 {
-    padding-top: 1rem;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
 }
 
 

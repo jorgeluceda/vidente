@@ -1,4 +1,12 @@
-.header > p {
+.content > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: #ffeead;
+}
+
+.header > h6 {
   padding: 10px 20px;
   font-weight: 500;
   color: #fff;
@@ -10,24 +18,47 @@
   padding: 0px 20px;
 }
 
-html, body {
-  margin: 0px;
+.grid-page > .menu > .menu-header {
+  margin-top: 1.5em;
+  padding-left: 1em;
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: center;
+} 
+
+.grid-page > .menu > .menu-header > .btn {
+  max-width: 50%;
+}
+.grid-page > .menu > .menu-contents {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+} 
+
+.grid-page > .menu > .menu-contents > p {
+  margin-top: 0em;
+  padding-left: 1.5em;
+  /* padding-top: 0em; */
 }
 
-.header > p > span {
-  margin-left: 20px;
+
+html, body {
+  margin: 0px;
+  background-color: #F6F8FA;
 }
 
 @media (max-width: 768px) {
 
-  .header > p {
+  .header > h6 {
     padding: 0px 0px;
     margin-left: 10px;
     font-weight: 500;
     color: #fff;
   }
 
-  .header > p > span {
+  .header > h6 > h6 {
     margin-left: 10px;
   }
 }
