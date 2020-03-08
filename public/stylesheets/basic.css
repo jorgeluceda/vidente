@@ -43,6 +43,7 @@
 }
 
 
+
 html, body {
   margin: 0px;
   background-color: #F6F8FA;
@@ -59,6 +60,10 @@ html, body {
 
   .header > h6 > h6 {
     margin-left: 10px;
+  }
+
+  .grid-page > .contents {
+    margin-top: 30px;
   }
 }
 /* p {

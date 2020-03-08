@@ -50,12 +50,11 @@
 }
 
 .contents > .contents-grid {
-    /* max-width: 800px; */
     display: grid;
     grid-gap: 5px;
     grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
     grid-auto-rows: 175px;
-    justify-items: right;
+    justify-items: center;
 }
 
 .footer {
