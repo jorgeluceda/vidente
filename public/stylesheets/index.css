@@ -5,8 +5,8 @@
     /* short-hand method for grid-template-columns (L) */
     /* grid-template: repeat(2, 50px) / repeat(2, 1fr); */
     grid-auto-rows: 50px;
-    grid-template-rows: 3.5em auto 50px;
-    grid-template-columns: 14em auto;
+    grid-template-rows: 4.5em auto 50px;
+    grid-template-columns: 16em auto;
 
     grid-template-areas: 
         "h h"
