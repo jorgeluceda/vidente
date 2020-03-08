@@ -9,11 +9,10 @@
     grid-template-columns: 3.5em auto;
 
     grid-template-areas: 
-        "h h h h h h h h h h h h"
-        "m m c c c c c c c c c c"
-        "f f f f f f f f f f f f";
+        "h h h h h h h"
+        "m m c c c c c"
+        "f f f f f f f";
 }
-
 
 .header {
     /* span to the last column line */
@@ -56,10 +55,14 @@
 }
 
 @media (max-width: 700px) {
-    .grid {
+    .grid-page {
+    grid-template-rows: auto;
+    grid-template-columns: auto;
       grid-template-areas:
-        'name'
-        'avatar'
-        'bio';
+        "h h h h h"
+        "m m m m m"
+        "c c c c c"
+        "c c c c c"
+        "f f f f f";
     }
   }
