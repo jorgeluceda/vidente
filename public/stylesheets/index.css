@@ -41,7 +41,6 @@
     flex-direction: column;
     grid-area: m;
     background-color: #fff;
-    border-right: 1px solid #e1e4e8!important;
 }
 
 .contents {
@@ -91,7 +90,7 @@
     margin-left: auto;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .grid-page {
         grid-template-rows: 3.5em 10em auto 3em;
         grid-template-columns: auto;
@@ -101,5 +100,15 @@
             "c c c c c"
             "f f f f f";
         }
-        
-  }
+
+    .menu {
+        border-bottom: 1px solid #e1e4e8!important;
+        border-right: none;
+    } 
+}
+
+@media screen and (min-width: 768px) {
+    .menu {
+        border-right: 1px solid #e1e4e8!important;
+    }
+}
