@@ -57,10 +57,14 @@
         ".";
 }
 
-.contents-grid > .contents-headline {
+.contents > .contents-headline {
     display: flex;
     grid-area: ch;
-    justify-items: left;
+    flex-direction: row;
+    /* text-justify: distribute; */
+    align-items: center;
+    /* justify-content: center; */
+    /* justify-content: center; */
     margin-bottom: 0;
 }
 .contents > .contents-grid {

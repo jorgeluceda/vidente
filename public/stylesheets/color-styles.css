@@ -1,14 +1,20 @@
 button, .button {
     background-color: #b8d1df;
-    color: #fff;
+    color: #black;
+    padding: 10px;
+    border-width: 1px;
+    border-radius: 5px;
+    max-width: 50%;
 }
 
 button:hover, .button:hover, button:focus, .button:focus {
     background-color: #88a0ad;
+    color: white;
 }
 
 button:active, .button:active, .active {
     background-color: #ebffff;
+    color: black;
 }
 
 a, .link {
