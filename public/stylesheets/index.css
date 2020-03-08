@@ -3,7 +3,6 @@
     display: grid;
     /* grid-gap: 5px; */
     /* short-hand method for grid-template-columns (L) */
-    /* grid-template: repeat(2, 50px) / repeat(2, 1fr); */
     grid-auto-rows: 50px;
     grid-template-rows: 3.5em auto 50px;
     grid-template-columns: 16em auto;
@@ -46,13 +45,12 @@
 .contents {
     grid-area: c;
     display: grid;
+    grid-template-rows: 3.5em auto auto auto;
+
     grid-template-areas: 
         "ch"
         "cg"
-        "."
-        "."
-        "."
-        "."
+        "bb"
         ".";
 }
 
@@ -66,7 +64,7 @@
         /* justify-content: center; */
     /* justify-content: center; */
     /* margin-top: 10px; */
-    margin-bottom: 0;
+    padding-top: 2.5rem;
 }
 .contents > .contents-grid {    
     display: grid;
@@ -75,6 +73,12 @@
     grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
     grid-auto-rows: 200px;
     justify-items: center;
+    padding-top: 1.5rem;
+}
+
+.contents > .border-bottom {
+    display: flex;
+    grid-area: bb;
 }
 
 .footer {
