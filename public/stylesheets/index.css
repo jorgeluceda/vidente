@@ -44,14 +44,18 @@
     border-right: 1px solid #e1e4e8!important;
 }
 
-.content {
+.contents {
     grid-area: c;
     display: grid;
-    grid-gap: 5px;
-    /* grid-template-columns: repeat(4, 1fr); */
-    /* grid-template-rows: auto;
-    grid-auto-rows: 100px; */
+}
 
+.contents > .contents-header {
+    /* max-width: 800px; */
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    grid-auto-rows: 175px;
+    justify-items: right;
 }
 
 .footer {

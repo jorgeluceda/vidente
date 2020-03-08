@@ -1,5 +1,4 @@
-.content > div {
-  display: flex;
+.contents > .contents-header > .card {
   justify-content: center;
   align-items: center;
   font-size: 2em;
@@ -13,7 +12,7 @@
 }
 
 .grid-page > div {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   padding: 0px 20px;
 }
