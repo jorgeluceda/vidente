@@ -70,7 +70,7 @@
     display: grid;
     grid-area: cg;
     grid-gap: 5px;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     /* grid-template-rows: repeat(auto-fit, 250px); */
     grid-auto-rows: 240px;
     justify-items: center;
