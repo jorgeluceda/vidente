@@ -211,6 +211,21 @@ h5 {
 h6 {
   font-size: 1.25rem; }
 
+.no-select {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */ }
+
 .header > h6 {
   padding: 10px 20px;
   font-weight: 500;
