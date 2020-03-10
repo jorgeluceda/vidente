@@ -78,9 +78,11 @@
   .grid-page > .menu > .menu-contents > .strapline > p.strapline-extra {
     display: flex;
     flex-direction: row;
-    align-self: center;
+    align-items: center;
+    // align-self: center;
     justify-content: center;
-    padding-top: 0.5em;
+    // padding-top: 0.5em;
+    margin-top: 0em;
     padding-bottom: 0em;
     margin-top: 0em;
     // background-color: black;
