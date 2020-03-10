@@ -84,7 +84,7 @@ button:active, .button:active, .active {
   color: #007AFF;
   border-color: #007AFF; }
 
-button-curved, .button-curved {
+button > .button-curved {
   display: flex;
   flex-direction: row;
   background: #F0F7FF;
@@ -102,7 +102,7 @@ button-curved, .button-curved {
   align-items: center;
   justify-content: center; }
 
-.button-curved span .glyph-add {
+button > .button-curved > span > .glyph-add {
   width: 1.3rem;
   height: 1.3rem;
   fill: #007AFF; }
