@@ -30,6 +30,10 @@ button, .button, .button-curved {
         transform: translateY(-1px);
     }
 
+    button, .button, .button-curved {
+        -webkit-transition: none;
+        transition: none;
+    }
 }
 @media screen and (min-width: 1020px) {
     .button {

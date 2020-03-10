@@ -18,7 +18,10 @@ button, .button, .button-curved {
 @media screen and (max-width: 1020px) {
   button:active, .button:active, .button-curved:active {
     -webkit-transform: translateY(-1px);
-    transform: translateY(-1px); } }
+    transform: translateY(-1px); }
+  button, .button, .button-curved {
+    -webkit-transition: none;
+    transition: none; } }
 
 @media screen and (min-width: 1020px) {
   .button {
