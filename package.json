@@ -2,9 +2,6 @@
   "name": "loc8r",
   "version": "0.0.0",
   "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
   "engines": {
     "node": ">=12.14.1",
     "npm": ">=6.13.6"
@@ -21,5 +18,12 @@
     "pug": "^2.0.4",
     "request": "^2.88.2",
     "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  },
+  "scripts": {
+    "start": "node ./bin/www",
+    "node-sass": "node-sass --scss -t compressed --style compressed --watch scss/index.scss -o public/stylesheets/"
   }
 }
