@@ -3,11 +3,11 @@ button, .button, .button {
     background: #007AFF;
     color: #fff;
     // padding: 10px;
-    min-height: 2.40rem;
+    min-height: 2rem;
     border-width: 0.05rem;
     border-style: solid;
     border-color: #007AFF;
-    border-radius: 0.5rem;
+    border-radius: 4px;
     font-size: 0.9rem;
     -webkit-padding-start: 12px;
     padding-inline-start: 12px;
@@ -116,6 +116,8 @@ i, .icon {
     }
 }
 
-button, .button, .button-curved {
-    min-height: 2.40rem;
+@media screen and (max-width: 1020px) {
+    button, .button {
+        min-height: 2.40rem;
+    }
 }
