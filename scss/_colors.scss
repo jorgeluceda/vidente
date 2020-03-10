@@ -1,32 +1,36 @@
-button, .button {
+button, .button, .button {
+    display: flex;
     background: #007AFF;
     color: #fff;
     // padding: 10px;
     min-height: 28px;
-    min-width: 90px;
-    border-width: 0;
+    border-width: 0.05rem;
+    border-style: solid;
+    border-color: #007AFF;
     border-radius: 4px;
     font-size: 0.9rem;
-    border-color: #88a0ad;
     -webkit-padding-start: 12px;
     padding-inline-start: 12px;
     -webkit-padding-end: 12px;
     padding-inline-end: 12px;
     font-weight: 600;
+    justify-content: center;
+    align-items: center;
 }
 
 button:hover, .button:hover, button:focus, .button:focus {
     background-color: #3085fc;
     color: white;
-}
-
-.border-bottom {
-    border-bottom: 1px solid #e1e4e8!important ;
+    outline:none;
 }
 
 button:active, .button:active, .active {
-    background-color: #ebffff;
-    color: black;
+    background-color: #fff;
+    color: #007AFF;
+    border-color: #007AFF;
+    // outline: black;
+    // outline-width: 10px;
+    // outline: none;
 }
 
 button-curved, .button-curved {
@@ -64,6 +68,11 @@ button-curved:hover, .button-curved:hover, button-curved:focus, .buttoncurved:fo
 button-curved:active, .button-curved:active, button-cuved.active {
     background-color: rgb(234, 241, 250);
     color: rgb(42, 144, 253);
+    outline: none;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e1e4e8!important ;
 }
 
 a, .link {
@@ -103,6 +112,17 @@ i, .icon {
     background-color: #e8f5e9;
     color: #087f23;
 }
+
+// disables text selection
+.no-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+  }
 
 
 

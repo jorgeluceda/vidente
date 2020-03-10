@@ -96,7 +96,7 @@
     margin-left: auto;
 }
 
-@media screen and (max-width: 1020) {
+@media screen and (max-width: 1020px) {
     .grid-page {
         grid-template-rows: 3.5em 10em auto 3em;
         grid-template-columns: auto;
@@ -113,7 +113,7 @@
     } 
 }
 
-@media screen and (min-width: 1020) {
+@media screen and (min-width: 1020px) {
     .menu {
         border-right: 1px solid #e1e4e8!important;
     }
