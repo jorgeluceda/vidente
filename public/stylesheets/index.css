@@ -17,10 +17,12 @@ button, .button, .button-curved {
 
 @media screen and (max-width: 1020px) {
   button:active, .button:active, .button-curved:active {
-    -webkit-transform: translateY(0.05rem);
-    transform: translateY(0.05rem); } }
+    -webkit-transform: translateY(-1px);
+    transform: translateY(-1px); } }
 
 @media screen and (min-width: 1020px) {
+  .button {
+    border-right: 1px solid #e1e4e8 !important; }
   button:hover, .button:hover, .button-curved:hover {
     -webkit-transform: translateY(-1px);
     transform: translateY(-1px); } }
