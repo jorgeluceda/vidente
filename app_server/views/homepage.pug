@@ -19,7 +19,7 @@ block content
 
             .menu-contents
                 - var groups = ['Favorites', 'Example Group 1', 'Example Group 2']
-                    .strapline 
+                    .strapline
                         - if(groups.length >= 2)
                             //- each group in groups 
                             - for(var i = 0; i <= 1; i++)
@@ -32,7 +32,7 @@ block content
                                     - else 
                                         p= groups[i]  
                         p.strapline-extra
-                            span(style="font-size: 0.8rem; font-weight: 800; color: black; padding-top: 0rem")= `+${groups.length - 2} groups` 
+                            span(style="font-size: 0.8rem; font-weight: 800; color: black; padding-top: 0rem").no-select= `+${groups.length - 2} groups` 
                             | &emsp; &emsp; &nbsp;
                             a(style='color: #007AFF; text-decoration: none; padding-bottom: 1rem; font-weight: 600' href="google.com") Expand ↗
                         .border-bottom(style="border-bottom: 0.5rem")
