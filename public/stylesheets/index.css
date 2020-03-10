@@ -322,6 +322,25 @@ html, body {
     color: #fff; }
   .header > h6 > h6 {
     margin-left: 10px; }
+  .grid-page > .menu > .menu-header {
+    margin-top: 0.8em;
+    padding-left: 0em;
+    display: flex;
+    flex-direction: row;
+    align-self: center; }
+  .grid-page > .menu > .menu-contents > .strapline > div {
+    justify-content: center; }
+  .grid-page > .menu > .border-bottom {
+    padding-top: 0.5rem;
+    align-self: center;
+    width: 13rem; }
+  .grid-page > .menu > .menu-contents {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-top: 0.50rem; }
+  .grid-page > .menu > .menu-contents > .strapline {
+    padding-left: 0rem; }
   .grid-page > .contents > .contents-headline {
     margin-top: 1.5em;
     margin-bottom: 1.25rem;
@@ -407,7 +426,7 @@ html, body {
 
 @media screen and (max-width: 1020px) {
   .grid-page {
-    grid-template-rows: 3.5em 10em auto 3em;
+    grid-template-rows: 3.5em 11em auto 3em;
     grid-template-columns: auto;
     grid-template-areas: "h h h h h" "m m m m m" "c c c c c" "f f f f f"; }
   .menu {
