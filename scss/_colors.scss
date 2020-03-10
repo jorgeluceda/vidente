@@ -10,10 +10,11 @@ button, .button {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62baec', endColorstr='#1280d3',GradientType=0 );
     color: #fff;
     // padding: 10px;
-    height: 28px;
+    min-height: 28px;
     min-width: 90px;
     border-width: 0;
     border-radius: 4px;
+    font-size: 0.9rem;
     border-color: #88a0ad;
     -webkit-padding-start: 12px;
     padding-inline-start: 12px;
