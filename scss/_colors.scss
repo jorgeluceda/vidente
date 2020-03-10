@@ -18,11 +18,6 @@ button, .button, .button {
     align-items: center;
 }
 
-button:hover, .button:hover, button:focus, .button:focus {
-    background-color: #3085fc;
-    color: white;
-    outline:none;
-}
 
 button:active, .button:active, .active {
     background-color: #fff;
@@ -58,11 +53,6 @@ button > .button-curved > span > .glyph-add {
     fill: #007AFF;
     // left: 50%;
     // top: 25%;
-}
-
-button-curved:hover, .button-curved:hover, button-curved:focus, .buttoncurved:focus {
-    background-color: rgb(234, 241, 250);
-    color: rgb(42, 144, 253);
 }
 
 button-curved:active, .button-curved:active, button-cuved.active {
@@ -113,3 +103,16 @@ i, .icon {
     color: #087f23;
 }
 
+@media screen and (min-width: 1020px) {
+    button:hover, .button:hover, button:focus, .button:focus {
+        background-color: #3085fc;
+        color: white;
+        outline:none;
+    }
+    
+    button-curved:hover, .button-curved:hover, button-curved:focus, .buttoncurved:focus {
+        background-color: rgb(234, 241, 250);
+        color: rgb(42, 144, 253);
+    }
+
+}
