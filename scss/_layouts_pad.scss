@@ -85,20 +85,22 @@
     // background-color: black;
   }
 
+  .grid-page > .menu > .strapline-extra > span, a {
+    align-self: center;
+  }
+
+  
   .grid-page > .menu > .border-bottom {
     padding-top: 0.5rem;
     align-self: flex-start;
     width: 13rem;
-  }
-
-  .grid-page > .menu > .strapline-extra > span, a{
-    align-self: center;
   }
   
   .grid-page > .contents > .contents-headline {
     margin-top: 0.5em;
     padding-bottom: 1.25rem;
   }
+  
   
   
   html, body {

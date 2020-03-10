@@ -308,13 +308,13 @@ h6 {
   padding-bottom: 0em;
   margin-top: 0em; }
 
+.grid-page > .menu > .strapline-extra > span, a {
+  align-self: center; }
+
 .grid-page > .menu > .border-bottom {
   padding-top: 0.5rem;
   align-self: flex-start;
   width: 13rem; }
-
-.grid-page > .menu > .strapline-extra > span, a {
-  align-self: center; }
 
 .grid-page > .contents > .contents-headline {
   margin-top: 0.5em;
