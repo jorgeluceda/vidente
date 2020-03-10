@@ -66,11 +66,11 @@ button-curved:active, .button-curved:active, button-cuved.active {
 }
 
 a, .link {
-    color: #b8d1df;
+    color: #000;
 }
 
 a:hover, .link:hover, a:focus, .link:focus {
-    color: #b8d1df;
+    color: rgba(0, 0, 0, .70)
 }
 
 a:active, .link:active {
