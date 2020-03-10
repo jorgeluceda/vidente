@@ -305,12 +305,7 @@ h6 {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 0em;
-  padding-bottom: 0em;
-  margin-top: 0em; }
-
-.grid-page > .menu > .strapline-extra > span, a {
-  align-self: center; }
+  padding-top: 0.5em; }
 
 .grid-page > .menu > .border-bottom {
   padding-top: 0.5rem;

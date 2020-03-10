@@ -81,15 +81,18 @@
     align-items: center;
     // align-self: center;
     justify-content: center;
-    // padding-top: 0.5em;
-    margin-top: 0em;
-    padding-bottom: 0em;
-    margin-top: 0em;
+    padding-top: 0.5em;
+    // margin-top: 0em;
+    // padding-bottom: 1em;
+    // margin-top: 0em;
+    // margin: auto;
     // background-color: black;
   }
 
-  .grid-page > .menu > .strapline-extra > span, a {
-    align-self: center;
+  .grid-page > .menu > .menu_contents > .strapline > p.strapline-extra > span, a {
+    // max-width: 50%;
+    // margin: auto;
+    // max-height: 50%;
   }
 
   
