@@ -40,7 +40,6 @@
     padding-left: 1.5rem;
     line-height: 0.25rem;
   }
-  
   .grid-page > .menu > .menu-contents > .strapline > div {
     display: flex;
     flex-direction: row;
@@ -56,7 +55,6 @@
     align-self: flex-start;
     justify-content: right;
   }
-
 
   .grid-page > .menu > .menu-contents > .strapline > div > a {
     text-decoration: none;
@@ -83,6 +81,13 @@
     padding-top: 0.5rem;
     align-self: flex-start;
     width: 13rem;
+  }
+
+  .grid-page > .menu > .strapline-extra {
+    display: flex;
+    flex-direction: row;
+    align-self: left;
+    // padding-left: 3rem; 
   }
   
   .grid-page > .contents > .contents-headline {

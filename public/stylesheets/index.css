@@ -306,6 +306,11 @@ h6 {
   align-self: flex-start;
   width: 13rem; }
 
+.grid-page > .menu > .strapline-extra {
+  display: flex;
+  flex-direction: row;
+  align-self: left; }
+
 .grid-page > .contents > .contents-headline {
   margin-top: 0.5em;
   padding-bottom: 1.25rem; }
