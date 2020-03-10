@@ -1,13 +1,5 @@
 button, .button {
-    // background: #504F50;
     background: #007AFF;
-    // background: -moz-linear-gradient(top, rgba(98,186,236,1) 0%, rgba(18,128,211,1) 100%);
-    // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(98,186,236,1)), color-stop(100%,rgba(18,128,211,1)));
-    // background: -webkit-linear-gradient(top, rgba(98,186,236,1) 0%,rgba(18,128,211,1) 100%);
-    // background: -o-linear-gradient(top, rgba(98,186,236,1) 0%,rgba(18,128,211,1) 100%);
-    // background: -ms-linear-gradient(top, rgba(98,186,236,1) 0%,rgba(18,128,211,1) 100%);
-    // background: linear-gradient(top, rgba(98,186,236,1) 0%,rgba(18,128,211,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62baec', endColorstr='#1280d3',GradientType=0 );
     color: #fff;
     // padding: 10px;
     min-height: 28px;
@@ -24,7 +16,7 @@ button, .button {
 }
 
 button:hover, .button:hover, button:focus, .button:focus {
-    background-color: #5da0ff;
+    background-color: #3085fc;
     color: white;
 }
 
@@ -35,6 +27,43 @@ button:hover, .button:hover, button:focus, .button:focus {
 button:active, .button:active, .active {
     background-color: #ebffff;
     color: black;
+}
+
+button-curved, .button-curved {
+    display: flex;
+    flex-direction: row;
+    background: #F0F7FF;
+    color: #007AFF;
+    min-height: 28px;
+    border-width: 0;
+    border-radius: 1rem;
+    -webkit-padding-start: 0.2rem;
+    padding-inline-start: 0.2rem;
+    -webkit-padding-end: 1rem;
+    padding-inline-end: 1rem;
+    font-size: 0.9rem;
+    border-color: #88a0ad;  
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-curved span .glyph-add {
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: #007AFF;
+    // left: 50%;
+    // top: 25%;
+}
+
+button-curved:hover, .button-curved:hover, button-curved:focus, .buttoncurved:focus {
+    background-color: rgb(234, 241, 250);
+    color: rgb(42, 144, 253);
+}
+
+button-curved:active, .button-curved:active, button-cuved.active {
+    background-color: rgb(234, 241, 250);
+    color: rgb(42, 144, 253);
 }
 
 a, .link {

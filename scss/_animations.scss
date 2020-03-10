@@ -1,13 +1,15 @@
-button, .button {
+button, .button, .button-curved {
     -webkit-transition: all .15s ease;
     transition: all .15s ease;
 }
 
-button:hover, .button:hover {
+button:hover, .button:hover, .button-curved:hover {
     // box-shadow: 0 1px 3px rgba(0, 0, .12), 0 1px 2px rgba(0, 0, .24);
     -webkit-transform: translateY(-1px);
     transform: translateY(-1px);
 }
+
+
 
 @keyframes fadein {
     0% {

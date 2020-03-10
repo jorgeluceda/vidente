@@ -1,8 +1,8 @@
-button, .button {
+button, .button, .button-curved {
   -webkit-transition: all .15s ease;
   transition: all .15s ease; }
 
-button:hover, .button:hover {
+button:hover, .button:hover, .button-curved:hover {
   -webkit-transform: translateY(-1px);
   transform: translateY(-1px); }
 
@@ -50,7 +50,6 @@ box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 } */
 button, .button {
   background: #007AFF;
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62baec', endColorstr='#1280d3',GradientType=0 );
   color: #fff;
   min-height: 28px;
   min-width: 90px;
@@ -65,7 +64,7 @@ button, .button {
   font-weight: 600; }
 
 button:hover, .button:hover, button:focus, .button:focus {
-  background-color: #5da0ff;
+  background-color: #3085fc;
   color: white; }
 
 .border-bottom {
@@ -74,6 +73,37 @@ button:hover, .button:hover, button:focus, .button:focus {
 button:active, .button:active, .active {
   background-color: #ebffff;
   color: black; }
+
+button-curved, .button-curved {
+  display: flex;
+  flex-direction: row;
+  background: #F0F7FF;
+  color: #007AFF;
+  min-height: 28px;
+  border-width: 0;
+  border-radius: 1rem;
+  -webkit-padding-start: 0.2rem;
+  padding-inline-start: 0.2rem;
+  -webkit-padding-end: 1rem;
+  padding-inline-end: 1rem;
+  font-size: 0.9rem;
+  border-color: #88a0ad;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center; }
+
+.button-curved span .glyph-add {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: #007AFF; }
+
+button-curved:hover, .button-curved:hover, button-curved:focus, .buttoncurved:focus {
+  background-color: #eaf1fa;
+  color: #2a90fd; }
+
+button-curved:active, .button-curved:active, button-cuved.active {
+  background-color: #eaf1fa;
+  color: #2a90fd; }
 
 a, .link {
   color: #b8d1df; }
@@ -212,9 +242,9 @@ h6 {
 
 html, body {
   margin: 0px;
-  background-color: #F6F8FA; }
+  background-color: #FFF; }
 
-@media (max-width: 825px) {
+@media (max-width: 1020) {
   .header > h6 {
     padding: 0px 0px;
     margin-left: 10px;
@@ -259,7 +289,7 @@ html, body {
   display: flex;
   flex-direction: column;
   grid-area: m;
-  background-color: #fff; }
+  background-color: #F6F8FA; }
 
 .contents {
   grid-area: c;
@@ -305,7 +335,7 @@ html, body {
 .footer > span {
   margin-left: auto; }
 
-@media screen and (max-width: 825px) {
+@media screen and (max-width: 1020) {
   .grid-page {
     grid-template-rows: 3.5em 10em auto 3em;
     grid-template-columns: auto;
@@ -314,6 +344,6 @@ html, body {
     border-bottom: 1px solid #e1e4e8 !important;
     border-right: none; } }
 
-@media screen and (min-width: 825px) {
+@media screen and (min-width: 1020) {
   .menu {
     border-right: 1px solid #e1e4e8 !important; } }
