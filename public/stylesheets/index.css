@@ -284,32 +284,37 @@ h6 {
   justify-content: right; }
 
 .grid-page > .menu > .menu-contents > .strapline > div > a {
+  margin: auto;
+  text-align: center;
   text-decoration: none;
-  margin-top: 0em;
-  margin: 0;
   line-height: 0.25rem;
   padding-top: 1em;
   padding-bottom: 1em;
   font-weight: 600; }
 
 .grid-page > .menu > .menu-contents > .strapline > p {
-  padding-left: 1rem;
-  margin-top: 0em;
-  margin: 0;
+  margin: auto;
+  text-align: center;
+  text-decoration: none;
   line-height: 0.25rem;
   padding-top: 1em;
-  padding-bottom: 1em;
   /* padding-top: 0em; */ }
+
+.grid-page > .menu > .menu-contents > .strapline > p.strapline-extra {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  padding-top: 0.5em;
+  padding-bottom: 0em;
+  margin-top: 0em; }
 
 .grid-page > .menu > .border-bottom {
   padding-top: 0.5rem;
   align-self: flex-start;
   width: 13rem; }
 
-.grid-page > .menu > .strapline-extra {
-  display: flex;
-  flex-direction: row;
-  align-self: left; }
+.grid-page > .menu > .strapline-extra > span, a {
+  align-self: center; }
 
 .grid-page > .contents > .contents-headline {
   margin-top: 0.5em;

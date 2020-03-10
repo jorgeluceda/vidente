@@ -19,26 +19,23 @@ block content
 
             .menu-contents
                 - var groups = ['Favorites', 'Example Group 1', 'Example Group 2']
-                .strapline 
-                    - if(groups.length >= 2)
-                        //- each group in groups 
-                        - for(var i = 0; i <= 1; i++)
-                            - if(groups[i] == 'Favorites')
-                                div
-                                    a(href="https://google.com") Favorites
-                            - else
-                                - if(i == 1)
-                                    p(style="padding-bottom: 0.75rem")= groups[i]  
-                                - else 
-                                    p= groups[i]                 
-            .strapline-extra
-                | &emsp;
-                span(style="font-size: 0.8rem; font-weight: 800; color: black; padding-top: 0.2rem; padding-left: 0.8rem")= `+${groups.length - 2} groups` 
-                    | &emsp; &emsp; &nbsp;
-                a(style='color: #007AFF; text-decoration: none;' href="google.com") 
-                    span(style='color: #007AFF; padding-bottom: 1rem; font-weight: 600') Expand ↗
-            .border-bottom(style="padding-top: 0rem; margin-bottom: 0.25rem")
-
+                    .strapline 
+                        - if(groups.length >= 2)
+                            //- each group in groups 
+                            - for(var i = 0; i <= 1; i++)
+                                - if(groups[i] == 'Favorites')
+                                    div
+                                        a(href="https://google.com") Favorites
+                                - else
+                                    - if(i == 1)
+                                        p(style="padding-bottom: 0.75rem")= groups[i]  
+                                    - else 
+                                        p= groups[i]  
+                        p.strapline-extra
+                            span(style="font-size: 0.8rem; font-weight: 800; color: black; padding-top: 0rem")= `+${groups.length - 2} groups` 
+                            | &emsp; &emsp; &nbsp;
+                            a(style='color: #007AFF; text-decoration: none; padding-bottom: 1rem; font-weight: 600' href="google.com") Expand ↗
+                        .border-bottom(style="border-bottom: 0.5rem")
 
         .contents
             .contents-headline
