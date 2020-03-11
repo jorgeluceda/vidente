@@ -4,155 +4,159 @@
     color: #fff;
   }
   
-  .grid-page > div {
-    /* display: flex; */
-    align-items: center;
-    padding: 0px 20px;
+.grid-page > div {
+  /* display: flex; */
+  align-items: center;
+  padding: 0px 20px;
+}
+
+
+.grid-page > .menu > .menu-header {
+  margin-top: 1.5em;
+  padding-left: 1em;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  align-items: center;
+  /* justify-content: center; */
+} 
+  
+.grid-page > .menu > .menu-header > .btn {
+  max-width: 50%;
+}
+
+.grid-page > .menu > .menu-contents {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-top: 0.50rem;
+} 
+  
+.grid-page > .menu > .menu-contents > .strapline {
+  display: flex;
+  align-self: flex-start;
+  flex-direction: column;
+  margin-top: 0em;
+  padding-left: 1.5rem;
+  line-height: 0.25rem;
+}
+
+.grid-page > .menu > .menu-contents > .strapline > div {
+  display: flex;
+  flex-direction: row;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+  margin: 0;
+  // margin-left: .8rem;
+  min-width: 10rem;
+  background-color: rgba(60, 60, 67, 0.1);
+  align-self: flex-start;
+  justify-content: right;
+}
+
+.grid-page > .menu > .menu-contents > .strapline > div > a {
+  margin: auto;
+  text-align: center;
+  text-decoration: none;
+  line-height: 0.25rem;
+  padding-top: 1em; 
+  padding-bottom: 1em;
+  font-weight: 600;
+}
+
+.grid-page > .menu > .menu-contents > .strapline > p {
+  margin: auto;
+  text-align: center;
+  text-decoration: none;
+  line-height: 0.25rem;
+  padding-top: 1em; 
+  /* padding-top: 0em; */
+}
+
+.grid-page > .menu > .menu-contents > .strapline > p.strapline-extra {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  // align-self: center;
+  justify-content: center;
+  padding-top: 0.5em;
+  margin: auto;
+  padding-bottom: 0.5em;
+  // margin-top: 0em;
+  // margin: auto;
+  // background-color: black;
+}
+
+.menu-header > .border-bottom {
+  margin-top: 0.5rem;
+  display: flex;
+  width: 13rem;
+}
+
+.headline > .border-bottom {
+  align-self: flex-start;
+  margin-top: 0.30rem;
+  display: flex;
+  width: 50%;
+}
+  
+html, body {
+    margin: 0px;
+    background-color: #FFF;
   }
 
+.grid-page > .menu-header {
+    // align-self: center;
+    display: flex;
+    // align-self: flex-start;
+    margin: 0;
+    padding: 0px 0px;
+    justify-content: flex-start;
+    // flex-direction: column;
+}
+
+@media (max-width: 1020px) {
+
+  .header > h6 {
+    padding: 0px 0px;
+    margin-left: 10px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .header > h6 > h6 {
+    margin-left: 10px;
+  }
 
   .grid-page > .menu > .menu-header {
-    margin-top: 1.5em;
-    padding-left: 1em;
+    margin-top: 0.8em;
+    padding-left: 0em;
     display: flex;
     flex-direction: row;
-    align-self: flex-start;
-    align-items: center;
-    /* justify-content: center; */
+    align-self: center;
   } 
-  
-  .grid-page > .menu > .menu-header > .btn {
-    max-width: 50%;
+
+  .grid-page > .menu > .menu-contents > .strapline > div {
+    justify-content: center;
   }
 
   .grid-page > .menu > .menu-contents {
     display: flex;
     flex-direction: column;
-    align-self: flex-start;
+    align-self: center;
     margin-top: 0.50rem;
   } 
-  
+
   .grid-page > .menu > .menu-contents > .strapline {
-    display: flex;
-    align-self: flex-start;
-    flex-direction: column;
-    margin-top: 0em;
-    padding-left: 1.5rem;
-    line-height: 0.25rem;
-  }
-  .grid-page > .menu > .menu-contents > .strapline > div {
-    display: flex;
-    flex-direction: row;
-    padding-top: 0;
-    padding-bottom: 0;
-    border-radius: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 0.5rem;
-    margin: 0;
-    // margin-left: .8rem;
-    min-width: 10rem;
-    background-color: rgba(60, 60, 67, 0.1);
-    align-self: flex-start;
-    justify-content: right;
+    padding-left: 0rem;
   }
 
-  .grid-page > .menu > .menu-contents > .strapline > div > a {
-    margin: auto;
-    text-align: center;
-    text-decoration: none;
-    line-height: 0.25rem;
-    padding-top: 1em; 
-    padding-bottom: 1em;
-    font-weight: 600;
+  .grid-page > .headline > .headline-contents {
+    margin-top: 1.5em;
+    margin-bottom: 1.25rem;
+    margin-left: 1em;
   }
-
-  .grid-page > .menu > .menu-contents > .strapline > p {
-    margin: auto;
-    text-align: center;
-    text-decoration: none;
-    line-height: 0.25rem;
-    padding-top: 1em; 
-    /* padding-top: 0em; */
-  }
-
-  .grid-page > .menu > .menu-contents > .strapline > p.strapline-extra {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    // align-self: center;
-    justify-content: center;
-    padding-top: 0.5em;
-    margin: auto;
-    padding-bottom: 0.5em;
-    // margin-top: 0em;
-    // margin: auto;
-    // background-color: black;
-  }
-  
-  .grid-page > .menu > .border-bottom {
-    padding-top: 0.5rem;
-    align-self: flex-start;
-    width: 13rem;
-  }
-  
-  .grid-page > .contents > .contents-headline {
-    margin-top: 0.5em;
-    padding-bottom: 1.25rem;
-  }
-  
-  
-  
-  html, body {
-    margin: 0px;
-    background-color: #FFF;
-  }
-  
-  @media (max-width: 1020px) {
-  
-    .header > h6 {
-      padding: 0px 0px;
-      margin-left: 10px;
-      font-weight: 500;
-      color: #fff;
-    }
-  
-    .header > h6 > h6 {
-      margin-left: 10px;
-    }
-
-    .grid-page > .menu > .menu-header {
-      margin-top: 0.8em;
-      padding-left: 0em;
-      display: flex;
-      flex-direction: row;
-      align-self: center;
-    } 
-
-    .grid-page > .menu > .menu-contents > .strapline > div {
-      justify-content: center;
-    }
-
-    .grid-page > .menu > .border-bottom {
-      padding-top: 0.5rem;
-      align-self: center;
-      width: 13rem;
-    }
-
-    .grid-page > .menu > .menu-contents {
-      display: flex;
-      flex-direction: column;
-      align-self: center;
-      margin-top: 0.50rem;
-    } 
-
-    .grid-page > .menu > .menu-contents > .strapline {
-      padding-left: 0rem;
-    }
-
-    .grid-page > .contents > .contents-headline {
-      margin-top: 1.5em;
-      margin-bottom: 1.25rem;
-      margin-left: 1em;
-    }
-  }
-  
+}

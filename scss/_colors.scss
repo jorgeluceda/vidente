@@ -1,3 +1,6 @@
+.border-bottom {
+    border-bottom: 1px solid #e1e4e8 !important;
+}
 button, .button, .button {
     display: flex;
     background: #007AFF;
@@ -59,10 +62,6 @@ button-curved:active, .button-curved:active, button-cuved.active {
     background-color: rgb(234, 241, 250);
     color: rgb(42, 144, 253);
     outline: none;
-}
-
-.border-bottom {
-    border-bottom: 1px solid #e1e4e8!important ;
 }
 
 a, .link {

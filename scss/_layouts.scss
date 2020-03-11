@@ -4,13 +4,14 @@
     /* grid-gap: 5px; */
     /* short-hand method for grid-template-columns (L) */
     grid-auto-rows: 50px;
-    grid-template-rows: 3.5em auto 50px;
-    grid-template-columns: 16em auto;
+    grid-template-rows: 3.5em 4.5em 1px auto 50px;
+    grid-template-columns: 16em auto auto;
 
     grid-template-areas: 
-        "h h"
-        "m c"
-        "f f"
+        "h h h"
+        "mh ch ch"
+        "mr cr cr"
+        "f f f"
 }
 
 .header {
@@ -34,41 +35,45 @@
 }
 
 .menu {
-    border-radius: 2px;
-    border-color: black;
     display: flex;
     flex-direction: column;
-    grid-area: m;
+    grid-area: mr;
     background-color: #F6F8FA;
 }
 
-.contents {
-    grid-area: c;
-    display: grid;
-    grid-template-rows: 3.5em auto auto auto;
-
-    grid-template-areas: 
-        "ch"
-        "cg"
-        "bb"
-        ".";
+.menu-header {
+    grid-area: mh;
+    display: flex;
+    flex-direction: column;
+    background-color: #F6F8FA;
 }
 
-.contents > .contents-headline {
+.menu-header > .mh-contents {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1.5rem;
+    align-self: center;
+    align-items: center;
+}
+
+.headline {
     display: flex;
     grid-area: ch;
-    flex-direction: row;
-    /* text-justify: distribute; */
-    align-items: center;
-    align-self: center;
-        /* justify-content: center; */
-    /* justify-content: center; */
-    /* margin-top: 10px; */
-    padding-top: 2.5rem;
+    flex-direction: column;
 }
-.contents > .contents-grid {    
+
+.headline > .headline-contents {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1.3rem;
+    align-self: flex-start;
+    margin-left: 1rem;
+    align-items: center;
+}
+
+.contents-grid {    
     display: grid;
-    grid-area: cg;
+    grid-area: cr;
     grid-gap: 5px;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     /* grid-template-rows: repeat(auto-fit, 250px); */
@@ -76,11 +81,6 @@
     justify-items: center;
     padding-top: 1.5rem;
     padding-right: 1.5rem;
-}
-
-.contents > .border-bottom {
-    display: flex;
-    grid-area: bb;
 }
 
 .footer {
@@ -103,7 +103,8 @@
         grid-template-areas:
             "h h h h h"
             "m m m m m"
-            "c c c c c"
+            "ch ch ch ch ch"
+            "cg cg cg cg cg"
             "f f f f f";
         }
 
@@ -116,5 +117,9 @@
 @media screen and (min-width: 1020px) {
     .menu {
         border-right: 1px solid #e1e4e8!important;
+    }
+    
+    .menu-header {
+        border-right: 1px solid #e1e4e8 !important;
     }
 }
