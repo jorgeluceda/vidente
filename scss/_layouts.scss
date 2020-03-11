@@ -64,7 +64,7 @@
 .headline > .headline-contents {
     display: flex;
     flex-direction: row;
-    margin-top: 1.3rem;
+    margin-top: 1rem;
     align-self: flex-start;
     margin-left: 0;
     align-items: center;
@@ -96,7 +96,7 @@
 
 @media screen and (max-width: 1020px) {
     .grid-page {
-        grid-template-rows: 3em 5em 7em 5.25em auto 8em 3em;
+        grid-template-rows: 3em 5em 7em 5.75em auto 8em 3em;
         grid-template-columns: auto auto auto;
         grid-template-areas:
         "h h h"
