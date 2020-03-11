@@ -259,8 +259,7 @@ h6 {
   grid-area: mr;
   display: flex;
   flex-direction: column;
-  align-self: center;
-  margin-top: 0.50rem; }
+  align-self: center; }
 
 .grid-page > .menu > .mh-contents > .strapline {
   display: flex;
@@ -471,3 +470,11 @@ html, body {
     border-right: 1px solid #e1e4e8 !important; }
   .menu-header {
     border-right: 1px solid #e1e4e8 !important; } }
+
+@media screen and (max-width: 1020px) {
+  .grid-page > .menu > .menu-contents > .strapline.strapline-long {
+    display: none; } }
+
+@media screen and (min-width: 1020px) {
+  .grid-page > .menu > .menu-contents > .strapline.strapline-short {
+    display: none; } }

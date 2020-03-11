@@ -4,3 +4,16 @@
 @import '_fonts';
 @import '_layouts_pad';
 @import '_layouts';
+
+
+@media screen and (max-width: 1020px) {
+    .grid-page > .menu > .menu-contents > .strapline.strapline-long {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1020px) {
+    .grid-page > .menu > .menu-contents > .strapline.strapline-short {
+        display: none;
+    }
+}
