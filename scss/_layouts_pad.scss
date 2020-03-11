@@ -156,8 +156,13 @@ html, body {
   }
 
   .grid-page > .headline > .headline-contents {
-    margin-top: 1.5em;
-    margin-bottom: 1.25rem;
-    margin-left: 1em;
+    align-self: center;
+  }
+
+  .headline > .border-bottom {
+    align-self: center;
+    margin-top: 0.30rem;
+    display: flex;
+    width: 80%;
   }
 }
