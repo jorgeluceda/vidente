@@ -68,10 +68,9 @@ button, .button, .button-curved {
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1rem;
-  font-family: "SF Pro Text";
-  font-stretch: extra-condensed; }
+  font-family: "SF Pro Text"; }
 
 .pagination-button > b {
   margin-bottom: 0.5rem;
