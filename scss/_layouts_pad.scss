@@ -156,6 +156,10 @@ html, body {
   .grid-page > .headline > .headline-contents {
     align-self: center;
   }
+
+  .headline > .border-bottom {
+    width: 85%;
+  }
 }
 
 @media (min-width: 1020px) {
