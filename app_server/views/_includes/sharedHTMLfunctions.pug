@@ -49,10 +49,10 @@ mixin printGroups(it)
           p= groups.groupsArray[i]
 
 mixin printExtraStrapline(groupCount)
-  - if(groupCount < 13)
+  - if(groupCount < 3)
     .border-bottom(style="margin-top: 0.25rem; margin-bottom: 0.50rem")
     p.strapline-extra
-      span(style="font-size: 1rem; font-weight: 800; color: black;").no-select= `+${groups.groupsArray.length - 2} Groups ✨`
+      span(style="font-size: 1rem; font-weight: 800; color: black;").no-select= `+${groups.groupsArray.length - groupCount} Groups ✨`
       | &nbsp;  
       a(style='color: #007AFF; text-decoration: none; font-weight: 800;' href="google.com")= "Expand ↗"
 
@@ -61,7 +61,7 @@ mixin printExtraStrapline(groupCount)
 
     p.strapline-extra(style="margin-top: 0.5rem;")
       - if(groups.groupsArray && (groups.groupsArray.length > 13))
-          span(style="font-size: 1rem; font-weight: 800; color: black;").no-select= `+${groups.groupsArray.length - 13} Groups ✨`
+          span(style="font-size: 1rem; font-weight: 800; color: black;").no-select= `+${groups.groupsArray.length - groupCount} Groups ✨`
           | &nbsp;  
           a(style='color: #007AFF; text-decoration: none; font-weight: 800;' href="google.com")= "Expand ↗"
       - else
