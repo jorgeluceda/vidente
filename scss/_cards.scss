@@ -68,6 +68,8 @@
 
 @media screen and(max-width: 1020px) {
     .pagination-button {
+        height: 35px; 
+        width: 40px;
         transition: all 0.125s cubic-bezier(.25,.8,.25,1);
     }
 }
