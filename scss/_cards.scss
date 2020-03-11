@@ -51,7 +51,7 @@
     margin-right: 0.1rem;
     // margin-top: 0.2rem;
     font-weight: 200;
-    font-size: 1.125rem;
+    font-size: 1rem;
 }
 
 .pagination-button > b {
@@ -61,7 +61,7 @@
 
 .pagination-button:active {
     transform: translateY(2px);
-    box-shadow:0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(0, 0, 0, 0);
+    box-shadow:0 1px 1px rgba(0, 0, 0, 0.123), 0 1px 1px rgba(0, 0, 0, 0);
 }
 
 /* .card-1 {
