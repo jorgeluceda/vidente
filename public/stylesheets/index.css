@@ -305,7 +305,9 @@ h6 {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding-top: 0.5em; }
+  padding-top: 0.5em;
+  margin: auto;
+  padding-bottom: 0.5em; }
 
 .grid-page > .menu > .border-bottom {
   padding-top: 0.5rem;
@@ -432,7 +434,7 @@ html, body {
 
 @media screen and (max-width: 1020px) {
   .grid-page {
-    grid-template-rows: 3.5em 11.25em auto 3em;
+    grid-template-rows: 3.5em 11.50em auto 3em;
     grid-template-columns: auto;
     grid-template-areas: "h h h h h" "m m m m m" "c c c c c" "f f f f f"; }
   .menu {
