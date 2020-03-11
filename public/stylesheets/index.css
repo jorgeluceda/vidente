@@ -41,7 +41,7 @@ button, .button, .button-curved {
   border: 1px solid #d1d5da;
   border-radius: 3px;
   object-fit: cover;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 10px 13px 0 rgba(0, 0, 0, 0.11);
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 .card > b {
