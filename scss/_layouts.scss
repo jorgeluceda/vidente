@@ -73,7 +73,7 @@
 .contents-grid {    
     display: grid;
     grid-area: cr;
-    grid-gap: 26px;
+    grid-gap: 30px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1.5fr));
     // grid-template-rows: repeat(auto-fit, minmax(150, 1fr)) auto;
     grid-auto-rows: 200px 100px 180px auto;
