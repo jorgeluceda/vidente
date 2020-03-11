@@ -2,7 +2,7 @@
     height: 100%;
     display: grid;
     grid-auto-rows: 50px;
-    grid-template-rows: 3.5em 4.5em 50% auto 50px;
+    grid-template-rows: 3.5em 4.5em auto 5em 50px;
     grid-template-columns: 16em auto auto;
 
     grid-template-areas: 
@@ -73,12 +73,11 @@
 .contents-grid {    
     display: grid;
     grid-area: cr;
-    grid-gap: 5px;
-    grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
-    /* grid-template-rows: repeat(auto-fit, 250px); */
-    grid-auto-rows: 12rem auto;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(219px, 1.5fr));
+    // grid-template-rows: repeat(auto-fit, minmax(150, 1fr)) auto;
+    grid-auto-rows: 200px 150px 200px auto;
     justify-items: center;
-    padding-top: 1.5rem;
     padding-right: 1.5rem;
 }
 
