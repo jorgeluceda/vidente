@@ -37,4 +37,32 @@ mixin printLabel(label)
         displayValue: true, 
         text: `!{label}`, 
         textPosition: "bottom"
-      }); 
+      });
+
+
+mixin printGroups(it) 
+  - for(var i = 0; i <= it - 1; i++)
+      - if(groups.groupsArray[i] == groups.favorite)
+          div
+              a(href="https://google.com")= groups.groupsArray[i]
+      - else
+          p= groups.groupsArray[i]
+
+mixin printExtraStrapline(groupCount)
+  - if(groupCount < 13)
+    .border-bottom(style="margin-top: 0.25rem; margin-bottom: 0.50rem")
+    p.strapline-extra
+      span(style="font-size: 1rem; font-weight: 800; color: black;").no-select= `+${groups.groupsArray.length - 2} Groups ✨`
+      | &nbsp;  
+      a(style='color: #007AFF; text-decoration: none; font-weight: 800;' href="google.com")= "Expand ↗"
+
+  - else
+    .border-bottom(style="margin-top: 0.25rem; margin-bottom: 0rem")
+
+    p.strapline-extra(style="margin-top: 0.5rem;")
+      - if(groups.groupsArray && (groups.groupsArray.length > 13))
+          span(style="font-size: 1rem; font-weight: 800; color: black;").no-select= `+${groups.groupsArray.length - 13} Groups ✨`
+          | &nbsp;  
+          a(style='color: #007AFF; text-decoration: none; font-weight: 800;' href="google.com")= "Expand ↗"
+      - else
+          a(style='color: #007AFF; text-decoration: none; font-weight: 800;' href="google.com")= "Expand ↗"

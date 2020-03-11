@@ -21,47 +21,23 @@ block content
 
         .menu
             .menu-contents
-                - 
-                    var groups = ['Favorites', 'Example Group 1', 'Example Group 2', 
-                        '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13',
-                        '14', '15', '16', '17', '18', '19']
-                - var selected = 'Example Group 1'
                 - var longList = false
+                - var groupCount = 2
+
                     .strapline.strapline-short(id="strapline-short")
                         - if(groups)
-                            //- each group in groups 
-                            - for(var i = 0; i <= 1; i++)
-                                - if(groups[i] == selected)
-                                    div
-                                        a(href="https://google.com")= selected
-                                - else
-                                    p= groups[i]
-                            - if(groups.length > 2)
+                            +printGroups(groupCount)
+                            - if(groups.groupsArray.length > groupCount)
                                     - longList = true
                         
-                        .border-bottom(style="margin-top: 0.25rem; margin-bottom: 0.50rem")
-                        p.strapline-extra
-                            span(style="font-size: 1rem; font-weight: 800; color: black;").no-select= `+${groups.length - 2} Groups ✨`
-                            | &nbsp;  
-                            a(style='color: #007AFF; text-decoration: none; font-weight: 800;' href="google.com")= "Expand ↗"
-                            
+                        +printExtraStrapline(groupCount)
+      
                     - if(longList)
                         .strapline.strapline-long
-                            - for(var i = 0; i <= 12; i++)
-                                - if(groups[i] == selected)
-                                    div
-                                        a(href="https://google.com")= groups[i]
-                                - else
-                                    p= groups[i]
-                            .border-bottom(style="margin-top: 0.25rem; margin-bottom: 0rem")
-                            p.strapline-extra(style="margin-top: 0.5rem;")
-                                - if(groups && (groups.length > 13))
-                                    span(style="font-size: 1rem; font-weight: 800; color: black;").no-select= `+${groups.length - 13} Groups ✨`
-                                    | &nbsp;  
-                                    a(style='color: #007AFF; text-decoration: none; font-weight: 800;' href="google.com")= "Expand ↗"
-                                - else
-                                    a(style='color: #007AFF; text-decoration: none; font-weight: 800;' href="google.com")= "Expand ↗"
-                
+                            - var groupCount = 13
+                            +printGroups(groupCount)
+                            +printExtraStrapline(groupCount)
+
         .headline
             .headline-contents
                 h6 Category 1

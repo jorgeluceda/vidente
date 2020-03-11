@@ -3,6 +3,12 @@
 const renderHomePage = (req, res) => {
     // sends data to the view to be compiled
     // and sent to the browser
+    var groups = ['Favorites', 'Soaps', 'Accessories', 
+        'Apple iPhones','Home', 'Pet Supplies', 'Food & Grocery', 
+        'Beauty & Health', 'Toys, Kids & Baby', 'Movies', 'Music', 
+        'Games', 'Clothing', 'Shoes', 'Jewelry', 'Watches', 
+        'Sports & Outdoors', 'Tools', 'Automotive', 
+        'Industrial'];
 
     label = {
         name: 'iPhone XS',
@@ -21,7 +27,11 @@ const renderHomePage = (req, res) => {
 
     res.render('homepage', {
         title: "Vidente - The Intuitive Barcode Overseer!",
-        label: label
+        label: label,
+        groups: {
+            favorite: 'Favorites',
+            groupsArray: groups
+        }
     });
 }
 const homepage = (req, res) => {

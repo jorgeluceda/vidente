@@ -9,7 +9,7 @@ const ctrlOthers = require('../controllers/others');
 /* Locations pages */
 router.get('/', ctrlHomepage.homepage);
 
-router.get('/main', ctrlLabels.homelist);
+// router.get('/main', ctrlLabels.homelist);
 
 // contains locationid parameter so that we
 // can request a specific location in the API
