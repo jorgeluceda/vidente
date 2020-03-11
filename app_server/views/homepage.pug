@@ -54,7 +54,7 @@ block content
 
         .contents-grid
             script(src="/javascripts/JsBarcode.all.min.js")
-            - for(i = 1; i < 15; i++)
+            - for(i = 1; i <= 10; i++)
                 - 
                     label = { 
                         format: "CODE39", 
@@ -68,8 +68,6 @@ block content
                 .card
                     b=`Card Label #${i}`
                     +printLabel(label)
-
-            .border-bottom
      
         .footer
             span © Copyright 2020 - Jorge Euceda

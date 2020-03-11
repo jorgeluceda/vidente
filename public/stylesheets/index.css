@@ -36,8 +36,8 @@ button, .button, .button-curved {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 14rem;
-  height: 10rem;
+  width: 225px;
+  height: 150px;
   border: 1px solid #d1d5da;
   border-radius: 3px;
   object-fit: cover;
@@ -365,9 +365,9 @@ html, body {
   /* grid-gap: 5px; */
   /* short-hand method for grid-template-columns (L) */
   grid-auto-rows: 50px;
-  grid-template-rows: 3.5em 4.5em auto 50px;
+  grid-template-rows: 3.5em 4.5em 50% auto 50px;
   grid-template-columns: 16em auto auto;
-  grid-template-areas: "h h h" "mh ch ch" "mr cr cr" "f f f"; }
+  grid-template-areas: "h h h" "mh ch ch" "mr cr cr" "mr . ." "f f f"; }
 
 .header {
   /* span to the last column line */
@@ -421,9 +421,9 @@ html, body {
   display: grid;
   grid-area: cr;
   grid-gap: 5px;
-  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
   /* grid-template-rows: repeat(auto-fit, 250px); */
-  grid-auto-rows: 185px auto;
+  grid-auto-rows: 12rem auto;
   justify-items: center;
   padding-top: 1.5rem;
   padding-right: 1.5rem; }
