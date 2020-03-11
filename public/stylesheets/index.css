@@ -315,7 +315,7 @@ h6 {
   width: 13rem; }
 
 .headline > .border-bottom {
-  align-self: flex-start;
+  align-self: center;
   margin-top: 0.30rem;
   display: flex;
   width: 50%; }
@@ -354,12 +354,7 @@ html, body {
   .grid-page > .menu > .menu-contents > .strapline {
     padding-left: 0rem; }
   .grid-page > .headline > .headline-contents {
-    align-self: center; }
-  .headline > .border-bottom {
-    align-self: center;
-    margin-top: 0.30rem;
-    display: flex;
-    width: 80%; } }
+    align-self: center; } }
 
 @media (min-width: 1020px) {
   .grid-page > .menu > .menu-contents > .strapline > div > a {

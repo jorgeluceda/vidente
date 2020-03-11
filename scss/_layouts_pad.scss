@@ -97,7 +97,7 @@
 }
 
 .headline > .border-bottom {
-  align-self: flex-start;
+  align-self: center;
   margin-top: 0.30rem;
   display: flex;
   width: 50%;
@@ -155,13 +155,6 @@ html, body {
 
   .grid-page > .headline > .headline-contents {
     align-self: center;
-  }
-
-  .headline > .border-bottom {
-    align-self: center;
-    margin-top: 0.30rem;
-    display: flex;
-    width: 80%;
   }
 }
 
