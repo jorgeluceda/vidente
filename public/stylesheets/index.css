@@ -362,6 +362,25 @@ html, body {
     display: flex;
     width: 80%; } }
 
+@media (min-width: 1020px) {
+  .grid-page > .menu > .menu-contents > .strapline > div > a {
+    margin: 0;
+    text-align: left;
+    text-decoration: none;
+    line-height: 0.25rem;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-weight: 600; }
+  .grid-page > .menu > .menu-contents > .strapline > p {
+    text-align: left;
+    text-decoration: none;
+    line-height: 0.25rem;
+    padding-top: 1em;
+    margin-left: 1em;
+    /* padding-top: 0em; */ }
+  .grid-page > .headline > .headline-contents {
+    align-self: left; } }
+
 .grid-page {
   height: 100%;
   display: grid;

@@ -120,7 +120,6 @@ html, body {
 }
 
 @media (max-width: 1020px) {
-
   .header > h6 {
     padding: 0px 0px;
     margin-left: 10px;
@@ -164,5 +163,30 @@ html, body {
     margin-top: 0.30rem;
     display: flex;
     width: 80%;
+  }
+}
+
+@media (min-width: 1020px) {
+  .grid-page > .menu > .menu-contents > .strapline > div > a {
+    margin: 0;
+    text-align: left;
+    text-decoration: none;
+    line-height: 0.25rem;
+    padding-top: 1em; 
+    padding-bottom: 1em;
+    font-weight: 600;
+  }
+  
+  .grid-page > .menu > .menu-contents > .strapline > p {
+    // margin: auto;
+    text-align: left;
+    text-decoration: none;
+    line-height: 0.25rem;
+    padding-top: 1em; 
+    margin-left: 1em;
+    /* padding-top: 0em; */
+  }
+  .grid-page > .headline > .headline-contents {
+    align-self: left;
   }
 }
