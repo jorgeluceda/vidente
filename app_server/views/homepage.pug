@@ -2,12 +2,14 @@ extends layout
 block content
     include _includes/sharedHTMLfunctions
     .grid-page
-        .header
-            h6 Home
-            h6 About
-            h6 
-                h6 Profile
-                h6 Logout
+        .header(style="padding: 0px 0.8rem;")
+            a(href="/" style="text-decoration: none;")
+                h5(style="color: white; display: flex; padding-left: 0px;").no-select 🔮
+            h5(style="color: white; margin-left: 0px; font-weight: 600;") Vidente
+            | &nbsp;
+            h6(style="margin-left: 0.5rem; justify-contents: left; font-weight: 300") About
+            h6(style="font-weight: 300") Profile
+            h6(style="font-weight: 300") Logout
                 
         .menu-header
             .mh-contents

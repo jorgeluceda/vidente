@@ -398,7 +398,7 @@ html, body {
   /* color: #88a0ad; */ }
 
 .header > h6:nth-child(3) {
-  margin-left: auto;
+  margin-left: initial;
   /* margin-left: 90%; */ }
 
 .header > h6:nth-child(4) {
