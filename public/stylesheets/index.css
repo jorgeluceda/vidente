@@ -61,15 +61,16 @@ button, .button, .button-curved {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 25px;
+  height: 28px;
   width: 35px;
   object-fit: cover;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  font-weight: 200;
-  font-size: 1rem; }
+  font-weight: 400;
+  font-size: 1rem;
+  font-stretch: extra-condensed; }
 
 .pagination-button > b {
   margin-bottom: 0.5rem;
