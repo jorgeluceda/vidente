@@ -1,7 +1,6 @@
 extends layout
 block content
     include _includes/sharedHTMLfunctions
-
     .grid-page
         .header
             h6 Home
@@ -53,21 +52,19 @@ block content
             .border-bottom
 
         .contents-grid
-            script(src="/javascripts/JsBarcode.all.min.js")
-            - for(i = 1; i <= 10; i++)
-                - 
-                    label = { 
-                        format: "CODE39", 
-                        lineColor: "black", 
-                        width: 2, height: 50, 
-                        font: "Helvetica", 
-                        displayValue: true, 
-                        text: `SP${i}`, 
-                            textPosition: "bottom"
-                    }
-                .card
-                    b=`Card Label #${i}`
-                    +printLabel(label)
-     
+            - for(i = 1; i <= 8; i++)
+                .card 
+                    b(style="margin: 0; padding: 0;")= `iPhone ${i}`
+                    each property in label.image
+                        | !{property}
+                    //- span
+                    //-     | !{label.text}
+                    //- div(style="display: flex; align-self: flex-end; margin-right: 10px; margin-top: 0; line-height: 0.7rem;")= "⛔"
+
+            //- TODO: use controller
+            //- .card 
+            //-     b= label.name
+            //-     each property in label.image
+            //-         | !{property}
         .footer
             span © Copyright 2020 - Jorge Euceda
