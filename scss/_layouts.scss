@@ -112,6 +112,10 @@
         border-bottom: 1px solid #e1e4e8!important;
         border-right: none;
     } 
+
+    .headline > .headline-contents {
+        margin-left: 0rem;
+    }
 }
 
 @media screen and (min-width: 1020px) {
