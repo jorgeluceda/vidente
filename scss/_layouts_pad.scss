@@ -26,13 +26,14 @@
 }
 
 .grid-page > .menu > .menu-contents {
+  grid-area: mr;
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
+  align-self: center;
   margin-top: 0.50rem;
 } 
   
-.grid-page > .menu > .menu-contents > .strapline {
+.grid-page > .menu > .mh-contents > .strapline {
   display: flex;
   align-self: flex-start;
   flex-direction: column;
@@ -131,7 +132,7 @@ html, body {
     margin-left: 10px;
   }
 
-  .grid-page > .menu > .menu-header {
+  .grid-page > .menu-header > .mh-contents {
     margin-top: 0.8em;
     padding-left: 0em;
     display: flex;
@@ -139,7 +140,7 @@ html, body {
     align-self: center;
   } 
 
-  .grid-page > .menu > .menu-contents > .strapline > div {
+  .grid-page > .menu-header > .mh-contents > .strapline > div {
     justify-content: center;
   }
 
@@ -147,7 +148,7 @@ html, body {
     display: flex;
     flex-direction: column;
     align-self: center;
-    margin-top: 0.50rem;
+    margin-top: 0rem;
   } 
 
   .grid-page > .menu > .menu-contents > .strapline {

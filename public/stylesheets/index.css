@@ -36,8 +36,8 @@ button, .button, .button-curved {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 225px;
-  height: 150px;
+  width: 14rem;
+  height: 10rem;
   border: 1px solid #d1d5da;
   border-radius: 3px;
   object-fit: cover;
@@ -256,12 +256,13 @@ h6 {
   max-width: 50%; }
 
 .grid-page > .menu > .menu-contents {
+  grid-area: mr;
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
+  align-self: center;
   margin-top: 0.50rem; }
 
-.grid-page > .menu > .menu-contents > .strapline {
+.grid-page > .menu > .mh-contents > .strapline {
   display: flex;
   align-self: flex-start;
   flex-direction: column;
@@ -338,19 +339,19 @@ html, body {
     color: #fff; }
   .header > h6 > h6 {
     margin-left: 10px; }
-  .grid-page > .menu > .menu-header {
+  .grid-page > .menu-header > .mh-contents {
     margin-top: 0.8em;
     padding-left: 0em;
     display: flex;
     flex-direction: row;
     align-self: center; }
-  .grid-page > .menu > .menu-contents > .strapline > div {
+  .grid-page > .menu-header > .mh-contents > .strapline > div {
     justify-content: center; }
   .grid-page > .menu > .menu-contents {
     display: flex;
     flex-direction: column;
     align-self: center;
-    margin-top: 0.50rem; }
+    margin-top: 0rem; }
   .grid-page > .menu > .menu-contents > .strapline {
     padding-left: 0rem; }
   .grid-page > .headline > .headline-contents {
@@ -364,7 +365,7 @@ html, body {
   /* grid-gap: 5px; */
   /* short-hand method for grid-template-columns (L) */
   grid-auto-rows: 50px;
-  grid-template-rows: 3.5em 4.5em 1px auto 50px;
+  grid-template-rows: 3.5em 4.5em auto 50px;
   grid-template-columns: 16em auto auto;
   grid-template-areas: "h h h" "mh ch ch" "mr cr cr" "f f f"; }
 
@@ -385,9 +386,9 @@ html, body {
   margin-left: auto; }
 
 .menu {
+  grid-area: mr;
   display: flex;
   flex-direction: column;
-  grid-area: mr;
   background-color: #F6F8FA; }
 
 .menu-header {
@@ -420,9 +421,9 @@ html, body {
   display: grid;
   grid-area: cr;
   grid-gap: 5px;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
   /* grid-template-rows: repeat(auto-fit, 250px); */
-  grid-auto-rows: 240px;
+  grid-auto-rows: 185px auto;
   justify-items: center;
   padding-top: 1.5rem;
   padding-right: 1.5rem; }
@@ -440,9 +441,9 @@ html, body {
 
 @media screen and (max-width: 1020px) {
   .grid-page {
-    grid-template-rows: 3.5em 11.50em auto 3em;
-    grid-template-columns: auto;
-    grid-template-areas: "h h h h h" "m m m m m" "ch ch ch ch ch" "cg cg cg cg cg" "f f f f f"; }
+    grid-template-rows: 3.5em 4.5em 7.15em 4em auto 3em;
+    grid-template-columns: auto auto auto;
+    grid-template-areas: "h h h" "mh mh mh" "mr mr mr" "ch ch ch" "cr cr cr" "f f f"; }
   .menu {
     border-bottom: 1px solid #e1e4e8 !important;
     border-right: none; } }
