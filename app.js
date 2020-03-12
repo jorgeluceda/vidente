@@ -4,11 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var compression = require('compression');
 var logger = require('morgan');
+
 var favicon = require('serve-favicon');
 // device type detection library
 var device = require('express-device');
 // issue a connection to our MongoDB database
-require('./app_api/models/db');
+var db = require('./app_api/models/db');
+// var passport = require('passport');
+// var LocalStrategy = require('passport-local').Strategy;
 
 // routes for our frontend
 const indexRouter = require('./app_server/routes/index');
@@ -16,6 +19,9 @@ const indexRouter = require('./app_server/routes/index');
 const apiRouter = require('./app_api/routes/index');
 
 var app = express();
+
+var session = require('express-session');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
@@ -31,10 +37,16 @@ device.enableDeviceHelpers(app);
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'public')));
+
+// express session must be used before passport
+app.use(session({
+  secret: 'Insert Randomized text here',
+  resave: false,
+  saveUninitialized: false
+}));
 
 // defining the sets/subsets of URL's for which 
 // the routes will apply

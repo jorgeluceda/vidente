@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
 // replaces exising ctrlMain reference with new requires
-const ctrlHomepage = require('../controllers/groups');
+const ctrlUser = require('../controllers/groups');
 
 const ctrlLabels = require('../controllers/labels');
 const ctrlOthers = require('../controllers/others');
 
 /* Locations pages */
-router.get('/groups/', ctrlHomepage.groups);
+
+router.get('/', ctrlUser.homePage)
+router.get('/groups/', ctrlUser.groups);
 
 // contains locationid parameter so that we
 // can request a specific location in the API
