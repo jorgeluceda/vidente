@@ -1,6 +1,17 @@
 
 
-const renderHomePage = (req, res) => {
+const renderGroups = (req, res, data) => {
+    res.render('groups', {
+        title: "Vidente - The Intuitive Barcode Overseer!",
+        label: data.label,
+        groups: {
+            favorite: data.favorite,
+            groupsArray: data.groups
+        }
+    });
+}
+
+const groups = (req, res) => {
     // sends data to the view to be compiled
     // and sent to the browser
     var groups = ['Favorites', 'Soaps', 'Accessories', 
@@ -9,6 +20,8 @@ const renderHomePage = (req, res) => {
         'Games', 'Clothing', 'Shoes', 'Jewelry', 'Watches', 
         'Sports & Outdoors', 'Tools', 'Automotive', 
         'Industrial'];
+
+    var favorite = ['Soaps'];
 
     label = {
         name: 'iPhone XS',
@@ -22,23 +35,18 @@ const renderHomePage = (req, res) => {
             text: `<text style="font: 20px Helvetica" text-anchor="middle" x="96" y="72">1234</text>`,
             endTags: `</g></svg>`
         },
-        isFavorite: true,
     }
 
-    res.render('homepage', {
-        title: "Vidente - The Intuitive Barcode Overseer!",
-        label: label,
-        groups: {
-            favorite: 'Favorites',
-            groupsArray: groups
-        }
-    });
-}
-const homepage = (req, res) => {
-    renderHomePage(req, res);
+    var data = {
+        groups: groups,
+        favorite: favorite,
+        label: label
+    };
+
+    renderGroups(req, res, data);
 };
 
 /* Exposes the index function as a method */
 module.exports = {
-    homepage
+    groups
 };

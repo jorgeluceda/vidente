@@ -2,23 +2,35 @@ const express = require('express');
 const router = express.Router();
 const ctrlLocations = require('../controllers/locations');
 const ctrlReviews = require('../controllers/reviews');
-
+const ctrlGroups = require("../controllers/groups");
 // locations
 router 
-    .route('/locations')
-    // read list of locations
-    .get(ctrlLocations.locationsListByDistance)
+    .route('/user')
+    // read list of groups
+    // .get(ctrlLocations.locationsListByDistance)
+    .get(ctrlGroups.groupsListByCreated)
     // create new location
-    .post(ctrlLocations.locationsCreate)
+    // .post(ctrlLocations.locationsCreate)
+    .post(ctrlGroups.userCreate)
 
-router
-    .route('/locations/:locationid')
-    // Read a specific location
-    .get(ctrlLocations.locationsReadOne)
-    // Update a specific location
-    .put(ctrlLocations.locationsUpdateOne)
-    // Delete a specific location
-    .delete(ctrlLocations.locationsDeleteOne);
+
+// router 
+//     .route('/user/:userid')
+    // Read a specific user's group
+    // .get(ctrlGroups.groupsReadOne)
+    // // Update a specific user
+    // .put(ctrlLocations.locationsUpdateOne)
+    // // Delete a specific location
+    // .delete(ctrlLocations.locationsDeleteOne);
+
+// router
+//     .route('/user/:userid')
+//     // Read a specific location
+//     .get(ctrlLocations.locationsReadOne)
+//     // Update a specific location
+//     .put(ctrlLocations.locationsUpdateOne)
+//     // Delete a specific location
+//     .delete(ctrlLocations.locationsDeleteOne);
 
 // reviews
 router
