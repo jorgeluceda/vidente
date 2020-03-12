@@ -9,12 +9,10 @@ const labelSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-
     createdOn: {
         type: Date,
         'default': Date.now
     }
-    
 });
 
 const groupSchema = new mongoose.Schema({
@@ -39,10 +37,6 @@ const userSchema = new mongoose.Schema({
         required: true,
     },
     groups: [groupSchema]
-})
-
-const usersSchema = new mongoose.Schema({
-    users: [userSchema]
-})
+});
 
 mongoose.model('Users', userSchema);

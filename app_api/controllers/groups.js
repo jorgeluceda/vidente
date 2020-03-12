@@ -40,7 +40,7 @@ const labelsListByCreated = async (req, res) => {
                     return res
                         .status(400)
                         .json({
-                            "message": "Grpoup not found"
+                            "message": "Group not found"
                         });
                 } else {
                     // if group is found, builds a response

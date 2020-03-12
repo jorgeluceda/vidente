@@ -5,12 +5,13 @@ const ctrlUser = require('../controllers/groups');
 
 const ctrlLabels = require('../controllers/labels');
 const ctrlOthers = require('../controllers/others');
+// const path = require('path');
 
 /* Locations pages */
 
 router.get('/', ctrlUser.homePage)
 router.get('/groups/', ctrlUser.groups);
-
+// router.get('/groups-alt/', (req, res) => res.sendFile(path.resolve(__dirname, "../../public/vidente-app/index.html")));
 // contains locationid parameter so that we
 // can request a specific location in the API
 router.get('/label/', ctrlLabels.labelInfo);
