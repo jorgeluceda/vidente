@@ -1,28 +1,35 @@
 const express = require('express');
 const router = express.Router();
-const ctrlLocations = require('../controllers/locations');
+// const ctrlLocations = require('../controllers/locations');
 const ctrlReviews = require('../controllers/reviews');
-const ctrlGroups = require("../controllers/groups");
+const ctrlUsers = require("../controllers/users");
+const ctrlGroups = require('../controllers/groups')
 // locations
 router 
     .route('/user')
-    // read list of groups
-    // .get(ctrlLocations.locationsListByDistance)
-    .get(ctrlGroups.groupsListByCreated)
-    // create new location
-    // .post(ctrlLocations.locationsCreate)
-    .post(ctrlGroups.userCreate)
 
+    .get(ctrlUsers.groupsListByCreated)
+    .post(ctrlUsers.userCreate)
+
+router 
+    .route('/user/:userid/groups/:groupid')
+    // // Read a specific user's property
+    .get(ctrlGroups.labelsListByCreated)
+
+    // .post(ctrlGroups.groupCreate)
+    // Update a specific user's property
+    // .put(ctrlGroups.userUpdateOne)
+    // // Delete a specific user's property
+    // .delete(ctrlGroups.userDeleteOne);
 
 // router 
-//     .route('/user/:userid')
-    // Read a specific user's group
-    // .get(ctrlGroups.groupsReadOne)
-    // // Update a specific user
-    // .put(ctrlLocations.locationsUpdateOne)
-    // // Delete a specific location
-    // .delete(ctrlLocations.locationsDeleteOne);
-
+//     .route('/user/:userid/groups/:groupid')
+//     // Read a specific user's group
+//     .get(ctrlGroups.groupReadOne)
+//     // Update a specific user's group
+//     .put(ctrlGroups.groupUpdateOne)
+//     // Delete a specific user's group list
+//     .delete(ctrlGroups.groupDeleteOne);
 // router
 //     .route('/user/:userid')
 //     // Read a specific location

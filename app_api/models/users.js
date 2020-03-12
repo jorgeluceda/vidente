@@ -41,4 +41,8 @@ const userSchema = new mongoose.Schema({
     groups: [groupSchema]
 })
 
-mongoose.model('User', userSchema);
+const usersSchema = new mongoose.Schema({
+    users: [userSchema]
+})
+
+mongoose.model('Users', userSchema);

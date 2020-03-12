@@ -5,9 +5,10 @@ var cookieParser = require('cookie-parser');
 var compression = require('compression');
 var logger = require('morgan');
 
+var bodyParser = require('body-parser')
 var favicon = require('serve-favicon');
 // device type detection library
-var device = require('express-device');
+// var device = require('express-device');
 // issue a connection to our MongoDB database
 var db = require('./app_api/models/db');
 // var passport = require('passport');
@@ -31,15 +32,19 @@ app.set('view engine', 'pug');
 // other requests
 app.use(compression());
 
-// captures device-type
-app.use(device.capture());
-device.enableDeviceHelpers(app);
+// // captures device-type
+// app.use(device.capture());
+// device.enableDeviceHelpers(app);
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // express session must be used before passport
 app.use(session({
