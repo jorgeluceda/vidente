@@ -53,6 +53,9 @@ app.use(session({
   saveUninitialized: false
 }));
 
+//include react static path
+app.use(express.static(path.join(__dirname, '../../../public/vidente-app/build/index.html')));
+
 // defining the sets/subsets of URL's for which 
 // the routes will apply
 app.use('/', indexRouter);
