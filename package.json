@@ -28,6 +28,7 @@
   },
   "scripts": {
     "start": "node ./bin/www",
-    "node-sass": "node-sass --scss -t compressed --style compressed --watch scss/index.scss -o public/stylesheets/"
+    "node-sass": "node-sass --scss -t compressed --style compressed --watch scss/index.scss -o public/stylesheets/",
+    "heroku-postbuild": "cd app_server/vidente-app && npm install && npm run build"
   }
 }

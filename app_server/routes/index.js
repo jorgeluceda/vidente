@@ -10,8 +10,9 @@ const path = require('path');
 
 router.get('/', ctrlUser.homePage)
 router.get('/groups/', ctrlUser.groups);
-router.get('/groups-alt/', (req, res) => res.sendFile(path.join(__dirname+'../../../public/vidente-app/build/index.html')));
-// contains locationid parameter so that we
+router.get('/groups-alt', function(req, res) {
+    res.sendFile(path.join(__dirname, '../vidente-app/build/index.html'));
+});// contains locationid parameter so that we
 // can request a specific location in the API
 router.get('/label/', ctrlLabels.labelInfo);
 // 
