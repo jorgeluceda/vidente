@@ -4,6 +4,12 @@ import Lottie from "react-lottie";
 import ReactLoading from "react-loading";
 import * as loadingAnimation from "./loadingAnimation";
 import * as doneAnimation from "./doneAnimation";
+import Header from "../header/Header";
+import MenuHeader from "../menu-header/MenuHeader";
+import Menu from "../menu/Menu";
+import ContentsGrid from "../contents-grid/ContentsGrid";
+import Headline from "../headline/Headline";
+import Footer from "../footer/Footer";
 
 const loadingAnimationOptions = {
   loop: true,
@@ -26,7 +32,7 @@ const doneAnimationOptions = {
 function Loading() {
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
-
+  const [users, setUsers] = useState({});
   // let response;
   useEffect(() => {
       setTimeout(() => {
@@ -34,16 +40,13 @@ function Loading() {
           .then(response => response.json())
           .then(json => {
             setLoading(true);
-
+            setUsers(json)
             setTimeout(() => {
               setDone(true);
             }, 1200);
-          });
+          })
       }, 1200);
-
-    }
-  );
-  // alert("Done was set to" + done);
+    }, []);
 
   return(
     <div>
@@ -63,11 +66,16 @@ function Loading() {
         </FadeIn>
 
       ): (
-        <div style={{display: "flex", alignItems: "center",
-          justifyContent: "center", height: "100vh",
-          backgroundColor: "#343434"}}>
-          <h2 style={{height: "4.5rem", color: "white"}}>hello world</h2>
+        <div className="grid-page">
+          <Header>
+          </Header>
+          <MenuHeader/>
+          <Menu/>
+          <Headline/>
+          <ContentsGrid/>
+          <Footer/>
         </div>
+
       )}
     </div>
   )

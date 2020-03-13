@@ -20,9 +20,21 @@ const usersListByCreated = (req, res) => {
           .status(404)
           .json(err);
       }
-      res
-        .status(200)
-        .json(users);
+      if(users.length == 0) {
+        res
+          .status(200)
+          .json({
+            users: users
+          });
+      }
+      else {
+        res
+          .status(200)
+          .json({
+            users: users
+          });
+      }
+
     });
 }
 const groupsListByCreated = (req, res) => {
