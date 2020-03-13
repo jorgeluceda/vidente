@@ -54,7 +54,7 @@ app.use(session({
 }));
 
 //include react static path
-app.use('/groups-alt/', express.static(path.join(__dirname, './app_server/vidente-app/build/')));
+app.use('/app/', express.static(path.join(__dirname, './app_server/vidente-app/build/')));
 
 // console.log(__dirname + "./vidente-app/build/");
 // defining the sets/subsets of URL's for which 
