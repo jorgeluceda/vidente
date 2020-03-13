@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Loading from "../loading/Loading.js"
 import Header from '../header/Header';
 import MenuHeader from "../menu-header/MenuHeader";
 import Menu from "../menu/Menu";
@@ -10,15 +11,7 @@ import Footer from "../footer/Footer";
 
 function App() {
   return (
-    <div className="grid-page">
-      <Header/>
-      <MenuHeader/>
-      <Menu/>
-      <Headline/>
-      <ContentsGrid/>
-      <Footer/>
-    </div>
-
+      <Loading/>
   );
 }
 

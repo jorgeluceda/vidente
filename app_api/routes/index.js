@@ -5,6 +5,10 @@ const ctrlReviews = require('../controllers/reviews');
 const ctrlUsers = require("../controllers/users");
 const ctrlGroups = require('../controllers/groups')
 // locations
+
+router
+  .route('/users')
+  .get(ctrlUsers.usersListByCreated)
 router 
     .route('/user')
 

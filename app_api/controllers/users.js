@@ -1,7 +1,31 @@
 const mongoose = require('mongoose');
 const Users = mongoose.model('Users');
 
-const groupsListByCreated = async (req, res) => {
+const usersListByCreated = (req, res) => {
+  Users
+    .find({})
+    .select("name id")
+    .exec((err, users) => {
+      // traps if mongoose doesn't return
+      // a location or if mongoose returns an error;
+      // also sends a 404 response using return statement
+      if (!users) {
+        return res
+          .status(404)
+          .json({
+            "message": "No users were found, check source."
+          });
+      } else if (err) {
+        return res
+          .status(404)
+          .json(err);
+      }
+      res
+        .status(200)
+        .json(users);
+    });
+}
+const groupsListByCreated = (req, res) => {
     var userid = req.query.userid;
     if(!userid) {
         return res
@@ -10,8 +34,8 @@ const groupsListByCreated = async (req, res) => {
     }
 
     Users
-        .findById({_id: userid}, {groups: 1})
-        .select("groups.")
+        .findById({_id: userid})
+        // .select("")
         .exec((err, groups) => {
             // traps if mongoose doesn't return
             // a location or if mongoose returns an error;
@@ -41,7 +65,8 @@ const userCreate = (req, res) => {
             .json("Error: 'name' or 'favorite' body keys needed.");
     }
 
-    User.create({
+    Users.
+    create({
         name: req.body.name,
         favorite: req.body.favorite,
         groups: [{
@@ -243,6 +268,7 @@ const userDeleteOne = (req, res) => {
 };
 
 module.exports = {
+    usersListByCreated,
     groupsListByCreated,
     userCreate,
     userReadOne,
