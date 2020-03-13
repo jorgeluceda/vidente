@@ -4,12 +4,14 @@ import Lottie from "react-lottie";
 import ReactLoading from "react-loading";
 import * as loadingAnimation from "./loadingAnimation";
 import * as doneAnimation from "./doneAnimation";
-import Header from "../header/Header";
-import MenuHeader from "../menu-header/MenuHeader";
-import Menu from "../menu/Menu";
-import ContentsGrid from "../contents-grid/ContentsGrid";
-import Headline from "../headline/Headline";
-import Footer from "../footer/Footer";
+
+import GridPage from "../grid-page/GridPage";
+// import Header from "../grid-page/header/Header";
+import MenuHeader from "../grid-page/menu-header/MenuHeader";
+import Menu from "../grid-page/menu/Menu";
+import ContentsGrid from "../grid-page/contents-grid/ContentsGrid";
+import Headline from "../grid-page/headline/Headline";
+import Footer from "../grid-page/footer/Footer";
 
 const loadingAnimationOptions = {
   loop: true,
@@ -33,19 +35,18 @@ function Loading() {
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
   const [users, setUsers] = useState({});
-  // let response;
+
   useEffect(() => {
-      setTimeout(() => {
         fetch("/api/users")
           .then(response => response.json())
           .then(json => {
             setLoading(true);
-            setUsers(json)
+            // alert(JSON.stringify(json.users));
+            setUsers(json);
             setTimeout(() => {
               setDone(true);
-            }, 1200);
+            }, 500);
           })
-      }, 1200);
     }, []);
 
   return(
@@ -66,15 +67,7 @@ function Loading() {
         </FadeIn>
 
       ): (
-        <div className="grid-page">
-          <Header>
-          </Header>
-          <MenuHeader/>
-          <Menu/>
-          <Headline/>
-          <ContentsGrid/>
-          <Footer/>
-        </div>
+        <GridPage></GridPage>
 
       )}
     </div>
