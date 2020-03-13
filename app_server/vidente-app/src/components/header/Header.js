@@ -2,7 +2,7 @@ import React from "react";
 
 function Header() {
   return (
-    <div className="header">
+    <div className="header" style={{padding: "0px 0.8rem"}}>
       <a href="/">
         <h5 className="no-select">
           🔮

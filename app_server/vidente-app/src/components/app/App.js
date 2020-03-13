@@ -1,11 +1,12 @@
 import React from 'react';
 
-import Header from '../header/header';
+import Header from '../header/Header';
 import MenuHeader from "../menu-header/MenuHeader";
 import Menu from "../menu/Menu";
+import Headline from "../headline/Headline";
+import ContentsGrid from "../contents-grid/ContentsGrid";
 import './App.css';
-
-
+import Footer from "../footer/Footer";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
       <Header/>
       <MenuHeader/>
       <Menu/>
+      <Headline/>
+      <ContentsGrid/>
+      <Footer/>
     </div>
 
   );

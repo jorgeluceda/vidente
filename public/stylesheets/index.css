@@ -420,7 +420,11 @@ html, body {
   grid-auto-rows: 50px;
   grid-template-rows: 3em 5.5em auto 5em 50px;
   grid-template-columns: 16em auto auto;
-  grid-template-areas: "h h h" "mh ch ch" "mr cr cr" "mr . ." "f f f"; }
+  grid-template-areas: "h h h"
+ "mh ch ch"
+ "mr cr cr"
+ "mr . ."
+ "f f f"; }
 
 .header {
   /* span to the last column line */
@@ -494,7 +498,13 @@ html, body {
   .grid-page {
     grid-template-rows: 3em 4.5em 7em 6.5em auto 8em 3em;
     grid-template-columns: auto auto auto;
-    grid-template-areas: "h h h" "mh mh mh" "mr mr mr" "ch ch ch" "cr cr cr" ". . ." "f f f"; }
+    grid-template-areas: "h h h"
+ "mh mh mh"
+ "mr mr mr"
+ "ch ch ch"
+ "cr cr cr"
+ ". . ."
+ "f f f"; }
   .menu {
     border-bottom: 1px solid #e1e4e8 !important;
     border-right: none; }
