@@ -30,7 +30,7 @@ function Loading() {
   // let response;
   useEffect(() => {
       setTimeout(() => {
-        fetch("/api/users/")
+        fetch("/api/users")
           .then(response => response.json())
           .then(json => {
             setLoading(true);
