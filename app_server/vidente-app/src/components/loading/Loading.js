@@ -41,11 +41,10 @@ function Loading() {
           .then(response => response.json())
           .then(json => {
             setLoading(true);
-            // alert(JSON.stringify(json.users));
             setUsers(json);
             setTimeout(() => {
               setDone(true);
-            }, 500);
+            }, 550);
           })
     }, []);
 
