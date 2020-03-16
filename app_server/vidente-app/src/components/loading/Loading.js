@@ -6,12 +6,6 @@ import * as loadingAnimation from "./loadingAnimation";
 import * as doneAnimation from "./doneAnimation";
 
 import GridPage from "../grid-page/GridPage";
-// import Header from "../grid-page/header/Header";
-import MenuHeader from "../grid-page/menu-header/MenuHeader";
-import Menu from "../grid-page/menu/Menu";
-import ContentsGrid from "../grid-page/contents-grid/ContentsGrid";
-import Headline from "../grid-page/headline/Headline";
-import Footer from "../grid-page/footer/Footer";
 
 const loadingAnimationOptions = {
   loop: true,
@@ -37,10 +31,11 @@ function Loading() {
   const [users, setUsers] = useState({});
 
   useEffect(() => {
-        fetch("/api/users")
+        fetch("/api/user/?userid=5e699e49dbf7da37ec3244f4")
           .then(response => response.json())
           .then(json => {
             setLoading(true);
+            // alert(JSON.stringify(json));
             setUsers(json);
             setTimeout(() => {
               setDone(true);
@@ -66,7 +61,7 @@ function Loading() {
         </FadeIn>
 
       ): (
-        <GridPage></GridPage>
+        <GridPage user={users}></GridPage>
 
       )}
     </div>

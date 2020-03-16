@@ -1,31 +1,33 @@
 import React from "react";
 
-let favorite = "Favorites";
-let groups = ["Favorites", "Electronics", "Accessories", "Dogs",
-  "Health", "Food"];
+// let favorite = "Favorites";
+// let groups = ["Favorites", "Electronics", "Accessories", "Dogs",
+//   "Health", "Food"];
 
-function Menu() {
+function Menu(props) {
   return(
     <div className="menu">
       <div className="menu-contents">
-          <PrintGroups groups={groups} favorite={favorite} size="2" type="short"/>
-          <PrintGroups groups={groups} favorite={favorite} size="13" type="long"/>
+          <PrintGroups groups={props.groups} favorite={props.favorite} size="2" type="short"/>
+          <PrintGroups groups={props.groups} favorite={props.favorite} size="13" type="long"/>
       </div>
     </div>
   );
 }
 
 function PrintGroups(props) {
-  favorite = props.favorite;
+  let favorite = props.favorite;
+  let groups = props.groups;
+  // alert(favorite);
 
   let pruned = 0;
-  const groupItems = props.groups.slice(0, props.size).map((function(group) {
+  const groupItems = groups.slice(0, props.size).map((function(group) {
     pruned += 1;
 
-    if (group == favorite) {
-      return <div><a>{group}</a></div>
+    if (group.name == favorite) {
+      return <div><a>{group.name}</a></div>
     } else {
-      return <p>{group}</p>
+      return <p>{group.name}</p>
     }
   }));
 
@@ -76,36 +78,36 @@ function PrintExtraStrapline(props) {
 
 }
 
-function PrintGroupsLarge(props) {
-  favorite = props.favorite;
-
-  const groupItems = props.groups.map((function(group) {
-    if (group == favorite) {
-      return <div><a>{group}</a></div>
-    } else {
-      return <p>{group}</p>
-    }
-  }));
-
-  return (
-    <div className="strapline strapline-long" id="strapline-long">
-      {groupItems}
-      <PrintExtraStrapline size="long"/>
-
-    </div>
-  );
-}
-
-function MenuContentsListLarge(props) {
-  const groups = props.groups;
-  // alert(groups);
-  const groupItems = groups.map((group) =>
-    <li>{group}</li>
-  );
-
-  return (
-    <ul>{groupItems}</ul>
-  );
-}
+// function PrintGroupsLarge(props) {
+//   let favorite = props.favorite;
+//
+//   const groupItems = props.groups.map((function(group) {
+//     if (group == favorite) {
+//       return <div><a>{group}</a></div>
+//     } else {
+//       return <p>{group}</p>
+//     }
+//   }));
+//
+//   return (
+//     <div className="strapline strapline-long" id="strapline-long">
+//       {groupItems}
+//       <PrintExtraStrapline size="long"/>
+//
+//     </div>
+//   );
+// }
+//
+// function MenuContentsListLarge(props) {
+//   const groups = props.groups;
+//   // alert(groups);
+//   const groupItems = groups.map((group) =>
+//     <li>{group}</li>
+//   );
+//
+//   return (
+//     <ul>{groupItems}</ul>
+//   );
+// }
 
 export default Menu;

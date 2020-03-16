@@ -6,13 +6,15 @@ import Headline from "./headline/Headline";
 import ContentsGrid from "./contents-grid/ContentsGrid";
 import Footer from "./footer/Footer";
 
-function GridPage() {
+function GridPage(props) {
+  // alert(JSON.stringify(props.user));
+  alert(props.user.favorite);
   return(
     <div className="grid-page">
       <Header>
       </Header>
       <MenuHeader/>
-      <Menu/>
+      <Menu groups={props.user.groups} favorite={props.user.favorite}/>
       <Headline/>
       <ContentsGrid/>
       <Footer/>
