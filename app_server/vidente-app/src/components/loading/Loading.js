@@ -36,7 +36,6 @@ function Loading() {
           .then(json => {
             setLoading(true);
             setUsers(json);
-            alert(JSON.stringify(json));
             setTimeout(() => {
               setDone(true);
             }, 550);

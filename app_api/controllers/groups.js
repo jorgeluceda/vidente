@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 const Users = mongoose.model('Users');
 
 const groupsCreateOne = (req, res) => {
-    console.log("GOT HERE");
-
     if(!req.body.name) {
         return res
             .status(404)

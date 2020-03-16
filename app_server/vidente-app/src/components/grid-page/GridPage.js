@@ -17,7 +17,6 @@ function GridPage(props) {
         <Header>
         </Header>
         <MenuHeader/>
-        {/*<Menu groups={props.user.groups} group={group}/>*/}
         <div className="menu">
           <div className="menu-contents">
             <PrintGroups groups={props.user.groups} group={group} size="2" type="short" parentCallback={callback}/>
