@@ -37,6 +37,7 @@ const usersListByCreated = (req, res) => {
 
     });
 }
+
 const groupsListByCreated = (req, res) => {
     var userid = req.query.userid;
     if(!userid) {
@@ -47,7 +48,7 @@ const groupsListByCreated = (req, res) => {
 
     Users
         .findById({_id: userid})
-        // .select("")
+        .select('-groups.labels')
         .exec((err, groups) => {
             // traps if mongoose doesn't return
             // a location or if mongoose returns an error;
@@ -70,7 +71,6 @@ const groupsListByCreated = (req, res) => {
 };
 
 const userCreate = (req, res) => {
-    console.log(req.body);
     if(!req.body.name || !req.body.favorite) {
         return res
             .status(404)

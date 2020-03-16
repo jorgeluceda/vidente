@@ -39,4 +39,10 @@ const userSchema = new mongoose.Schema({
     groups: [groupSchema]
 });
 
+
+// indexing indexes for all of our schemas
+userSchema.index({name: 1});
+groupSchema.index({name: 1});
+labelSchema.index({name: 1});
 mongoose.model('Users', userSchema);
+

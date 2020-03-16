@@ -15,10 +15,17 @@ router
     .get(ctrlUsers.groupsListByCreated)
     .post(ctrlUsers.userCreate)
 
-router 
+router
+    .route('/user/:userid/groups')
+    .post(ctrlGroups.groupsCreateOne)
+
+router
     .route('/user/:userid/groups/:groupid')
     // // Read a specific user's property
     .get(ctrlGroups.labelsListByCreated)
+    .delete(ctrlGroups.groupsDeleteOne)
+
+    // .post(ctrlGroups.groupsDeleteOne);
 
     // .post(ctrlGroups.groupCreate)
     // Update a specific user's property

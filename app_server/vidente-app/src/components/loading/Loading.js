@@ -28,7 +28,7 @@ const doneAnimationOptions = {
 function Loading() {
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
-  const [users, setUsers] = useState({});
+  const [user, setUsers] = useState({});
 
   useEffect(() => {
         fetch("/api/user/?userid=5e699e49dbf7da37ec3244f4")
@@ -36,6 +36,7 @@ function Loading() {
           .then(json => {
             setLoading(true);
             setUsers(json);
+            alert(JSON.stringify(json));
             setTimeout(() => {
               setDone(true);
             }, 550);
@@ -60,7 +61,7 @@ function Loading() {
         </FadeIn>
 
       ): (
-        <GridPage user={users}></GridPage>
+        <GridPage user={user} group={user.favorite}></GridPage>
 
       )}
     </div>

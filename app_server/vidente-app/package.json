@@ -13,7 +13,8 @@
     "react-fade-in": "^0.1.8",
     "react-loading": "^2.0.3",
     "react-lottie": "^1.2.3",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "redux": "^4.0.5"
   },
   "scripts": {
     "start": "cross-env PORT=3001 react-scripts start",
