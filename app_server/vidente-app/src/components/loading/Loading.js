@@ -14,7 +14,7 @@ const loadingAnimationOptions = {
   rendererSettings: {
     preserveAspectRatio: "xMidYMid slice"
   }
-}
+};
 
 const doneAnimationOptions = {
   loop: false,

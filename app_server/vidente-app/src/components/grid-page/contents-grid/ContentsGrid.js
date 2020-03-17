@@ -1,4 +1,5 @@
 import React from 'react';
+import Pagination from "../pagination/Pagination";
 
 
 function ContentsGrid() {
@@ -12,6 +13,7 @@ function ContentsGrid() {
     <div className="contents-grid">
       {labels}
     </div>
+
   );
 }
 

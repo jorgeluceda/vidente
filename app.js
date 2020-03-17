@@ -46,6 +46,9 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+app.use(bodyParser.json());
+app.use(bodyParser.raw());
+
 // express session must be used before passport
 app.use(session({
   secret: 'Insert Randomized text here',

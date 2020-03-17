@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-function MenuHeader() {
+function MenuHeader(props) {
   return(
     <div className="menu-header">
 
@@ -8,13 +8,16 @@ function MenuHeader() {
         <h6>
           Groups&nbsp;&nbsp;
         </h6>
-        <button href="" onTouchStart="">
-          <span> New Group </span>
+        <button onTouchStart="" onClick={() => {
+          props.parentCallback(true);
+        }}>
+          <span
+            // props.parentCallback()
+          > New Group </span>
         </button>
       </div>
 
       <div className="border-bottom"/>
-
     </div>
   );
 }
