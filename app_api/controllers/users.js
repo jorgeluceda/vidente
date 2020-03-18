@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const Users = mongoose.model('Users');
+const User = mongoose.model('User');
 
 const usersListByCreated = (req, res) => {
-  Users
+  User
     .find({})
     .select("name id")
     .exec((err, users) => {
@@ -38,37 +38,6 @@ const usersListByCreated = (req, res) => {
     });
 }
 
-const groupsListByCreated = (req, res) => {
-    var userid = req.query.userid;
-    if(!userid) {
-        return res
-            .status(404)
-            .json("Error: need to pass userid parameter");
-    }
-
-    Users
-        .findById({_id: userid})
-        .select('-groups.labels')
-        .exec((err, groups) => {
-            // traps if mongoose doesn't return
-            // a location or if mongoose returns an error;
-            // also sends a 404 response using return statement
-            if(!groups) {
-                return res
-                    .status(404)
-                    .json({
-                        "message" : "'groups' array was not found, check source."
-                    });
-            } else if(err) {
-                return res
-                    .status(404)
-                    .json(err);
-            }
-            res
-                .status(200)
-                .json(groups);
-        });
-};
 
 const userCreate = (req, res) => {
     if(!req.body.name || !req.body.favorite) {
@@ -77,7 +46,7 @@ const userCreate = (req, res) => {
             .json("Error: 'name' or 'favorite' body keys needed.");
     }
 
-    Users.
+    User.
     create({
         name: req.body.name,
         favorite: req.body.favorite,
@@ -281,7 +250,6 @@ const userDeleteOne = (req, res) => {
 
 module.exports = {
     usersListByCreated,
-    groupsListByCreated,
     userCreate,
     userReadOne,
     userUpdateOne,

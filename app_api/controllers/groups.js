@@ -1,40 +1,89 @@
 const mongoose = require('mongoose');
-const Users = mongoose.model('Users');
+const User = mongoose.model('User');
 
-const groupsCreateOne = (req, res) => {
-    if(!req.body.name) {
-        return res
+const getUser = (req, res, callback) => {
+  if(req.payload && req.payload.email) {
+    User.
+      findOne({ email: req.payload.email})
+      .exec((err, user) => {
+        if(!user) {
+          return res
             .status(404)
-            .json("Error: 'name' body key needed.");
-    }
-
-    Users
-        .findOneAndUpdate(req.params.userid, {
-            $push: {
-                groups: {
-                    name: req.body.name,
-                    labels: []
-                }
-            }
-        })
-        .exec((err, group) => {
-            // appropriate response methods for
-            // dealing with both success and
-            // failure
-            if(err) {
-                res
-                    .status(400)
-                    .json(err);
-            } else {
-                res
-                    .status(200)
-                    .json(`${req.body.name} was successfully pushed to ${req.params.userid}`);
-            }
-        });
+            .json({"message": "User Not found"});
+        } else if(err) {
+          console.log(err);
+          return res
+            .status(404)
+            .json(err);
+        }
+        callback(req, res, user.name);
+      });
+  }
 };
 
+const groupsCreate = (req, res) => {
+  getUser(req, res, (req, res, username) => {
+    const userId = req.params.userid;
+    if(userId) {
+      User
+        .findOneAndUpdate(req.params.userid, {
+          $push: {
+            groups: {
+              name: req.body.name,
+              labels: []
+            }
+          }
+        })
+        .exec((err, group) => {
+          // appropriate response methods for dealing with both success and failure
+          if(err) {
+            res
+              .status(400)
+              .json(err);
+          } else {
+            res
+              .status(200)
+              .json(`${req.body.name} was successfully pushed to ${req.params.userid}`);
+          }
+        });
+    }
+  });
+};
+// const groupsCreateOne = (req, res) => {
+//     if(!req.body.name) {
+//         return res
+//             .status(404)
+//             .json("Error: 'name' body key needed.");
+//     }
+//
+//     User
+//         .findOneAndUpdate(req.params.userid, {
+//             $push: {
+//                 groups: {
+//                     name: req.body.name,
+//                     labels: []
+//                 }
+//             }
+//         })
+//         .exec((err, group) => {
+//             // appropriate response methods for
+//             // dealing with both success and
+//             // failure
+//             if(err) {
+//                 res
+//                     .status(400)
+//                     .json(err);
+//             } else {
+//                 res
+//                     .status(200)
+//                     .json(`${req.body.name} was successfully pushed to ${req.params.userid}`);
+//             }
+//         });
+// };
+
 const groupsDeleteOne = (req, res) => {
-    const {userid, groupid} = req.params;
+    const userid = req.params.userid;
+    const groupid = req.body.groupid;
     if(!userid || !groupid) {
         return res
             .status(404)
@@ -43,7 +92,7 @@ const groupsDeleteOne = (req, res) => {
             });
     }
 
-    Users
+    User
         .findById(userid)
         .select('groups')
         .exec((err, user) => {
@@ -66,7 +115,7 @@ const groupsDeleteOne = (req, res) => {
                 if(!user.groups.id(groupid)) {
                     return res
                         .status(404)
-                        .json({"message": "Review not found"});
+                        .json({"message": "Group to delete not found"});
                 } else {
                     user.groups.id(groupid).remove();
                     user.save(err => {
@@ -92,6 +141,40 @@ const groupsDeleteOne = (req, res) => {
 
 };
 
+const groupsListByCreated = (req, res) => {
+  var userid = req.params.userid;
+  console.log("USER ID: " + userid);
+  if(!userid) {
+    return res
+      .status(404)
+      .json("Error: need to pass userid parameter");
+  }
+
+  User
+    .findById({_id: userid})
+    .select('-groups.labels -salt -hash -name -email')
+    .exec((err, groups) => {
+      // traps if mongoose doesn't return
+      // a location or if mongoose returns an error;
+      // also sends a 404 response using return statement
+      if(!groups) {
+        return res
+          .status(404)
+          .json({
+            "message" : "'groups' array was not found, check source."
+          });
+      } else if(err) {
+        return res
+          .status(404)
+          .json(err);
+      }
+      res
+        .status(200)
+        .json(groups);
+    });
+};
+
+
 const labelsListByCreated = async (req, res) => {
     var userid = req.params.userid;
     var groupid = req.params.groupid;
@@ -102,7 +185,7 @@ const labelsListByCreated = async (req, res) => {
             .json("Error: need to pass 'userid' or 'groupid' parameters");
     }
 
-    Users
+    User
         .findById(userid)
         .exec((err, user) => {
 
@@ -163,8 +246,8 @@ const labelsListByCreated = async (req, res) => {
 
 
 module.exports = {
-    groupsCreateOne,
+    groupsListByCreated,
+    groupsCreate,
     groupsDeleteOne,
-    labelsListByCreated,
-
+    labelsListByCreated
 };

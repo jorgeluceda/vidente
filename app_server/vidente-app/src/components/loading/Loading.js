@@ -31,7 +31,7 @@ function Loading() {
   const [user, setUsers] = useState({});
 
   useEffect(() => {
-        fetch("/api/user/?userid=5e699e49dbf7da37ec3244f4")
+        fetch("/api/user/5e7259bd590e1732786a164b/groups")
           .then(response => response.json())
           .then(json => {
             setLoading(true);

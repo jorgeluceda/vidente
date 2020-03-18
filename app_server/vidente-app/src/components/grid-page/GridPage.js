@@ -20,7 +20,7 @@ function GridPage(props) {
     setActiveNewGroupModal(visible);
 
     if(groupName) {
-      fetch("/api/user/5e699e49dbf7da37ec3244f4/groups",
+      fetch("/api/user/5e7259bd590e1732786a164b/groups",
         {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
