@@ -36,7 +36,7 @@ const usersListByCreated = (req, res) => {
       }
 
     });
-}
+};
 
 
 const userCreate = (req, res) => {

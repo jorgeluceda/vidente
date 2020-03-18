@@ -23,13 +23,13 @@ router
   .post(ctrlUsers.userCreate);
 
 router
-  .route('/user/:userid/groups')
-  .get(ctrlGroups.groupsListByCreated)
+  .route('/groups')
+  .get(auth, ctrlGroups.groupsListByCreated)
   .post(auth, ctrlGroups.groupsCreate)
   .delete(auth, ctrlGroups.groupsDeleteOne);
 
 router
-  .route('/user/:userid/groups/:groupid')
+  .route('/labels')
   // // Read a specific user's property
   .get(ctrlGroups.labelsListByCreated);
 
