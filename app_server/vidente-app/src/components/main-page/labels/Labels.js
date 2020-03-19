@@ -13,15 +13,16 @@ function Labels(props) {
 
   React.useEffect(() => {
     if(props.changedGroup) {
-      setReady(false);
+      // setReady(false);
+      // alert("Wow");
 
       userService.getLabels(props.groupId).then(response => {
         setGroupName(response.group.name);
         setLabels(response.labels);
       }).then(() => {
-          setTimeout(() => {
-            setReady(true);
-          }, 10);
+          // setTimeout(() => {
+          //   // setReady(true);
+          // }, 10);
         }
       );
     }
@@ -45,7 +46,7 @@ function Labels(props) {
   return(
     <>
       <Headline groupName={groupName} ready={ready}/>
-      <ContentsGrid/>
+      <ContentsGrid labels={labels} ready={ready}/>
     </>
   );
 }

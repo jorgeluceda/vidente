@@ -67,7 +67,7 @@ function Groups() {
   return(
     <>
       <MenuHeader parentCallback={newGroupCallback}/>
-      <div className="menu">
+      <div className="menu" style={{paddingBottom: "0.75em"}}>
         <ReactPlaceholder ready={ready} customPlaceholder={menuPlaceholder} showLoadingAnimation="true">
           <div className="menu-contents">
             <PrintGroups groups={groups} groupId={favoriteGroup}
