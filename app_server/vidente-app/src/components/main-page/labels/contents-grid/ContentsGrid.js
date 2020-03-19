@@ -36,7 +36,7 @@ function ContentsGrid(props) {
         <div className="card"
              style={{background: "white", borderStyle: "dashed", borderWidth: "3px",
                borderColor: "#3192FE", backgroundColor: "#F0F7FF", color: "#007AFF"}}>
-              <span className="no-select" style={{fontSize: "1.5rem"}}>+ Add Label</span>
+              <span className="no-select" style={{fontSize: "1.25rem"}}>+ Add Label</span>
         </div>
       )
     }
