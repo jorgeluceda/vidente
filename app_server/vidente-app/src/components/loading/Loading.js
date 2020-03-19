@@ -6,7 +6,7 @@ import * as loadingAnimation from "./loadingAnimation";
 import * as doneAnimation from "./doneAnimation";
 import {authService} from "../_services/authService";
 
-import GridPage from "../grid-page/GridPage";
+import MainPage from "../main-page/MainPage";
 import {userService} from "../_services/userService";
 
 const loadingAnimationOptions = {
@@ -88,7 +88,7 @@ function Loading() {
 
       ) :
         <FadeIn>
-          <GridPage />
+          <MainPage />
         </FadeIn>
       }
     </div>

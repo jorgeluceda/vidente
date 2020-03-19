@@ -16,6 +16,7 @@
     "react-fade-in": "^0.1.8",
     "react-loading": "^2.0.3",
     "react-lottie": "^1.2.3",
+    "react-placeholder": "^4.0.1",
     "react-scripts": "3.4.0",
     "rxjs": "^6.5.4",
     "yup": "^0.28.3"

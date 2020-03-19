@@ -31,7 +31,7 @@ router
 router
   .route('/labels')
   // // Read a specific user's property
-  .get(ctrlGroups.labelsListByCreated);
+  .get(auth, ctrlGroups.labelsListByCreated);
 
 router
   .route('/register')

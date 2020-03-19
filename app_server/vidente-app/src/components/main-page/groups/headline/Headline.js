@@ -1,10 +1,23 @@
 import React from "react";
-import Pagination from "../pagination/Pagination";
+import Pagination from "../../labels/pagination/Pagination";
+import TextRow from "react-placeholder/lib/placeholders/TextRow";
+import ReactPlaceholder from "react-placeholder";
+
+const groupTitlePlaceholder = (
+  <div>
+    {/*<RectShape color='blue' style={{width: 30, height: 80}}/>*/}
+    <TextRow color='#E3E5E8' style={{width: 100, height: 20}}/>
+
+  </div>
+);
 function Headline(props) {
   return(
     <div className="headline">
       <div className="headline-contents">
-        <h6>&emsp; {props.group} &nbsp; &nbsp;</h6>
+        <ReactPlaceholder customPlaceholder={groupTitlePlaceholder} ready={props.ready} showLoadingAnimation="true">
+          <h6>&emsp; {props.groupName} &nbsp; &nbsp;</h6>
+        </ReactPlaceholder>
+
         <div className="button-curved" href="" onTouchStart="">
           <span>
             <div className="glyph-add">
