@@ -32,7 +32,7 @@ function Groups() {
     }).then(() => {
       setTimeout(() => {
       setReady(true);
-    }, 100);
+    }, 10);
     }
 
     );

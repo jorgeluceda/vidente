@@ -18,10 +18,12 @@ function Labels(props) {
       userService.getLabels(props.groupId).then(response => {
         setGroupName(response.group.name);
         setLabels(response.labels);
-        setTimeout(() => {
-          setReady(true);
-        }, 40);
-      });
+      }).then(() => {
+          setTimeout(() => {
+            setReady(true);
+          }, 10);
+        }
+      );
     }
   }, [props.groupId]);
 
@@ -34,7 +36,7 @@ function Labels(props) {
       }).then(() => {
           setTimeout(() => {
             setReady(true);
-          }, 75);
+          }, 10);
         }
       );
     }
