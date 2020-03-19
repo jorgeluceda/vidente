@@ -51,6 +51,26 @@ button, .button, .button-curved {
 .card:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
 
+.card-new {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  /*align-items: center;*/
+  width: 400px;
+  height: 200px;
+  border: 1px solid #d1d5da6b;
+  border-radius: 3px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 10px 13px 0 rgba(0, 0, 0, 0.082);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
+
+.card-new > b {
+  margin-bottom: 0.5rem;
+  margin-top: 1rem; }
+
+.card-new:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+
 .pagination-button {
   color: rgba(0, 0, 0, 0.95);
   border-radius: 4px;
@@ -151,6 +171,36 @@ button-curved:active, .button-curved:active, button-cuved.active {
   color: #2a90fd;
   outline: none; }
 
+.button-secondary {
+  display: flex;
+  flex-direction: row;
+  background: #F0F7FF;
+  color: #007AFF;
+  height: 2rem;
+  /*max-height: 2.40rem;*/
+  width: 3rem;
+  border-width: 0;
+  border-radius: 1rem;
+  -webkit-padding-start: 0.2rem;
+  padding-inline-start: 0.2rem;
+  -webkit-padding-end: 0.2rem;
+  padding-inline-end: 0.2rem;
+  font-size: 0.9rem;
+  border-color: #88a0ad;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+
+  border:1px solid #9C9C9C;
+  /*display: inline-block;*/
+  background-image: -webkit-linear-gradient(
+          #ffffff 0%, #F6F6F6 	30%,
+          #F3F3F3 45%, #EDEDED 	60%,
+          #eeeeee 100%);
+  border-radius: 3px;
+  cursor: default;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.20);
+}
 a, .link {
   color: #000; }
 
@@ -216,6 +266,9 @@ html, body {
   /* applies anti-aliasing for Firefox */
   -moz-osx-font-smoothing: grayscale; }
 
+body::-webkit-scrollbar {
+  display: none;
+}
 small {
   /* using mininum font-size scale*/
   font-size: .875rem; }

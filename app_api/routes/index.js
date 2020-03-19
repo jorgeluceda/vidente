@@ -1,62 +1,45 @@
 const express = require('express');
 const router = express.Router();
-// const ctrlLocations = require('../controllers/locations');
-const ctrlReviews = require('../controllers/reviews');
+
+const jwt = require('express-jwt');
+const auth = jwt({
+  // set secret using environment variable
+  secret: process.env.JWT_SECRET,
+  // defines the property to be 'payload'
+  // instead of 'user' to avoid confusion
+  userProperty: 'payload'
+});
+
 const ctrlUsers = require("../controllers/users");
-const ctrlGroups = require('../controllers/groups')
-// locations
+const ctrlGroups = require('../controllers/groups');
+const ctrlAuth = require('../controllers/authentication');
 
 router
   .route('/users')
-  .get(ctrlUsers.usersListByCreated)
-router 
-    .route('/user')
-
-    .get(ctrlUsers.groupsListByCreated)
-    .post(ctrlUsers.userCreate)
+  .get(ctrlUsers.usersListByCreated);
 
 router 
-    .route('/user/:userid/groups/:groupid')
-    // // Read a specific user's property
-    .get(ctrlGroups.labelsListByCreated)
-
-    // .post(ctrlGroups.groupCreate)
-    // Update a specific user's property
-    // .put(ctrlGroups.userUpdateOne)
-    // // Delete a specific user's property
-    // .delete(ctrlGroups.userDeleteOne);
-
-// router 
-//     .route('/user/:userid/groups/:groupid')
-//     // Read a specific user's group
-//     .get(ctrlGroups.groupReadOne)
-//     // Update a specific user's group
-//     .put(ctrlGroups.groupUpdateOne)
-//     // Delete a specific user's group list
-//     .delete(ctrlGroups.groupDeleteOne);
-// router
-//     .route('/user/:userid')
-//     // Read a specific location
-//     .get(ctrlLocations.locationsReadOne)
-//     // Update a specific location
-//     .put(ctrlLocations.locationsUpdateOne)
-//     // Delete a specific location
-//     .delete(ctrlLocations.locationsDeleteOne);
-
-// reviews
-router
-    .route('/locations/:locationid/reviews')
-    // Create new review
-    .post(ctrlReviews.reviewsCreate)
+  .route('/user')
+  .post(ctrlUsers.userCreate);
 
 router
-    .route('/locations/:locationid/reviews/:reviewid')
-    // Read a specific review
-    .get(ctrlReviews.reviewsReadOne)
-    // Update a specific review
-    .put(ctrlReviews.reviewsUpdateOne)
-    // Delete a specific review
-    .delete(ctrlReviews.reviewsDeleteOne)
+  .route('/groups')
+  .get(auth, ctrlGroups.groupsListByCreated)
+  .post(auth, ctrlGroups.groupsCreate)
+  .delete(auth, ctrlGroups.groupsDeleteOne);
+
+router
+  .route('/labels')
+  // // Read a specific user's property
+  .get(ctrlGroups.labelsListByCreated);
+
+router
+  .route('/register')
+  .post(ctrlAuth.register);
+
+router
+  .route('/login')
+  .post(ctrlAuth.login);
 
 //exports routes
 module.exports = router;
