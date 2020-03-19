@@ -6,11 +6,20 @@ import ContentsGrid from "./contents-grid/ContentsGrid";
 import Footer from "./footer/Footer";
 import AriaModal from 'react-aria-modal';
 import Pagination from "./pagination/Pagination";
+import {authService} from "../_services/authService";
+import {userService} from "../_services/userService";
 
 function GridPage(props) {
-  const [groups, setGroups] = useState(props.user.groups);
-  const [favoriteGroup, setFavoriteGroup] = useState(props.group);
+  const [userToken, setUserToken] = useState(authService.currentUserValue);
+  const [groups, setGroups] = useState([]);
+  const [favoriteGroup, setFavoriteGroup] = useState("Favorites");
   const [activeNewGroupModal, setActiveNewGroupModal] = useState(false);
+
+  useEffect(() => {
+    userService.getAllGroups().then(user => {
+      setGroups(user.groups)
+    });
+  }, []);
 
   const favoriteGroupCallback = (val) => {
     setFavoriteGroup(val);

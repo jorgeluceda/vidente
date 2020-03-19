@@ -84,9 +84,26 @@ userSchema.methods.generateJWT = function() {
 };
 
 // indexing by name for all of our schemas
-userSchema.index({name: 1});
-groupSchema.index({name: 1});
-labelSchema.index({name: 1});
+userSchema.index({name: "text"});
+groupSchema.index({name: "text"});
+labelSchema.index({name: "text"});
 
 mongoose.model('User', userSchema);
+
+const User = mongoose.model('User');
+
+const testUser = new User();
+testUser.name = "Test User";
+testUser.email = "test@test.com";
+//create default favorite group
+testUser.favorite = "Favorites";
+testUser.groups = [{name: "Favorites", labels: []}];
+
+// uses schema method to set the salt and hash
+testUser.setPassword("test");
+testUser.save((err, user) => {
+    if(err) {
+        console.log(JSON.stringify(err.errmsg));
+    }
+});
 

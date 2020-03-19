@@ -104,7 +104,7 @@ const userReadOne = (req,res) => {
                 .status(200)
                 .json(user.name);
         });   
-}
+};
 
 // const userReadOne = (req,res) => {
 //     if(!userid) {

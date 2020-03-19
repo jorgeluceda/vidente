@@ -266,6 +266,9 @@ html, body {
   /* applies anti-aliasing for Firefox */
   -moz-osx-font-smoothing: grayscale; }
 
+body::-webkit-scrollbar {
+  display: none;
+}
 small {
   /* using mininum font-size scale*/
   font-size: .875rem; }

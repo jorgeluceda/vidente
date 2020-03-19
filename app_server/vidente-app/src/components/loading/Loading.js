@@ -4,8 +4,10 @@ import Lottie from "react-lottie";
 import ReactLoading from "react-loading";
 import * as loadingAnimation from "./loadingAnimation";
 import * as doneAnimation from "./doneAnimation";
+import {authService} from "../_services/authService";
 
 import GridPage from "../grid-page/GridPage";
+import {userService} from "../_services/userService";
 
 const loadingAnimationOptions = {
   loop: true,
@@ -26,43 +28,69 @@ const doneAnimationOptions = {
 };
 
 function Loading() {
-  const [loading, setLoading] = useState(false);
+  const [shouldLogin, setShouldLogin] = useState(false);
   const [done, setDone] = useState(false);
-  const [user, setUsers] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [userToken, setUserToken] = useState();
+  const [internalError, setInternalError] = useState();
+
+  const tokenCallback = (token) => {
+    setUserToken(token);
+    setShouldLogin(false);
+  };
 
   useEffect(() => {
-        fetch("/api/user/5e7259bd590e1732786a164b/groups")
-          .then(response => response.json())
-          .then(json => {
-            setLoading(true);
-            setUsers(json);
-            setTimeout(() => {
-              setDone(true);
-            }, 550);
-          })
-    }, []);
+    if(!userToken) {
+      const currentUser = authService.currentUserValue;
+      if(!currentUser) {
+        setShouldLogin(true);
+      } else {
+        authService.currentUser.subscribe(x => {
+          setUserToken(x);
+        });
+      }
+    } else {
+      setTimeout(() => {
+        setDone(true);
+      }, 100);
+      setTimeout(() => {
+        setLoading(true);
+      }, 800);
+    }
+  });
 
   return(
     <div>
-      {!done ? (
+      {!loading && !shouldLogin ? (
         <FadeIn>
-          <div style={{display: "flex", alignItems: "center", flexDirection: "column",
+            <div style={{display: "flex", alignItems: "center", flexDirection: "column",
             justifyContent: "center", height: "100vh",
             backgroundColor: "#F6F8FA "}}>
-            {!loading ? (
+            {!done ? (
               <Lottie options={loadingAnimationOptions} height={"12.5rem"} width={"20rem"} style={{margin: 0}} />
             ) : (
               <Lottie options={doneAnimationOptions} height={"12.5rem"} width={"20rem"} style={{margin: 0}} />
             )}
             <h2 style={{fontSize: "2rem", padding: 0, margin: 0, whiteSpace: "nowrap"}}>Fetching User</h2>
-
           </div>
         </FadeIn>
 
-      ): (
-        <GridPage user={user} group={user.favorite}></GridPage>
+      ): shouldLogin ? (
+        <FadeIn>
+          <div style={{display: "flex", alignItems: "center", flexDirection: "column",
+            justifyContent: "center", height: "100vh",
+            backgroundColor: "#F6F8FA "}}>
+            <button onClick={() => {tokenCallback(authService.login("test@test.com", "test").then((x => setUserToken(x))));}}>
+              Log in using Test User.
+            </button>
+          </div>
+        </FadeIn>
 
-      )}
+      ) :
+        <FadeIn>
+          <GridPage />
+        </FadeIn>
+      }
     </div>
   )
 
