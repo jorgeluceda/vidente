@@ -471,7 +471,7 @@ html, body {
   min-height: 100vh;
   display: grid;
   grid-auto-rows: 50px;
-  grid-template-rows: 3em 5.5em auto 5em 50px;
+  grid-template-rows: 3em 5em auto 5em 50px;
   grid-template-columns: 16em auto auto;
   grid-template-areas: "h h h"
  "mh ch ch"

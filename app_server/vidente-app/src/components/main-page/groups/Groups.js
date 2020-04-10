@@ -168,10 +168,10 @@ function PrintExtraStrapline(props) {
     borderBottom = <div className="border-bottom" style={{marginTop: "0.25rem", marginBottom: "0rem"}}/>
     extraStrapline =
       <p className="strapline-extra" style={{ marginTop: "0.5rem" }}>
-        <span className="no-select" style={{fontSize: "1rem", fontWeight: 800, color: "black"}}>
+        <span className="no-select" style={{fontSize: "0.9rem", fontWeight: 700, color: "black"}}>
           +{props.pruned} Groups ✨ &nbsp;
         </span>
-        <a className="no-select" href="google.com" style={{color: "#007AF", textDecoration: "none", fontWeight: 800}}>
+        <a className="no-select" href="google.com" style={{fontSize: "0.9rem", color: "#007AF", textDecoration: "none", fontWeight: 700}}>
           Expand ↗
         </a>
       </p>

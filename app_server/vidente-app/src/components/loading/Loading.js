@@ -42,6 +42,7 @@ function Loading() {
   useEffect(() => {
     if(!userToken) {
       const currentUser = authService.currentUserValue;
+
       if(!currentUser) {
         setShouldLogin(true);
       } else {
