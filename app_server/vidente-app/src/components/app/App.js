@@ -14,7 +14,6 @@ function App() {
       <Menu></Menu>
       <Contents></Contents>
       {/* <Footer></Footer> */}
-
     </div>
   );
 }
