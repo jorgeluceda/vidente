@@ -1,0 +1,34 @@
+.header {
+    align-items: center;
+    /* padding: 0px 20px;  */
+    padding: 0px 0.8rem;
+}
+
+
+.header {
+    grid-area: h;
+    display: flex;
+    background-color: #343434;
+}
+
+.header > h6 {
+    padding: 10px 20px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.header > h6:nth-child(3) {
+    margin-left: initial;
+    /* margin-left: 90%; */ 
+}
+    
+.header > h6:nth-child(4) {
+    margin-left: auto; 
+}    
+
+
+@media (max-width: 1020px) {
+    .header > h6 > h6 {
+        margin-left: 10px; 
+    }
+}

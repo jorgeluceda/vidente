@@ -1,0 +1,26 @@
+@media screen and (min-width: 1020px) {
+    .app {
+        min-height: 100vh;
+        display: grid;
+        grid-auto-rows: 50px;
+        grid-template-rows: 3em 4.05em auto auto;
+        grid-template-columns: 18em auto auto;
+        grid-template-areas:
+            "h h h"
+            "mh ch ch"
+            "mc cg cg"
+            "mc . .";
+        }   
+}
+
+@media screen and (max-width: 1020px) {
+    .app {
+        grid-template-rows: 3em 4.5em auto auto;
+        grid-template-columns: auto auto auto;
+        grid-template-areas:
+            "h h h"
+            "mh mh mh"
+            "mc mc mc"
+            "cg cg cg";
+        }
+}

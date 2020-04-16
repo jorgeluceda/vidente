@@ -1,0 +1,18 @@
+.footer {
+    grid-area: f;
+    display: flex;
+    align-content: left;
+    background-color: #343434;
+    color: #fff;
+    /* span to the last column line */
+}
+
+.footer {
+    align-items: center;
+    padding: 20px 20px; 
+}
+
+.footer > span {
+    margin-left: auto;
+}
+
