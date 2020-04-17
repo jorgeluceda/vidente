@@ -20,6 +20,7 @@
     "react-placeholder": "^4.0.1",
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.0",
+    "react-spring": "^8.0.27",
     "rxjs": "^6.5.4",
     "yup": "^0.28.3"
   },

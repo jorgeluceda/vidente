@@ -11,42 +11,60 @@
     display: flex;
     flex-direction: column;
     align-self: center;
-} 
+}
 
-.strapline > div {
+.current_group {
+    position: absolute;
+    /* transform: skewY(10em); */
+    /* top: 100px;
+    left: 100px; */
     display: flex;
     flex-direction: row;
     padding-top: 0;
     padding-bottom: 0;
     border-radius: 0.5rem;
     padding-left: 1rem;
-    padding-right: 0.5rem;
+    padding-right: 1rem;
     margin: 0;
     min-width: 10rem;
     background-color: rgba(60, 60, 67, 0.1);
     align-self: flex-start;
 }
-
   
 .strapline > p {
-    margin: auto;
-    text-align: center;
+    padding-left: 1em;
+    margin-top: 0em;
     text-decoration: none;
     line-height: 0.25rem;
-    padding-top: 1em; 
-    padding-bottom: 0.75em;
+    align-self: flex-start;
+    min-width: 10rem;
 }
 
 .favorite_group {
-    margin: auto;
-    text-align: center;
     text-decoration: none;
     line-height: 0.25rem;
-    padding-top: 1em; 
-    padding-bottom: 1em;
+    padding-top: 1.125em; 
+    padding-bottom: 1.125em;
     font-weight: 600;
-    padding-left: 4em;
-    padding-right: 4em;
+    min-width: 10em;
+    /* padding-left: 4em;
+    padding-right: 4em; */
+}
+
+
+.group {
+    text-decoration: none;
+    line-height: 0.25rem;
+    padding-top: 1.125em; 
+    padding-bottom: 1.125em;
+    font-weight: 500;
+    min-width: 10em;
+    /* padding-left: 4em;
+    padding-right: 4em; */
+}
+
+.favorite_group_icon {
+    margin: auto;
 }
 
 @media screen and (max-width: 1020px) {
