@@ -10,11 +10,12 @@ function MenuContents() {
     // useState([<positionEms>, <previousPositionEm>])
     const [relativePosition, setRelativePosition] = useState([0, 0]);
 
-    const handleChange = (event) => {
-        setRelativePosition([event.target.value, relativePosition[1]]);
+    const handleChange = (value) => {
+        setRelativePosition([value, relativePosition[1]]);
     }
+
     const clickedAnimation = useSpring({
-        config: { duration: 200},
+        config: { duration: 150},
         from: { transform: `translateY(${(relativePosition[1] * translateScale)}em)` },
         to: { transform: `translateY(${(relativePosition[0] * translateScale)}em)` }
     });
@@ -25,17 +26,6 @@ function MenuContents() {
         {label_icon: "🗑️", label_name: "Trash"},
     ]
 
-    const groups = [];
-
-    for(var i = 0; i < allGroups.length; i++) {
-        groups.push(
-            <p className="no-select">
-                <a className={styles.group} value={i} onClick={(event) => handleChange(event.target.value)}> 
-                {allGroups[i].label_icon} &nbsp; {allGroups[i].label_name} </a>
-            </p>
-        );
-    }
-
     return(
         <>
             <div className={styles.menu}>
@@ -45,20 +35,12 @@ function MenuContents() {
                             <a className={styles.group}></a>
                         </animated.p>
 
-                        {groups}
-                        {/* <p className="no-select">
-                            <a className={styles.group}>🔥 &nbsp; Favorites</a>
-                        </p>
-
-                        <p className="no-select">
-                            <a className={styles.group} onClick={() => {
-                                setRelativePosition([1, relativePosition[0]]);
-                            }}>📝 &nbsp; Edit groups</a>
-                        </p>
-
-                        <p className="no-select">
-                            <a className={styles.group}>🗑️ &nbsp; Trash</a>
-                        </p> */}
+                        {allGroups.map((group, i) => (
+                            <p className="no-select">
+                                <a className={styles.group} onClick={() => handleChange(i) }> 
+                                {group.label_icon} &nbsp; {group.label_name} </a>
+                            </p>  
+                        ))}
                     </div>
                     <div className={styles.border_bottom}/>
                 </div>
