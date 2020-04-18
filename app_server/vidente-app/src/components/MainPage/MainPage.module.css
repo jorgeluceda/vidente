@@ -1,5 +1,5 @@
 @media screen and (min-width: 1020px) {
-    .app {
+    .main_page {
         min-height: 100vh;
         display: grid;
         grid-auto-rows: 50px;
@@ -14,7 +14,7 @@
 }
 
 @media screen and (max-width: 1020px) {
-    .app {
+    .main_page {
         grid-template-rows: 3em 4.5em auto auto;
         grid-template-columns: auto auto auto;
         grid-template-areas:

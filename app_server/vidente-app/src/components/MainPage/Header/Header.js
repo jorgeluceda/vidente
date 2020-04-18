@@ -1,7 +1,10 @@
 import React from 'react';
 import styles from './Header.module.css';
 
-function Header() {
+import {authService} from "../../../_services/authService";
+
+
+function Header(props) {
     return (
         <div className={styles.header}>
         <a href="/">
@@ -19,7 +22,10 @@ function Header() {
         </h6>
 
         <h6 style={{fontWeight: 300}}> Profile </h6>
-        <h6 style={{fontWeight: 300}}> Logout</h6>
+        <button style={{fontWeight: 300}} onClick={() => {
+            authService.logout();
+            props.changeLoginStatus(undefined, true);
+        }}> Logout</button>
         </div>
   );
 }

@@ -33,7 +33,7 @@
     border-bottom: 1px solid #e1e4e8!important;
 }
 
-button {
+.header_button {
     display: flex;
     background: #007aff;
     color: #fff;

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import styles from "./MenuContents.module.css";
 
 import {useSpring, animated} from 'react-spring';
-
 const translateScale = 2.25;
 
 function MenuContents() {
@@ -22,7 +21,6 @@ function MenuContents() {
  
     const allGroups = [
         {label_icon: "🔥", label_name: "Favorites"},
-        {label_icon: "📝", label_name: "Edit Groups"},
         {label_icon: "🗑️", label_name: "Trash"},
     ]
 
@@ -33,6 +31,7 @@ function MenuContents() {
                     <div className={styles.strapline} id="strapline-short">
                         <animated.p className={`${styles.current_group}`} style={clickedAnimation} id="current_group">
                             <a className={styles.group}></a>
+                
                         </animated.p>
 
                         {allGroups.map((group, i) => (

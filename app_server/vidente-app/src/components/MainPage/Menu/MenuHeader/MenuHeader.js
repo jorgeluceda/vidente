@@ -9,7 +9,7 @@ function MenuOptions() {
             <h6>
                 Groups&nbsp;&nbsp;
             </h6>
-            <button onTouchStart="" onClick={() => {
+            <button className={styles.header_button} onTouchStart="" onClick={() => {
                 // props.parentCallback(true);
             }}>
                 <span
