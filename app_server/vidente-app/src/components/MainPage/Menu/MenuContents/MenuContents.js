@@ -3,9 +3,26 @@ import React, { useState } from "react";
 import styles from "./MenuContents.module.css";
 
 import {useSpring, animated} from 'react-spring';
+
+import ReactPlaceholder from 'react-placeholder';
+import TextRow from "react-placeholder/lib/placeholders/TextRow";
+import 'react-placeholder/lib/reactPlaceholder.css';
+
+const menuPlaceholder = (
+    <div>
+      {/*<RectShape color='blue' style={{width: 30, height: 80}}/>*/}
+      <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
+      <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
+      <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
+      <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
+      <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
+      <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
+    </div>
+  );
+  
 const translateScale = 2.25;
 
-function MenuContents() {
+function MenuContents(props) {
     // useState([<positionEms>, <previousPositionEm>])
     const [relativePosition, setRelativePosition] = useState([0, 0]);
 
@@ -19,32 +36,28 @@ function MenuContents() {
         to: { transform: `translateY(${(relativePosition[0] * translateScale)}em)` }
     });
  
-    const allGroups = [
-        {label_icon: "🔥", label_name: "Favorites"},
-        {label_icon: "🗑️", label_name: "Trash"},
-    ]
-
     return(
         <>
             <div className={styles.menu}>
                 <div className={styles.menu_contents}>
-                    <div className={styles.strapline} id="strapline-short">
-                        <animated.p className={`${styles.current_group}`} style={clickedAnimation} id="current_group">
-                            <a className={styles.group}></a>
-                
-                        </animated.p>
+                    <ReactPlaceholder ready={props.groups.length > 1} customPlaceholder={menuPlaceholder} showLoadingAnimation={true}>
+                        <div className={styles.strapline} id="strapline-short">
+                            <animated.p className={`${styles.current_group}`} style={clickedAnimation} id="current_group">
+                                <a className={styles.group}></a>
+                    
+                            </animated.p>
 
-                        {allGroups.map((group, i) => (
-                            <p className="no-select">
-                                <a className={styles.group} onClick={() => handleChange(i) }> 
-                                {group.label_icon} &nbsp; {group.label_name} </a>
-                            </p>  
-                        ))}
-                    </div>
-                    <div className={styles.border_bottom}/>
+                            {props.groups.map((group, i) => (
+                                <p className="no-select">
+                                    <a className={styles.group} onClick={() => handleChange(i) }> 
+                                    {group.icon} &nbsp; {group.name} </a>
+                                </p>  
+                            ))}
+                        </div>
+                        <div className={styles.border_bottom}/>
+                    </ReactPlaceholder>
                 </div>
             </div>
-            
         </>
     );
 }

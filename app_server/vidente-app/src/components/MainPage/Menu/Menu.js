@@ -5,11 +5,11 @@ import styles from './Menu.module.css';
 import MenuHeader from "./MenuHeader/MenuHeader";
 import MenuContents from "./MenuContents/MenuContents";
 
-function Menu() {
+function Menu(props) {
     return(
         <>
             <MenuHeader></MenuHeader>
-            <MenuContents></MenuContents>
+            <MenuContents groups={props.groups}></MenuContents>
         </>
     );
 

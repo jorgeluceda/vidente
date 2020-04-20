@@ -22,6 +22,10 @@ const groupSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    icon: {
+        type: String,
+        required: true
+    },
     labels: [labelSchema],
     createdOn: {
         type: Date,
@@ -97,7 +101,7 @@ testUser.name = "Test User";
 testUser.email = "test@test.com";
 //create default favorite group
 testUser.favorite = "Favorites";
-testUser.groups = [{name: "Favorites", labels: []}];
+testUser.groups = [{name: "Favorites", icon: "🔥", labels: []}];
 
 // uses schema method to set the salt and hash
 testUser.setPassword("test");

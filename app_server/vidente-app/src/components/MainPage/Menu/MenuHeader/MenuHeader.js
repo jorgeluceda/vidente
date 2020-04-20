@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './MenuHeader.module.css';
 
-function MenuOptions() {
+function MenuHeader() {
     return(
         <div className={styles.menu_options}>
             <div className={styles.mo_contents}>
@@ -19,8 +19,8 @@ function MenuOptions() {
             </div>
     
             <div className={styles.border_bottom}/>
-      </div>
+        </div>
     );
 }
 
-export default MenuOptions;
+export default MenuHeader;
