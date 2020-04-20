@@ -1,8 +1,8 @@
 import React from 'react';
 
-import styles from './ContentsGrid.module.css';
+import styles from './LabelsGrid.module.css';
 
-function ContentsGrid() {
+function LabelsGrid() {
     return(
         <>
             <div className={styles.contents_grid}>
@@ -16,4 +16,4 @@ function ContentsGrid() {
 
 }
 
-export default ContentsGrid;
+export default LabelsGrid;

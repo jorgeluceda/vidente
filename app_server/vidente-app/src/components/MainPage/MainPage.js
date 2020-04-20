@@ -1,8 +1,8 @@
 import React, { useEffect, useState} from 'react';
 
 import Header from "./Header/Header";
-import Menu from "./Menu/Menu";
-import Contents from "./Contents/Contents";
+import Groups from "./Groups/Groups";
+import Labels from "./Labels/Labels";
 
 import styles from './MainPage.module.css';
 
@@ -11,7 +11,7 @@ import { userService } from "../../_services/userService";
 
 function MainPage(props) {
     const [groups, setGroups] = useState([
-        {emoji: "📝", name: "Edit Groups"},
+        {name: "Edit Groups"}
     ]);
 
     console.log(JSON.stringify(groups));
@@ -30,11 +30,10 @@ function MainPage(props) {
     }
 
     return(
-
         <div className={styles.main_page}>
                 <Header changeLoginStatus={props.changeLoginStatus}></Header>
-                <Menu groups={groups} addNewGroup={addNewGroup}></Menu>
-                <Contents></Contents>
+                <Groups groups={groups} addNewGroup={addNewGroup}></Groups>
+                <Labels></Labels>
         </div>
     );
 }

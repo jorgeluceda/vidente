@@ -54,10 +54,11 @@ const groupsListByCreated = (req, res) => {
   getUser(req, res, (req, res, userId) => {
     User
       .findById(userId)
+      .sort({'groups.name': -1})
       .select('-groups.labels -salt -hash -name -email')
       .exec((err, groups) => {
         // traps if mongoose doesn't return
-        // a location or if mongoose returns an error;
+        // the groups or if mongoose returns an error;
         // also sends a 404 response using return statement
         if(!groups) {
           return res
@@ -70,6 +71,7 @@ const groupsListByCreated = (req, res) => {
             .status(404)
             .json(err);
         }
+
         res
           .status(200)
           .json(groups);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import styles from "./MenuContents.module.css";
+import styles from "./GroupsContent.module.css";
 
 import {useSpring, animated} from 'react-spring';
 
@@ -22,18 +22,13 @@ const menuPlaceholder = (
   
 const translateScale = 2.25;
 
-function MenuContents(props) {
+function GroupsContent(props) {
     // useState([<positionEms>, <previousPositionEm>])
-    const [relativePosition, setRelativePosition] = useState([0, 0]);
-
-    const handleChange = (value) => {
-        setRelativePosition([value, relativePosition[1]]);
-    }
 
     const clickedAnimation = useSpring({
         config: { duration: 150},
-        from: { transform: `translateY(${(relativePosition[1] * translateScale)}em)` },
-        to: { transform: `translateY(${(relativePosition[0] * translateScale)}em)` }
+        from: { transform: `translateY(${(props.relativePosition[1] * translateScale)}em)` },
+        to: { transform: `translateY(${(props.relativePosition[0] * translateScale)}em)` }
     });
  
     return(
@@ -47,10 +42,10 @@ function MenuContents(props) {
                             </animated.p>
 
                             {props.groups.map((group, i) => (
-                                <p className={`no-select ${styles.modal_p}`}>
-                                    <a className={styles.group} onClick={() => handleChange(i) }> 
-                                    {group.emoji} &nbsp; {group.name} </a>
-                                </p>  
+                                <p className={'no-select'} onClick={() => props.handleChange(i) }>
+                                    <a className={styles.group} >
+                                    {group.name} </a>
+                                </p>
                             ))}
                         </div>
                         <div className={styles.border_bottom}/>
@@ -63,4 +58,4 @@ function MenuContents(props) {
 
 
 
-export default MenuContents;
+export default GroupsContent;

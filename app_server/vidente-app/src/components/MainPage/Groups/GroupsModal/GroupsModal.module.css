@@ -1,0 +1,18 @@
+.menu {
+    grid-area: mr;
+    display: flex;
+    flex-direction: column;
+    background-color: #F6F8FA;
+}
+
+.modal_p {
+    margin-top: 0em;
+    text-decoration: none;
+    line-height: 0.25rem;
+    align-self: flex-start;
+    min-width: 10rem;
+}
+
+.group {
+    min-width: 10em;
+}

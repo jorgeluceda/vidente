@@ -17,10 +17,10 @@ function getLabels(props) {
   return fetch(`/api/labels/?id=${props}`, requestOptions).then(handleResponses.handleResponse);
 }
 
-function createGroup(groupEmoji, groupName) {
+function createGroup(groupName) {
   const requestOptions = { 
     method: 'POST', headers: {...authHeader(), 'Content-Type' : 'application/json'}, 
-    body: JSON.stringify({emoji: groupEmoji, name: groupName})
+    body: JSON.stringify({name: groupName})
   };
 
   return fetch(`/api/groups`, requestOptions).then(handleResponses.handleResponse);

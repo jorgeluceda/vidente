@@ -1,16 +1,16 @@
 import React from 'react';
 
-import styles from './MenuHeader.module.css';
+import styles from './GroupsHeader.module.css';
 
-function MenuHeader(props) {
+function GroupsHeader(props) {
     return(
         <div className={styles.menu_options}>
             <div className={styles.mo_contents}>
-            <h6>
+            <h6 className={`no-select ${styles.menu_header_title}`}>
                 Groups&nbsp;&nbsp;
             </h6>
             <button className={styles.header_button} onTouchStart="" onClick={() => {
-                props.openModal();
+                props.openModal("newModal");
             }}>
                 <span
                 > New Group </span>
@@ -22,4 +22,4 @@ function MenuHeader(props) {
     );
 }
 
-export default MenuHeader;
+export default GroupsHeader;
