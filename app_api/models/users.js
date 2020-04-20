@@ -22,7 +22,7 @@ const groupSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    icon: {
+    emoji: {
         type: String,
         required: true
     },
@@ -101,7 +101,7 @@ testUser.name = "Test User";
 testUser.email = "test@test.com";
 //create default favorite group
 testUser.favorite = "Favorites";
-testUser.groups = [{name: "Favorites", icon: "🔥", labels: []}];
+testUser.groups = [{name: "Favorites", emoji: "🔥", labels: []}];
 
 // uses schema method to set the salt and hash
 testUser.setPassword("test");

@@ -28,6 +28,7 @@ const groupsCreate = (req, res) => {
         .findOneAndUpdate({_id: userId}, {
           $push: {
             groups: {
+              emoji: req.body.emoji,
               name: req.body.name,
               labels: []
             }

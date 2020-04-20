@@ -11,9 +11,10 @@ import { userService } from "../../_services/userService";
 
 function MainPage(props) {
     const [groups, setGroups] = useState([
-        {icon: "📝", name: "Edit Groups"},
+        {emoji: "📝", name: "Edit Groups"},
     ]);
 
+    console.log(JSON.stringify(groups));
     const [currentGroup, setCurrentGroup] = useState(undefined);
 
     useEffect(() => {
@@ -24,11 +25,15 @@ function MainPage(props) {
         );
     }, [] );
 
+    const addNewGroup = (newGroup) => {
+        setGroups(groupsArray => [newGroup, ...groups]);
+    }
+
     return(
 
         <div className={styles.main_page}>
                 <Header changeLoginStatus={props.changeLoginStatus}></Header>
-                <Menu groups={groups}></Menu>
+                <Menu groups={groups} addNewGroup={addNewGroup}></Menu>
                 <Contents></Contents>
         </div>
     );

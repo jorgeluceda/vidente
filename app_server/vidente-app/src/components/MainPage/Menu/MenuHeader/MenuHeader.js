@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './MenuHeader.module.css';
 
-function MenuHeader() {
+function MenuHeader(props) {
     return(
         <div className={styles.menu_options}>
             <div className={styles.mo_contents}>
@@ -10,10 +10,9 @@ function MenuHeader() {
                 Groups&nbsp;&nbsp;
             </h6>
             <button className={styles.header_button} onTouchStart="" onClick={() => {
-                // props.parentCallback(true);
+                props.openModal();
             }}>
                 <span
-                // props.parentCallback()
                 > New Group </span>
             </button>
             </div>

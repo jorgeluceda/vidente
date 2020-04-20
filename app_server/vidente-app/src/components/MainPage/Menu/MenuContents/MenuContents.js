@@ -44,13 +44,12 @@ function MenuContents(props) {
                         <div className={styles.strapline} id="strapline-short">
                             <animated.p className={`${styles.current_group}`} style={clickedAnimation} id="current_group">
                                 <a className={styles.group}></a>
-                    
                             </animated.p>
 
                             {props.groups.map((group, i) => (
-                                <p className="no-select">
+                                <p className={`no-select ${styles.modal_p}`}>
                                     <a className={styles.group} onClick={() => handleChange(i) }> 
-                                    {group.icon} &nbsp; {group.name} </a>
+                                    {group.emoji} &nbsp; {group.name} </a>
                                 </p>  
                             ))}
                         </div>

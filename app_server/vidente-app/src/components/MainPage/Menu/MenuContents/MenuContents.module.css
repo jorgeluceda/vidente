@@ -67,6 +67,15 @@
     margin: auto;
 }
 
+.modal_p {
+    padding-left: 1em;
+    margin-top: 0em;
+    text-decoration: none;
+    line-height: 0.25rem;
+    align-self: flex-start;
+    min-width: 10rem;
+}
+
 @media screen and (max-width: 1020px) {
     .menu {
         border-bottom: 1px solid #e1e4e8!important;
