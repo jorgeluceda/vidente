@@ -14,7 +14,6 @@ function MainPage(props) {
         {name: "Edit Groups"}
     ]);
 
-    console.log(JSON.stringify(groups));
     const [currentGroup, setCurrentGroup] = useState(undefined);
 
     useEffect(() => {

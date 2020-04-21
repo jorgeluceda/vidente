@@ -17,6 +17,7 @@ function Groups(props) {
 
     function closeModal(){
         setModalState({isOpen: false, modalType: undefined});
+        setRelativePosition([0, 0]);
     }
 
     const [newGroup, setNewGroup] = useState(undefined);

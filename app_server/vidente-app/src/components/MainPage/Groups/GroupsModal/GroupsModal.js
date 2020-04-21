@@ -21,6 +21,7 @@ const newGroupModalStyles = {
 };
 
 function GroupsModal(props) {
+    alert("hello");
     //remove 'edit groups' group from prop
     var poppedGroup = props.groups.slice(0, -1);
     return(
@@ -43,7 +44,7 @@ function GroupsModal(props) {
                     console.log("Not going to do anything...");
                 }
             }}>
-                <a style={{width: "1em", marginLeft: "0.5em"}}>🚫</a>
+                <a className={`${styles.newgroup_cancel}`}>🚫</a>
                 <input style={{fontSize: "1.125em", borderRadius: "0em", borderWidth: "0em", minWidth: "3em", textAlign: "center", outline: "0"}} autoFocus={true}
                        name="name" placeholder="Create new group" autoComplete="off"/>
                 <button style={{borderWidth: "0em", width: "1em", fontSize: "1em", backgroundColor: "transparent", marginRight: "1em"}}>✅</button>
@@ -53,7 +54,11 @@ function GroupsModal(props) {
             {props.modalState.modalType === "editGroups" &&
                 poppedGroup.map((group, i) => (
                             <p key={i} className={`no-select ${styles.modal_p}`}>
-                                <a style={{marginLeft: "0.5em"}}>🗑️&nbsp;&nbsp;️</a>
+                                <a style={{}} onClick={() => {
+                                    alert(`Tried to delete ${group.name}`);
+                                }}>
+                                    🗑️&nbsp;&nbsp;
+                               ️</a>
                                 <span style={{display: "inline-block", minWidth: "11.75em", maxWidth: "10em"}}>
                             {group.name} </span>
                                 <a>🖊️</a>

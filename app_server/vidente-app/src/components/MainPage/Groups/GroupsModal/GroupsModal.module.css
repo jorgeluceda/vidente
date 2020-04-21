@@ -16,3 +16,9 @@
 .group {
     min-width: 10em;
 }
+
+
+.newgroup_cancel {
+    width: 1em;
+    marginLeft: 0.5em;
+}
