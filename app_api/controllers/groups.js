@@ -81,8 +81,8 @@ const groupsListByCreated = (req, res) => {
 };
 
 const groupsDeleteOne = (req, res) => {
-  let groupid = req.body.groupid;
-
+  let groupId = req.body.groupId;
+  console.log(groupId);
   getUser(req, res, (req, res, userId) => {
     User
       .findById(userId)
@@ -103,12 +103,13 @@ const groupsDeleteOne = (req, res) => {
         }
 
         if (user.groups && user.groups.length > 0) {
-          if (!user.groups.id(groupid)) {
+          if (!user.groups) {
+              console.log(".name not found!!!");
             return res
               .status(404)
               .json({"message": "Group to delete not found"});
           } else {
-            user.groups.id(groupid).remove();
+            user.groups.id(groupId).remove();
             user.save(err => {
               if (err) {
                 return res

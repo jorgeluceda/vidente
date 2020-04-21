@@ -25,13 +25,21 @@ function MainPage(props) {
     }, [] );
 
     const addNewGroup = (newGroup) => {
-        setGroups(groupsArray => [newGroup, ...groups]);
+        userService.createGroup(newGroup).then(() => {
+            setGroups(groupsArray => [{name: newGroup}, ...groups]);
+        });
+    }
+
+    const deleteGroup = (groupId) => {
+        userService.deleteGroup(groupId).then(() => {
+            setGroups(groups.filter(group => group._id !== groupId));
+        })
     }
 
     return(
         <div className={styles.main_page}>
                 <Header changeLoginStatus={props.changeLoginStatus}></Header>
-                <Groups groups={groups} addNewGroup={addNewGroup}></Groups>
+                <Groups groups={groups} addNewGroup={addNewGroup} deleteGroup={deleteGroup}></Groups>
                 <Labels></Labels>
         </div>
     );

@@ -4,7 +4,8 @@ import {authHeader} from "../_helpers/authHeader";
 export const userService = {
   getAllGroups,
   getLabels,
-  createGroup
+  createGroup,
+  deleteGroup
 };
 
 function getAllGroups() {
@@ -21,6 +22,15 @@ function createGroup(groupName) {
   const requestOptions = { 
     method: 'POST', headers: {...authHeader(), 'Content-Type' : 'application/json'}, 
     body: JSON.stringify({name: groupName})
+  };
+
+  return fetch(`/api/groups`, requestOptions).then(handleResponses.handleResponse);
+}
+
+function deleteGroup(groupId) {
+  const requestOptions = {
+    method: 'DELETE', headers: {...authHeader(), 'Content-Type' : 'application/json'},
+    body: JSON.stringify({groupId: groupId})
   };
 
   return fetch(`/api/groups`, requestOptions).then(handleResponses.handleResponse);

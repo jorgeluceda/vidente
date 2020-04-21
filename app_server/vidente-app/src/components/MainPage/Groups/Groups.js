@@ -30,19 +30,20 @@ function Groups(props) {
         setRelativePosition([value, relativePosition[1]]);
         if(value === props.groups.length - 1) {
             setModalState({isOpen: true, modalType: (value === props.groups.length - 1) ? "editGroups" : "newGroup"});
-        };
+        }
     }
 
     return(
         <>
             <GroupsModal modalState={modalState} onRequestClose={closeModal} closeModal={closeModal}
-                         groups={props.groups} addNewGroup={props.addNewGroup}>
+                         groups={props.groups} addNewGroup={props.addNewGroup} deleteGroup={props.deleteGroup}>
             </GroupsModal>
 
 
-            <GroupsHeader openModal={openModal}></GroupsHeader>
+            <GroupsHeader openModal={openModal}/>
+
             <GroupsContent groups={props.groups} openModal={openModal}
-                           relativePosition={relativePosition} handleChange={handleChange} ></GroupsContent>
+                           relativePosition={relativePosition} handleChange={handleChange}/>
         </>
     );
 
