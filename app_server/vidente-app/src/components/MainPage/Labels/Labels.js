@@ -1,15 +1,39 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import styles from './Labels.module.css';
 
 import LabelsHeader from "./LabelsHeader/LabelsHeader";
 import LabelsGrid from './LabelsGrid/LabelsGrid';
+import {userService} from "../../../_services/userService";
 
-function Labels() {
+
+function Labels(props) {
+    const [groupAndLabels, setGroupAndLabels] = useState({group: undefined, labels: []});
+
+    useEffect(() => {
+        if(props.groups[props.relativePosition[0]]) {
+            userService.getLabels(props.groups[props.relativePosition[0]]._id).then(
+                (json) => {
+                    setGroupAndLabels({group: json.group, labels: json.labels});
+                }
+            );
+        }
+    //    NOTE: don't apply effect if relativePosition prop remains the same!
+    }, [props.relativePosition]);
+
     return(
         <>
-            <LabelsHeader></LabelsHeader>
-            <LabelsGrid></LabelsGrid>
+            {props.groups[props.relativePosition[0]] !== undefined ?
+                <>
+                    <LabelsHeader groupName={props.groups[props.relativePosition[0]].name}/>
+                    <LabelsGrid currentGroup={props.groups[props.relativePosition[0]].name}/>
+                </>
+                :
+                <>
+                    <LabelsHeader groupName={props.groups[0].name}/>
+                    <LabelsGrid currentGroup={props.groups[0].name}/>
+                </>
+            }
         </>
     );
 

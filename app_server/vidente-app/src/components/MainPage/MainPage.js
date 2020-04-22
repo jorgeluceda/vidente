@@ -10,11 +10,9 @@ import { userService } from "../../_services/userService";
 
 
 function MainPage(props) {
-    const [groups, setGroups] = useState([
-        {name: "Edit Groups"}
-    ]);
+    const [groups, setGroups] = useState([]);
 
-    const [currentGroup, setCurrentGroup] = useState(undefined);
+    const [relativePosition, setRelativePosition] = useState([0, 0]);
 
     useEffect(() => {
         userService.getAllGroups().then(
@@ -22,11 +20,16 @@ function MainPage(props) {
                 setGroups(groupsArray => [...json.groups, ...groupsArray]);
             }
         );
-    }, [] );
+    }, []);
+
+    const changeRelativePosition = (array) => {
+        setRelativePosition(array);
+    };
 
     const addNewGroup = (newGroup) => {
-        userService.createGroup(newGroup).then(() => {
-            setGroups(groupsArray => [{name: newGroup}, ...groups]);
+        userService.createGroup(newGroup).then((json) => {
+            alert(JSON.stringify(json.groups));
+            setGroups(json.groups);
         });
     }
 
@@ -38,9 +41,15 @@ function MainPage(props) {
 
     return(
         <div className={styles.main_page}>
-                <Header changeLoginStatus={props.changeLoginStatus}></Header>
-                <Groups groups={groups} addNewGroup={addNewGroup} deleteGroup={deleteGroup}></Groups>
-                <Labels></Labels>
+            <Header changeLoginStatus={props.changeLoginStatus}></Header>
+            <Groups groups={groups} relativePosition={relativePosition} changeRelativePosition={changeRelativePosition}
+                    addNewGroup={addNewGroup} deleteGroup={deleteGroup} />
+
+            {/* Only render Labels component if we have received our groups */}
+            {groups.length > 0 &&
+                <Labels relativePosition={relativePosition} changeRelativePosition={changeRelativePosition}
+                        groups={groups}/>
+            }
         </div>
     );
 }

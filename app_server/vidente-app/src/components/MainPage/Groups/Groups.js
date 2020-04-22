@@ -9,27 +9,22 @@ import { userService } from '../../../_services/userService';
 import GroupsModal from "./GroupsModal/GroupsModal";
 
 function Groups(props) {
-
     const [modalState, setModalState] = useState({isOpen: false, modalType: "newModal"});
+
     function openModal(newOrEditModal) {
         setModalState({isOpen: true, modalType: newOrEditModal});
     }
 
     function closeModal() {
         setModalState({isOpen: false, modalType: undefined});
-        setRelativePosition([0, 0]);
+        props.changeRelativePosition([0, 1]);
     }
 
-    const [newGroup, setNewGroup] = useState(undefined);
-
-    const onSubmit = data => console.log(data);
-
-    const [relativePosition, setRelativePosition] = useState([0, 0]);
 
     const handleChange = (value) => {
-        setRelativePosition([value, relativePosition[1]]);
-        if(value === props.groups.length - 1) {
-            setModalState({isOpen: true, modalType: (value === props.groups.length - 1) ? "editGroups" : "newGroup"});
+        props.changeRelativePosition([value, 1]);
+        if(value === props.groups.length) {
+            setModalState({isOpen: true, modalType: (value === props.groups.length) ? "editGroups" : "newGroup"});
         }
     }
 
@@ -43,7 +38,7 @@ function Groups(props) {
             <GroupsHeader openModal={openModal}/>
 
             <GroupsContent groups={props.groups} openModal={openModal}
-                           relativePosition={relativePosition} handleChange={handleChange}/>
+                           relativePosition={props.relativePosition} handleChange={handleChange}/>
         </>
     );
 

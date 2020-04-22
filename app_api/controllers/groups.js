@@ -28,12 +28,14 @@ const groupsCreate = (req, res) => {
         .findOneAndUpdate({_id: userId}, {
           $push: {
             groups: {
-              emoji: req.body.emoji,
               name: req.body.name,
               labels: []
             }
-          }
+          },
+        }, {
+            new: true
         })
+        .select('-groups.labels -_id -name -email -favorite -salt -hash -_v')
         .exec((err, group) => {
           // appropriate response methods for dealing with both success and failure
           if(err) {
@@ -43,7 +45,7 @@ const groupsCreate = (req, res) => {
           } else {
             res
               .status(200)
-              .json(`${req.body.name} was successfully pushed to ${userId}`);
+              .json(group);
           }
         });
     }
@@ -82,7 +84,6 @@ const groupsListByCreated = (req, res) => {
 
 const groupsDeleteOne = (req, res) => {
   let groupId = req.body.groupId;
-  console.log(groupId);
   getUser(req, res, (req, res, userId) => {
     User
       .findById(userId)
@@ -103,8 +104,7 @@ const groupsDeleteOne = (req, res) => {
         }
 
         if (user.groups && user.groups.length > 0) {
-          if (!user.groups) {
-              console.log(".name not found!!!");
+          if (!user.groups.id) {
             return res
               .status(404)
               .json({"message": "Group to delete not found"});

@@ -14,9 +14,6 @@ const menuPlaceholder = (
       <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
       <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
       <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
-      <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
-      <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
-      <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
     </div>
   );
   
@@ -35,7 +32,7 @@ function GroupsContent(props) {
         <>
             <div className={styles.menu}>
                 <div className={styles.menu_contents}>
-                    <ReactPlaceholder ready={props.groups.length > 1} customPlaceholder={menuPlaceholder} showLoadingAnimation={true}>
+                    <ReactPlaceholder ready={props.groups.length > 0} customPlaceholder={menuPlaceholder} showLoadingAnimation={true}>
                         <div className={styles.strapline} id="strapline-short">
                             <animated.p className={`${styles.current_group}`} style={clickedAnimation} id="current_group">
                                 <a className={styles.group}></a>
@@ -47,6 +44,12 @@ function GroupsContent(props) {
                                     {group.name} </a>
                                 </p>
                             ))}
+
+                            <p className={'no-select'} onClick={() => props.handleChange(props.groups.length) }>
+                                <a className={styles.group} >
+                                    Edit Groups </a>
+                            </p>
+
                         </div>
                         <div className={styles.border_bottom}/>
                     </ReactPlaceholder>

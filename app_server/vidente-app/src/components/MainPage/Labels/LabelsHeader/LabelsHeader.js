@@ -2,11 +2,11 @@ import React from 'react';
 
 import styles from './LabelsHeader.module.css';
 
-function LabelsHeader() {
+function LabelsHeader(props) {
     return(
         <div className={styles.headline}>
             <div className={styles.headline_contents}>
-                <h5 className={'no-select'}>  Favorites &nbsp; &nbsp;
+                <h5 className={'no-select'}>  {props.groupName} &nbsp; &nbsp;
                 </h5>
                 <div className={styles.button_curved} href="">
                     <span>

@@ -16,12 +16,43 @@
 
 }
 
+.modal_form {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+}
+
 .group {
     min-width: 10em;
 }
 
+.edit_group_input {
+    font-size: 1em;
+    border-radius: 0em;
+    border-width: 0em;
+    text-align: center;
+    outline: 0;
+    align-self: baseline;
+}
 
-.newgroup_cancel {
+.new_group_check {
+    border-width: 0em;
+    max-width: 50%;
+    font-size: 1em;
+    background-color: transparent;
+    padding: 0px;
+}
+
+.new_group_input {
+     font-size: 1em;
+     border-radius: 0em;
+     border-width: 0em;
+     text-align: center;
+     outline: 0;
+     align-self: baseline;
+ }
+
+.new_group_cancel {
     width: 1em;
-    marginLeft: 0.5em;
+    margin-left: 0.5em;
 }
