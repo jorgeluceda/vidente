@@ -28,7 +28,6 @@ function MainPage(props) {
 
     const addNewGroup = (newGroup) => {
         userService.createGroup(newGroup).then((json) => {
-            alert(JSON.stringify(json.groups));
             setGroups(json.groups);
         });
     }

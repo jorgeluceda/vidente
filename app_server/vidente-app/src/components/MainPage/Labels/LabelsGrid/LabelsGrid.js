@@ -17,13 +17,21 @@ const labelPlaceholder = (
 );
 
 function LabelsGrid(props) {
+    console.log(props.labels);
     return(
         <>
             <div className={styles.contents_grid}>
-                <ReactPlaceholder ready={props.currentGroup} customPlaceholder={labelPlaceholder} showLoadingAnimation={true}>
-                    <div className={styles.card} id="add-label">
-                        <span className={`no-select ${styles.no_select}`} >+ Add Label</span>
-                    </div>
+                <ReactPlaceholder ready={props.currentGroup !== undefined} customPlaceholder={labelPlaceholder} showLoadingAnimation={true}>
+                    {props.labels.length < 1 ?
+                        <div className={styles.card} id="add-label">
+                            <span className={`no-select ${styles.no_select}`} >+ Add Label</span>
+                        </div>
+                        :
+                        <div className={styles.card} id="add-label">
+                            <span className={`no-select ${styles.no_select}`} >We have labels!</span>
+                        </div>
+                    }
+
                 </ReactPlaceholder>
             </div>
             

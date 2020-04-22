@@ -26,17 +26,16 @@ function Labels(props) {
             {props.groups[props.relativePosition[0]] !== undefined ?
                 <>
                     <LabelsHeader groupName={props.groups[props.relativePosition[0]].name}/>
-                    <LabelsGrid currentGroup={props.groups[props.relativePosition[0]].name}/>
+                    <LabelsGrid currentGroup={groupAndLabels.group} labels={groupAndLabels.labels}/>
                 </>
                 :
                 <>
                     <LabelsHeader groupName={props.groups[0].name}/>
-                    <LabelsGrid currentGroup={props.groups[0].name}/>
+                    <LabelsGrid currentGroup={groupAndLabels.group} labels={undefined}/>
                 </>
             }
         </>
     );
-
 }
 
 export default Labels;
