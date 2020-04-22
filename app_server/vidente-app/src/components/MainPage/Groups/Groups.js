@@ -15,7 +15,7 @@ function Groups(props) {
         setModalState({isOpen: true, modalType: newOrEditModal});
     }
 
-    function closeModal(){
+    function closeModal() {
         setModalState({isOpen: false, modalType: undefined});
         setRelativePosition([0, 0]);
     }
