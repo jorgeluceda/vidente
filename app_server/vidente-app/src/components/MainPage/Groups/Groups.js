@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 
-import styles from './GroupsModal/GroupsModal.module.css';
-
 import GroupsHeader from "./GroupsHeader/GroupsHeader";
 import GroupsContent from "./GroupsContent/GroupsContent";
 
-import { userService } from '../../../_services/userService';
 import GroupsModal from "./GroupsModal/GroupsModal";
 
 function Groups(props) {

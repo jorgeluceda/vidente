@@ -10,9 +10,6 @@ import FadeIn from "react-fade-in";
 function App() {
   const [shouldLogin, setShouldLogin] = useState(false);
   const [userToken, setUserToken] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [done, setDone] = useState(false);
-
 
   useEffect(() => {
     if(!userToken) {
@@ -28,7 +25,7 @@ function App() {
     } else {
 
     }
-  }, []);
+  }, [userToken]);
 
   const changeLoginStatus = (token, showLogin) => {
     setUserToken(token);

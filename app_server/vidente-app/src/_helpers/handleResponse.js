@@ -5,7 +5,7 @@ export const handleResponses = {
 };
 
 function handleResponse(response) {
-  if(response.status == 500) {
+  if(response.status === 500) {
     return ["Internal Server Error"];
   }
 

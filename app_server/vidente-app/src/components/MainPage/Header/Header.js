@@ -9,7 +9,7 @@ function Header(props) {
         <div className={styles.header}>
         <a href="/">
             <h5 className="no-select">
-            🔮
+                🔮
             </h5>
         </a>
         <h5 style={{color: "white", marginLeft: "0px", fontWeight: 600}}>

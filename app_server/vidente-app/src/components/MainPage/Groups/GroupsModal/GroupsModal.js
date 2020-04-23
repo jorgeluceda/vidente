@@ -1,6 +1,5 @@
 import Modal from "react-modal";
-import React, {useEffect, useState} from "react";
-import {userService} from "../../../../_services/userService";
+import React, {useState} from "react";
 import styles from "./GroupsModal.module.css";
 
 Modal.setAppElement('#root');
@@ -42,14 +41,14 @@ function GroupsModal(props) {
             <form className={styles.modal_form} onSubmit={(e) => {
                 e.preventDefault();
                 const {name} = e.target;
-                if(name.value != "") {
+                if(name.value !== "") {
                         props.addNewGroup(name.value);
                 } else {
                     console.log("Not going to do anything...");
                 }
             }}>
-                {selectedInput[1] == true &&
-                    <button className={styles.group_button}onClick={() => setSelectedInput([0, false])}>
+                {selectedInput[1] === true &&
+                    <button className={styles.group_button} onClick={() => setSelectedInput([0, false])}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="2em">
                             <path fill="#464646" d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm3.21,11.79a1,1,0,0,1,0,1.42,1,1,0,0,1-1.42,0L12,13.41l-1.79,1.8a1,1,0,0,1-1.42,0,1,1,0,0,1,0-1.42L10.59,12l-1.8-1.79a1,1,0,0,1,1.42-1.42L12,10.59l1.79-1.8a1,1,0,0,1,1.42,1.42L13.41,12Z"/>
                         </svg>
@@ -70,7 +69,6 @@ function GroupsModal(props) {
 
             {props.modalState.modalType === "editGroups" &&
                 poppedGroup.map((group, i) => (
-                            <div>
                                 <p key={i} className={`no-select ${styles.modal_p}`}>
                                     <button className={styles.group_button} onClick={() => {
                                         props.deleteGroup(group._id);
@@ -81,10 +79,7 @@ function GroupsModal(props) {
                                     </button>
 
                                     <input className={styles.edit_group_input} autoFocus={selectedInput[0] === (i) && selectedInput[1] !== true}
-                                           name="name" value={group.name} autoComplete="off" onClick={() => {
-                                               console.log(`i: ${i}, create new group selected: ${selectedInput[1]}`)
-                                               setSelectedInput([i, false])}}/>
-
+                                           name="name" value={group.name} autoComplete="off" onClick={() => {setSelectedInput([i, false])}}/>
                                     {selectedInput[0] === (i) && selectedInput[1] !== true
                                         ?
                                         <button className={styles.group_button}>
@@ -101,11 +96,10 @@ function GroupsModal(props) {
                                         </button>
                                         }
                                 </p>
-                            </div>
                 ))
             }
 
-            <div className={styles.modal_border}></div>
+            <div className={styles.modal_border}/>
             <button className={styles.done_button} onClick={props.closeModal}>Done</button>
         </Modal>
 

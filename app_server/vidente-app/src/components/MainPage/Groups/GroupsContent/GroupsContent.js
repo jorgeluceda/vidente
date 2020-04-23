@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import styles from "./GroupsContent.module.css";
 
@@ -10,7 +10,6 @@ import 'react-placeholder/lib/reactPlaceholder.css';
 
 const menuPlaceholder = (
     <div>
-      {/*<RectShape color='blue' style={{width: 30, height: 80}}/>*/}
       <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
       <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
       <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
@@ -20,8 +19,6 @@ const menuPlaceholder = (
 const translateScale = 2.25;
 
 function GroupsContent(props) {
-    // useState([<positionEms>, <previousPositionEm>])
-
     const clickedAnimation = useSpring({
         config: { duration: 150},
         from: { transform: `translateY(${(props.relativePosition[1] * translateScale)}em)` },
@@ -35,21 +32,20 @@ function GroupsContent(props) {
                     <ReactPlaceholder ready={props.groups.length > 0} customPlaceholder={menuPlaceholder} showLoadingAnimation={true}>
                         <div className={styles.strapline} id="strapline-short">
                             <animated.p className={`${styles.current_group}`} style={clickedAnimation} id="current_group">
-                                <a className={styles.group}></a>
+                                <button className={styles.group}/>
                             </animated.p>
 
                             {props.groups.map((group, i) => (
-                                <p className={'no-select'} onClick={() => props.handleChange(i) }>
-                                    <a className={styles.group} >
-                                    {group.name} </a>
+                                <p className={'no-select'} key={i} onClick={() => props.handleChange(i) }>
+                                    <span className={styles.group} >
+                                    {group.name} </span>
                                 </p>
                             ))}
 
                             <p className={'no-select'} onClick={() => props.handleChange(props.groups.length) }>
-                                <a className={styles.group} >
-                                    Edit Groups </a>
+                                <span className={styles.group} >
+                                    Edit Groups </span>
                             </p>
-
                         </div>
                         <div className={styles.border_bottom}/>
                     </ReactPlaceholder>

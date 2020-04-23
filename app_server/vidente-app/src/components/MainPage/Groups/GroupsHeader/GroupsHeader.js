@@ -9,7 +9,7 @@ function GroupsHeader(props) {
             <h6 className={`no-select ${styles.menu_header_title}`}>
                 Groups&nbsp;&nbsp;
             </h6>
-            <button className={styles.header_button} onTouchStart="" onClick={() => {
+            <button className={styles.header_button} onTouchStart={() => {}} onClick={() => {
                 props.openModal("newModal");
             }}>
                 <span

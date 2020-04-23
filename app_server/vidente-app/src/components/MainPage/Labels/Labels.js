@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
 
-import styles from './Labels.module.css';
-
 import LabelsHeader from "./LabelsHeader/LabelsHeader";
 import LabelsGrid from './LabelsGrid/LabelsGrid';
 import {userService} from "../../../_services/userService";
@@ -19,7 +17,7 @@ function Labels(props) {
             );
         }
     //    NOTE: don't apply effect if relativePosition prop remains the same!
-    }, [props.relativePosition]);
+    }, [props.relativePosition, props.groups]);
 
     return(
         <>
