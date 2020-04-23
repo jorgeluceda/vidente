@@ -57,10 +57,10 @@ function GroupsModal(props) {
                 }
 
                 <input className={styles.new_group_input} autoFocus={selectedInput[1] === true}
-                   name="name" placeholder="Create new group" autoComplete="off" onClick={() => {setSelectedInput([0, true])}}/>
+                   name="name" placeholder="Create new group" autoComplete="off" onClick={() => {setSelectedInput([-1, true])}}/>
                 <button className={styles.new_group_check}>
                     {/* Check button for Create new group*/}
-                    {selectedInput[0] === 0 && selectedInput[1] === true &&
+                    {selectedInput[1] === true &&
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.5em">
                             <path fill="#464646" d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4.71,7.71-5,5a1,1,0,0,1-1.42,0l-2-2a1,1,0,0,1,1.42-1.42L11,12.59l4.29-4.3a1,1,0,0,1,1.42,1.42Z"/>
                         </svg>
@@ -80,23 +80,26 @@ function GroupsModal(props) {
                                         </svg>
                                     </a>
 
-                                    <input className={styles.edit_group_input} autoFocus={selectedInput[0] === (i)}
-                                           name="name" value={group.name} autoComplete="off" onClick={() => {setSelectedInput([i, false])}}/>
-                                        {selectedInput[0] === (i)
-                                            ?
-                                            <a>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.25em">
-                                                    <path fill="#464646" d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4.71,7.71-5,5a1,1,0,0,1-1.42,0l-2-2a1,1,0,0,1,1.42-1.42L11,12.59l4.29-4.3a1,1,0,0,1,1.42,1.42Z"/>
-                                                </svg>
-                                            </a>
-                                            :
-                                            <a>
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.25em">
-                                                    <path fill="#464646" d="M17,22H5a3,3,0,0,1-3-3V7A3,3,0,0,1,5,4H9A1,1,0,0,1,9,6H5A1,1,0,0,0,4,7V19a1,1,0,0,0,1,1H17a1,1,0,0,0,1-1V15a1,1,0,0,1,2,0v4A3,3,0,0,1,17,22Z"/>
-                                                    <path fill="#464646" d="M14.6 5.87l-4.95 5a.41.41 0 0 0-.13.23l-1 3.82a.48.48 0 0 0 .13.48A.47.47 0 0 0 9 15.5a.32.32 0 0 0 .13 0l3.82-1a.41.41 0 0 0 .23-.13L18.13 9.4zM21 4.45L19.55 3a1.52 1.52 0 0 0-2.13 0L16 4.45 19.55 8 21 6.58A1.52 1.52 0 0 0 21 4.45z"/>
-                                                </svg>
-                                            ️</a>
-                                            }
+                                    <input className={styles.edit_group_input} autoFocus={selectedInput[0] === (i) && selectedInput[1] !== true}
+                                           name="name" value={group.name} autoComplete="off" onClick={() => {
+                                               console.log(`i: ${i}, create new group selected: ${selectedInput[1]}`)
+                                               setSelectedInput([i, false])}}/>
+
+                                    {selectedInput[0] === (i) && selectedInput[1] !== true
+                                        ?
+                                        <a>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.25em">
+                                                <path fill="#464646" d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4.71,7.71-5,5a1,1,0,0,1-1.42,0l-2-2a1,1,0,0,1,1.42-1.42L11,12.59l4.29-4.3a1,1,0,0,1,1.42,1.42Z"/>
+                                            </svg>
+                                        </a>
+                                        :
+                                        <a>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.25em">
+                                                <path fill="#464646" d="M17,22H5a3,3,0,0,1-3-3V7A3,3,0,0,1,5,4H9A1,1,0,0,1,9,6H5A1,1,0,0,0,4,7V19a1,1,0,0,0,1,1H17a1,1,0,0,0,1-1V15a1,1,0,0,1,2,0v4A3,3,0,0,1,17,22Z"/>
+                                                <path fill="#464646" d="M14.6 5.87l-4.95 5a.41.41 0 0 0-.13.23l-1 3.82a.48.48 0 0 0 .13.48A.47.47 0 0 0 9 15.5a.32.32 0 0 0 .13 0l3.82-1a.41.41 0 0 0 .23-.13L18.13 9.4zM21 4.45L19.55 3a1.52 1.52 0 0 0-2.13 0L16 4.45 19.55 8 21 6.58A1.52 1.52 0 0 0 21 4.45z"/>
+                                            </svg>
+                                        ️</a>
+                                        }
                                 </p>
                             </div>
                 ))

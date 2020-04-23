@@ -17,7 +17,6 @@ const labelPlaceholder = (
 );
 
 function LabelsGrid(props) {
-    console.log(props.labels);
     return(
         <>
             <div className={styles.contents_grid}>

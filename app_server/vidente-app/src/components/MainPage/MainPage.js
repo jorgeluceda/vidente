@@ -12,12 +12,12 @@ import { userService } from "../../_services/userService";
 function MainPage(props) {
     const [groups, setGroups] = useState([]);
 
-    const [relativePosition, setRelativePosition] = useState([0, 0]);
+    const [relativePosition, setRelativePosition] = useState([0, true]);
 
     useEffect(() => {
         userService.getAllGroups().then(
             (json) => {
-                setGroups(groupsArray => [...json.groups, ...groupsArray]);
+                setGroups(json.groups);
             }
         );
     }, []);

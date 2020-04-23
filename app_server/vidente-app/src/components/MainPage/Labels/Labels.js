@@ -23,17 +23,18 @@ function Labels(props) {
 
     return(
         <>
-            {props.groups[props.relativePosition[0]] !== undefined ?
+            {groupAndLabels.group !== undefined ?
                 <>
-                    <LabelsHeader groupName={props.groups[props.relativePosition[0]].name}/>
+                    <LabelsHeader groupName={groupAndLabels.group.name}/>
                     <LabelsGrid currentGroup={groupAndLabels.group} labels={groupAndLabels.labels}/>
                 </>
                 :
                 <>
                     <LabelsHeader groupName={props.groups[0].name}/>
-                    <LabelsGrid currentGroup={groupAndLabels.group} labels={undefined}/>
+                    <LabelsGrid currentGroup={groupAndLabels.group} labels={[]}/>
                 </>
             }
+
         </>
     );
 }
