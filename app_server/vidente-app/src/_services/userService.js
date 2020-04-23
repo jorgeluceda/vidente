@@ -2,10 +2,11 @@ import { handleResponses } from '../_helpers/handleResponse';
 import {authHeader} from "../_helpers/authHeader";
 
 export const userService = {
-  getAllGroups,
-  getLabels,
   createGroup,
-  deleteGroup
+  getAllGroups,
+  deleteGroup,
+  getLabels,
+  createLabel
 };
 
 function getAllGroups() {
@@ -13,10 +14,6 @@ function getAllGroups() {
   return fetch(`/api/groups`, requestOptions).then(handleResponses.handleResponse);
 }
 
-function getLabels(props) {
-  const requestOptions = {method: 'GET', headers: authHeader()};
-  return fetch(`/api/labels/?id=${props}`, requestOptions).then(handleResponses.handleResponse);
-}
 
 function createGroup(groupName) {
   const requestOptions = { 
@@ -34,4 +31,13 @@ function deleteGroup(groupId) {
   };
 
   return fetch(`/api/groups`, requestOptions).then(handleResponses.handleResponse);
+}
+
+function getLabels(props) {
+  const requestOptions = {method: 'GET', headers: authHeader()};
+  return fetch(`/api/labels/?id=${props}`, requestOptions).then(handleResponses.handleResponse);
+}
+
+function createLabel(labelName, groupId) {
+
 }

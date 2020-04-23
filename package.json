@@ -1,5 +1,5 @@
 {
-  "name": "loc8r",
+  "name": "vidente",
   "version": "0.0.0",
   "private": true,
   "engines": {
@@ -27,12 +27,9 @@
     "request": "^2.88.2",
     "serve-favicon": "^2.5.0"
   },
-  "devDependencies": {
-    "node-sass": "^4.13.1"
-  },
+  "devDependencies": {},
   "scripts": {
     "start": "node ./bin/www",
-    "node-sass": "node-sass --scss -t compressed --style compressed --watch scss/index.scss -o public/stylesheets/",
     "heroku-postbuild": "cd app_server/vidente-app && npm install && npm run build"
   }
 }

@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
+import {userService} from "../../../_services/userService";
 
 import LabelsHeader from "./LabelsHeader/LabelsHeader";
 import LabelsGrid from './LabelsGrid/LabelsGrid';
-import {userService} from "../../../_services/userService";
-
 
 function Labels(props) {
     const [groupAndLabels, setGroupAndLabels] = useState({group: undefined, labels: []});

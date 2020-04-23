@@ -210,10 +210,43 @@ const labelsListByCreated = async (req, res) => {
   });
 };
 
+const labelsCreate = (req, res) => {
+    getUser(req, res, (req, res, userId) => {
+        if(userId) {
+            User
+                .findOneAndUpdate({_id: userId}, {
+                    $push: {
+                        groups: {
+                            name: req.body.name,
+                            labels: []
+                        }
+                    },
+                }, {
+                    new: true
+                })
+                .select('-groups.labels -_id -name -email -favorite -salt -hash -_v')
+                .exec((err, group) => {
+                    // appropriate response methods for dealing with both success and failure
+                    if(err) {
+                        res
+                            .status(400)
+                            .json(err);
+                    } else {
+                        res
+                            .status(200)
+                            .json(group);
+                    }
+                });
+        }
+    });
+};
+
+
 
 module.exports = {
     groupsListByCreated,
     groupsCreate,
     groupsDeleteOne,
-    labelsListByCreated
+    labelsListByCreated,
+    labelsCreate
 };
