@@ -32,7 +32,7 @@ function GroupsContent(props) {
                     <ReactPlaceholder ready={props.groups.length > 0} customPlaceholder={menuPlaceholder} showLoadingAnimation={true}>
                         <div className={styles.strapline} id="strapline-short">
                             <animated.p className={`${styles.current_group}`} style={clickedAnimation} id="current_group">
-                                <button className={styles.group}/>
+                                <span className={styles.group}/>
                             </animated.p>
 
                             {props.groups.map((group, i) => (
