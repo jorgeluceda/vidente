@@ -21,12 +21,18 @@ const newLabelsModalStyles = {
     },
 };
 
+// SKU Regex for label accepting strings that have at least one letter,
+// there can't be more than 3 letters or more than 5 numbers
+// to allow for faster indexing
+const skuRegex = /^[a-zA-Z]{1,3}[0-9]{1,5}/mi
+
 function LabelsModal(props) {
-    const {register, watch, errors, handleSubmit} = useForm();
+    const {register, watch, errors, handleSubmit} = useForm({
+        mode: "onChange"
+    });
 
     const [labelData, setLabelData] = useState();
     const onSubmit = data => {
-        alert(`group Name: ${props.currentGroup.name}, groupId: ${props.currentGroup.id}`)
         userService.createLabel(props.currentGroup.name, props.currentGroup.id, data.labelName, data.labelSku).then(
             (json) => {
                 setLabelData(data);
@@ -50,7 +56,9 @@ function LabelsModal(props) {
                             <h5 className={`no-select`}>&nbsp;</h5>
                             <div className={styles.label_section}>
                                 <span className={styles.label_section_name}><strong>Title</strong></span>
-                                <input className={styles.new_label_input} ref={register} autoFocus={true}
+                                <input className={styles.new_label_input} ref={register({
+                                    validate: value => value.length < 9
+                                })}
                                        name="labelName" placeholder="Label Title" autoComplete="off"/>
                             </div>
                         </>
@@ -61,6 +69,16 @@ function LabelsModal(props) {
                         </>
                     }
                 </div>
+                {errors.labelName ?
+                    <div className={styles.error_div}>
+                        <svg className={styles.error_svg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={"1em"}>
+                            <path d="M21.74,18.51,14.16,3.33a2.42,2.42,0,0,0-4.32,0L2.26,18.51A2.4,2.4,0,0,0,4.41,22H19.59a2.4,2.4,0,0,0,2.15-3.49ZM12,17a1,1,0,1,1,1-1A1,1,0,0,1,12,17Zm1-5a1,1,0,0,1-2,0V9a1,1,0,0,1,2,0Z"/>
+                        </svg>
+                        &nbsp; 9 characters maximum allowed
+                    </div>
+                    :
+                    <span style={{alignSelf: "flex-end", marginRight: "1em"}}>&nbsp;</span>
+                }
 
                 {/*<div className={styles.label_section}>*/}
                 {/*    <span className={styles.label_section_name}><strong>Label Type</strong></span>*/}
@@ -72,9 +90,22 @@ function LabelsModal(props) {
                 <div className={styles.label_section}>
                     <span className={styles.label_section_name}><strong>SKU</strong></span>
 
-                    <input className={styles.new_label_input} ref={register}
-                           name="labelSku" placeholder="SKU Value" autoComplete="off"/>
+                    <input className={styles.new_label_input} ref={register({
+                        validate: value => skuRegex.test(value)
+
+                    })} name="labelSku" placeholder="SKU Value" autoComplete="off"/>
                 </div>
+
+                {errors.labelSku ?
+                    <div className={styles.error_div}>
+                        <svg className={styles.error_svg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={"1em"}>
+                            <path d="M21.74,18.51,14.16,3.33a2.42,2.42,0,0,0-4.32,0L2.26,18.51A2.4,2.4,0,0,0,4.41,22H19.59a2.4,2.4,0,0,0,2.15-3.49ZM12,17a1,1,0,1,1,1-1A1,1,0,0,1,12,17Zm1-5a1,1,0,0,1-2,0V9a1,1,0,0,1,2,0Z"/>
+                        </svg>
+                        &nbsp;Need at least a letter and a number
+                    </div>
+                    :
+                    <span style={{alignSelf: "flex-end", marginRight: "1em"}}>&nbsp;</span>
+                }
 
                 {/* Date Created would go here on editLabel */}
                 <div className={styles.modal_border}/>

@@ -17,16 +17,28 @@
     align-self: self-start;
     display: inline-block;
     width: 4.5em;
-    margin-bottom: 0.75em;
 }
 
 .new_label_input {
     font-size: 1em;
     border-radius: 0em;
     border-width: 0em;
-    text-align: center;
+    text-align: left;
     outline: 0;
 }
+
+.error_div {
+    display: flex;
+    alignSelf: flex-start;
+    marginRight: 1em;
+    fontSize: 1em;
+    color: #F54239;
+}
+
+.error_svg {
+    fill: #F54239;
+}
+
 
 
 .modal_p {

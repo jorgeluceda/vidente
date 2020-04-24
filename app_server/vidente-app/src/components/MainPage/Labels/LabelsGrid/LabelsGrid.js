@@ -17,8 +17,6 @@ const labelPlaceholder = (
     </div>
 );
 
-
-
 function LabelsGrid(props) {
     let labelOptions = {
         format: "CODE39",
