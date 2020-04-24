@@ -1,0 +1,81 @@
+.menu {
+    grid-area: mr;
+    display: flex;
+    flex-direction: column;
+    background-color: #F6F8FA;
+}
+
+.label_title {
+    margin-top: 1em;
+}
+
+.label_section {
+    margin-left: 1em;
+}
+
+.label_section_name {
+    align-self: self-start;
+    display: inline-block;
+    width: 4.5em;
+    margin-bottom: 0.75em;
+}
+
+.new_label_input {
+    font-size: 1em;
+    border-radius: 0em;
+    border-width: 0em;
+    text-align: center;
+    outline: 0;
+}
+
+
+.modal_p {
+    display: flex;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    text-decoration: none;
+    line-height: 1.5rem;
+    min-width: 10rem;
+}
+
+.modal_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.group {
+    min-width: 10em;
+}
+
+.modal_border {
+    border-bottom: 1px solid #e1e4e8!important;
+    padding-bottom: 1em;
+    min-width: 14.5em;
+}
+
+.edit_group_input {
+    font-size: 1em;
+    border-radius: 0em;
+    border-width: 0em;
+    text-align: center;
+    outline: 0;
+    align-self: center;
+}
+
+.group_button {
+    border-width: 0em;
+    max-width: 50%;
+    font-size: 1em;
+    background-color: transparent;
+    padding: 0px;
+    display: flex;
+}
+.new_group_cancel {
+    width: 1em;
+    margin-left: 0.5em;
+}
+
+.done_button {
+    margin-top: 1em;
+    align-self: flex-end;
+}

@@ -7,7 +7,11 @@ const labelSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    type: {
+    // type: {
+    //     type: String,
+    //     required: true
+    // },
+    sku: {
         type: String,
         required: true
     },
@@ -103,7 +107,7 @@ testUser.groups = [{name: "Favorites", labels: []}];
 testUser.setPassword("test");
 testUser.save((err, user) => {
     if(err) {
-        console.log(JSON.stringify(err.errmsg));
+        console.log(JSON.stringify(err));
     }
 });
 

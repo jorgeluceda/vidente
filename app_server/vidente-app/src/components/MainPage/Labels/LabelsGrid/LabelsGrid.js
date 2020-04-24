@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import styles from './LabelsGrid.module.css';
 
@@ -9,7 +9,6 @@ import Barcode from "react-barcode";
 
 const labelPlaceholder = (
     <div>
-        {/*<RectShape color='blue' style={{width: 30, height: 80}}/>*/}
         <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
         <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
         <TextRow color='#E3E5E8' style={{width: 200, height: 20, borderRadius: 5}}/>
@@ -18,9 +17,9 @@ const labelPlaceholder = (
     </div>
 );
 
-function LabelsGrid(props) {
 
-    let labels = [];
+
+function LabelsGrid(props) {
     let labelOptions = {
         format: "CODE39",
         lineColor: "black",
@@ -30,33 +29,29 @@ function LabelsGrid(props) {
         textPosition: "bottom"
     };
 
-    // if(props.labels.length > 0) {
-    //     props.labels.forE
-    // }
-    for(let i = 0; i < 9; i++) {
-        labels.push(
-            <div className={styles.card} style={{background: "white"}}>
-                <b>Barcode Name</b>
-                <Barcode text={"SP17"} value={"Hello"} {...labelOptions}/>
-            </div>
-        );
-    }
-
-    return(
+    return (
         <>
             <div className={styles.contents_grid}>
-                <ReactPlaceholder ready={props.currentGroup !== undefined} customPlaceholder={labelPlaceholder} showLoadingAnimation={true}>
-                    {labels}
-                    {/*{props.labels.length < 1 ?*/}
-                    {/*    <div className={styles.card} id="add-label">*/}
-                    {/*        <span className={`no-select ${styles.no_select}`} >+ Add Label</span>*/}
-                    {/*    </div>*/}
-                    {/*    :*/}
-                    {/*    <div className={styles.card} id="add-label">*/}
-                    {/*        <span className={`no-select ${styles.no_select}`} >We have labels!</span>*/}
-                    {/*    </div>*/}
-                    {/*}*/}
-
+                <ReactPlaceholder ready={props.currentGroup != undefined} customPlaceholder={labelPlaceholder} showLoadingAnimation={true}>
+                    {props.labels.length > 0 ? (
+                            props.labels.map((group, i) => (
+                                <div className={styles.card} style={{background: "white"}} onClick={() => {
+                                    props.handleCard("editLabel");
+                                }}>
+                                    <b>{group.name}</b>
+                                    <Barcode text={group.sku} value={group.name} {...labelOptions}/>
+                                </div>
+                            ))
+                        )
+                        :
+                        (
+                        <div className={styles.add_label_card} id="add-label" onClick={() => {
+                            props.handleCard("");
+                        }}>
+                            <span className={`no-select ${styles.no_select}`} >+ Add Label</span>
+                        </div>
+                        )
+                    }
                 </ReactPlaceholder>
             </div>
             

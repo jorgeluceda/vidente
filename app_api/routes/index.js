@@ -31,8 +31,8 @@ router
 router
   .route('/labels')
   // // Read a specific user's property
-  .get(auth, ctrlGroups.labelsListByCreated);
-  // .post(auth, ctrlGroups.labelsCreate)
+  .get(auth, ctrlGroups.labelsListByCreated)
+  .post(auth, ctrlGroups.labelsCreate);
 
 router
   .route('/register')

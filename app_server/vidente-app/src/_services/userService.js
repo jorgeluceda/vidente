@@ -38,6 +38,11 @@ function getLabels(props) {
   return fetch(`/api/labels/?id=${props}`, requestOptions).then(handleResponses.handleResponse);
 }
 
-function createLabel(labelName, groupId) {
+function createLabel(groupName, groupId, labelName, labelSku) {
+  const requestOptions = {
+    method: 'POST', headers: {...authHeader(), 'Content-Type' : 'application/json'},
+    body: JSON.stringify({groupName: groupName, groupId: groupId, labelName: labelName, labelSku: labelSku})
+  };
 
+  return fetch(`/api/labels`, requestOptions).then(handleResponses.handleResponse);
 }
