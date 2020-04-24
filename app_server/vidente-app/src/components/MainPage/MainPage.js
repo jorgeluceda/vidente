@@ -40,20 +40,17 @@ function MainPage(props) {
     }
 
     return(
-        <FadeIn>
-            <div className={styles.main_page}>
-                <Header changeLoginStatus={props.changeLoginStatus}></Header>
-                <Groups groups={groups} relativePosition={relativePosition} changeRelativePosition={changeRelativePosition}
-                        addNewGroup={addNewGroup} deleteGroup={deleteGroup} />
+        <div className={styles.main_page}>
+            <Header changeLoginStatus={props.changeLoginStatus}></Header>
+            <Groups groups={groups} relativePosition={relativePosition} changeRelativePosition={changeRelativePosition}
+                    addNewGroup={addNewGroup} deleteGroup={deleteGroup} />
 
-                {/* Only render Labels component if we have received our groups */}
-                {groups.length > 0 &&
-                <Labels relativePosition={relativePosition} changeRelativePosition={changeRelativePosition}
-                        groups={groups}/>
-                }
-            </div>
-        </FadeIn>
-
+            {/* Only render Labels component if we have received our groups */}
+            {groups.length > 0 &&
+            <Labels relativePosition={relativePosition} changeRelativePosition={changeRelativePosition}
+                    groups={groups}/>
+            }
+        </div>
     );
 }
 
