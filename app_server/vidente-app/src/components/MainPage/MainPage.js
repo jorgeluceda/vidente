@@ -7,6 +7,7 @@ import Labels from "./Labels/Labels";
 import styles from './MainPage.module.css';
 
 import { userService } from "../../_services/userService";
+import FadeIn from "react-fade-in";
 
 
 function MainPage(props) {
@@ -39,17 +40,20 @@ function MainPage(props) {
     }
 
     return(
-        <div className={styles.main_page}>
-            <Header changeLoginStatus={props.changeLoginStatus}></Header>
-            <Groups groups={groups} relativePosition={relativePosition} changeRelativePosition={changeRelativePosition}
-                    addNewGroup={addNewGroup} deleteGroup={deleteGroup} />
+        <FadeIn>
+            <div className={styles.main_page}>
+                <Header changeLoginStatus={props.changeLoginStatus}></Header>
+                <Groups groups={groups} relativePosition={relativePosition} changeRelativePosition={changeRelativePosition}
+                        addNewGroup={addNewGroup} deleteGroup={deleteGroup} />
 
-            {/* Only render Labels component if we have received our groups */}
-            {groups.length > 0 &&
+                {/* Only render Labels component if we have received our groups */}
+                {groups.length > 0 &&
                 <Labels relativePosition={relativePosition} changeRelativePosition={changeRelativePosition}
                         groups={groups}/>
-            }
-        </div>
+                }
+            </div>
+        </FadeIn>
+
     );
 }
 

@@ -35,7 +35,7 @@ function LabelsModal(props) {
         );
     }
 
-    // console.log(watch('labelTitle'));
+    console.log(watch('labelSku'));
 
     return(
         <Modal isOpen={props.modalState.isOpen} onRequestClose={() => {
