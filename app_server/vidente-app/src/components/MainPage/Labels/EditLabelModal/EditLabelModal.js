@@ -28,6 +28,7 @@ const newLabelsModalStyles = {
 const skuRegex = /^[A-Z]{1,3}[0-9]{1,5}/m
 
 function EditLabelModal(props) {
+    console.log(props.currentLabel);
     const {register, watch, errors, handleSubmit} = useForm({
         mode: "onChange"
     });
@@ -57,25 +58,22 @@ function EditLabelModal(props) {
         }} style={newLabelsModalStyles} contentLabel="New Label Modal">
             <form className={styles.modal_form} onSubmit={handleSubmit(onSubmit)}>
                 <div className={`no-select ${styles.label_title}`}>
-                    {props.modalState.modalType === "newLabel"
-                        ?
-                        <>
-                            <h5>New Label in {props.currentGroup.name}</h5>
-                            <h5 className={`no-select`}>&nbsp;</h5>
-                            <div className={styles.label_section}>
-                                <span className={styles.label_section_name}><strong>Title</strong></span>
-                                <input className={styles.new_label_input} ref={register({
-                                    validate: value => value.length < 21
-                                })} name="labelName" placeholder="Label Title" autoComplete="off" minLength="1"/>
-                            </div>
-                        </>
-                        :
-                        <>
-                            <h5>Edit Labels</h5>
-                            <h5 className={`no-select`}>&nbsp;</h5>
-                        </>
-                    }
+                    <>
+                        <h5>Edit Labels</h5>
+                        <h5 className={`no-select`}>&nbsp;</h5>
+                    </>
                 </div>
+
+
+                <div className={styles.label_section}>
+                    <span className={styles.label_section_name}><strong>SKU</strong></span>
+
+                    <input className={styles.new_label_input} ref={register({
+                        validate: value => skuRegex.test(value)
+
+                    })} name="labelName" defaultValue="EVI" autoComplete="off" maxLength={6}/>
+                </div>
+
                 {errors.labelName ?
                     <div className={styles.error_div}>
                         <svg className={styles.error_svg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={"1em"}>
@@ -84,7 +82,8 @@ function EditLabelModal(props) {
                         &nbsp; 20 characters maximum allowed
                     </div>
                     :
-                    <span className={styles.error_div}>&nbsp;</span>
+                    <></>
+                    // <span className={styles.error_div}>&nbsp;</span>
                 }
 
                 {/*<div className={styles.label_section}>*/}

@@ -33,8 +33,8 @@ function LabelsGrid(props) {
                 <ReactPlaceholder ready={props.currentGroup != undefined} customPlaceholder={labelPlaceholder} showLoadingAnimation={true}>
                     {props.labels.length > 0 ? (
                             props.labels.map((label, i) => (
-                                <div className={styles.card} style={{background: "white"}} onClick={() => {
-                                    props.handleCard("editLabel");
+                                <div className={styles.card} style={{background: "white"}} value={i} onClick={() => {
+                                    props.handleCard("editLabel", i);
                                 }}>
                                     <b>{label.name}</b>
                                     <Barcode text={label.sku} value={label.sku} {...labelOptions}/>

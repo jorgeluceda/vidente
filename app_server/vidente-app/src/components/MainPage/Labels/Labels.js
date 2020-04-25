@@ -12,7 +12,7 @@ function Labels(props) {
         group: undefined, labels: undefined
     });
 
-    const [modalState, setModalState] = useState({isOpen: false, modalType: "newModal"});
+    const [modalState, setModalState] = useState({isOpen: false, modalType: "newModal", currentLabel: ""});
 
     useEffect(() => {
         if(props.groups[props.relativePosition[0]]) {
@@ -25,15 +25,21 @@ function Labels(props) {
     //    NOTE: don't apply effect if relativePosition prop remains the same!
     }, [props.relativePosition, props.groups]);
 
-    const handleCard = (value) => {
-        setModalState({isOpen: true, modalType: (value.length > 0) ? "editLabels" : "newLabel"});
+    const handleCard = (modalType, labelPosition ) => {
+        setModalState({isOpen: true, modalType: (modalType.length > 0) ? "editLabels" : "newLabel",
+            currentLabel: (labelPosition !== undefined) ? groupAndLabels.labels[labelPosition] : ""});
     }
+    // console.log(groupAndLabels.currentLabel);
 
     function closeModal() {
         setModalState({isOpen: false, modalType: undefined});
         props.changeRelativePosition([props.relativePosition[0], false]);
     }
 
+    if(groupAndLabels.group !== undefined) {
+        console.log(groupAndLabels.group.name);
+
+    }
 
     return(
         <>
@@ -45,19 +51,27 @@ function Labels(props) {
                     </NewLabelModal>
                 ) :
                     <EditLabelModal modalState={modalState} onRequestClose={closeModal} closeModal={closeModal}
-                                   currentGroup={groupAndLabels.group}>
+                                   currentGroup={groupAndLabels.group} currentLabel={groupAndLabels.currentLabel}>
                     </EditLabelModal>
             }
 
-            <>
-                <LabelsHeader handleCard={handleCard} groupName={(groupAndLabels.groups !== undefined)
-                    ? groupAndLabels.group.name
-                    : props.groups[0].name
-                }/>
-                <LabelsGrid currentGroup={groupAndLabels.group} labels={
-                    (groupAndLabels.labels !== undefined) ? groupAndLabels.labels : []
-                } relativePosition={props.relativePosition} handleCard={handleCard}/>
-            </>
+            {/* if the API call hasn't been made yet, render using the first position */}
+            {groupAndLabels.group === undefined ?
+                <>
+                    <LabelsHeader handleCard={handleCard} groupName={props.groups[0].name}/>
+                    <LabelsGrid currentGroup={groupAndLabels.group} labels={[]}
+                                relativePosition={props.relativePosition} handleCard={handleCard}/>
+                </>
+                :
+                <>
+                    <LabelsHeader handleCard={handleCard} groupName={groupAndLabels.group.name}/>
+                    <LabelsGrid currentGroup={groupAndLabels.group} labels={
+                        (groupAndLabels.labels !== undefined) ? groupAndLabels.labels : []
+                    } relativePosition={props.relativePosition} handleCard={handleCard}/>
+                </>
+
+
+            }
         </>
     );
 }
