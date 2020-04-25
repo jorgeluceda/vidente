@@ -44,7 +44,7 @@ function NewLabelModal(props) {
     };
 
     const onSubmit = data => {
-        userService.createLabel(props.currentGroup.name, props.currentGroup.id, data.labelName, data.labelSku).then(
+        userService.createLabel(props.currentGroup.name, props.currentGroup._id, data.labelName, data.labelSku).then(
             () => {
                 props.closeModal();
             }
@@ -57,18 +57,16 @@ function NewLabelModal(props) {
         }} style={newLabelsModalStyles} contentLabel="New Label Modal">
             <form className={styles.modal_form} onSubmit={handleSubmit(onSubmit)}>
                 <div className={`no-select ${styles.label_title}`}>
-                    {props.modalState.modalType === "newLabel" &&
-                        <>
-                            <h5>New Label in {props.currentGroup.name}</h5>
-                            <h5 className={`no-select`}>&nbsp;</h5>
-                            <div className={styles.label_section}>
-                                <span className={styles.label_section_name}><strong>Title</strong></span>
-                                <input className={styles.new_label_input} ref={register({
-                                    validate: value => value.length < 21
-                                })} name="labelName" placeholder="Label Title" autoComplete="off" minLength="1"/>
-                            </div>
-                        </>
-                    }
+                    <>
+                        <h5>New Label in {props.currentGroup.name}</h5>
+                        <h5 className={`no-select`}>&nbsp;</h5>
+                        <div className={styles.label_section}>
+                            <span className={styles.label_section_name}><strong>Name</strong></span>
+                            <input className={styles.new_label_input} ref={register({
+                                validate: value => value.length < 21
+                            })} name="labelName" placeholder="Label Name" autoComplete="off" minLength="1"/>
+                        </div>
+                    </>
                 </div>
                 {errors.labelName ?
                     <div className={styles.error_div}>

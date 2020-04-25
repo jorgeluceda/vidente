@@ -33,7 +33,7 @@ function LabelsGrid(props) {
                 <ReactPlaceholder ready={props.currentGroup != undefined} customPlaceholder={labelPlaceholder} showLoadingAnimation={true}>
                     {props.labels.length > 0 ? (
                             props.labels.map((label, i) => (
-                                <div className={styles.card} style={{background: "white"}} value={i} onClick={() => {
+                                <div className={styles.card} style={{background: "white"}} value={i} key={i} onClick={() => {
                                     props.handleCard("editLabel", i);
                                 }}>
                                     <b>{label.name}</b>
@@ -43,11 +43,11 @@ function LabelsGrid(props) {
                         )
                         :
                         (
-                        <div className={styles.add_label_card} id="add-label" onClick={() => {
-                            props.handleCard("");
-                        }}>
-                            <span className={`no-select ${styles.no_select}`} >+ Add Label</span>
-                        </div>
+                            <div className={styles.add_label_card} id="add-label" onClick={() => {
+                                props.handleCard("");
+                            }}>
+                                <span className={`no-select ${styles.no_select}`} >+ Add Label</span>
+                            </div>
                         )
                     }
                 </ReactPlaceholder>

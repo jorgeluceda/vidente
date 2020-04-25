@@ -28,7 +28,7 @@ const newLabelsModalStyles = {
 const skuRegex = /^[A-Z]{1,3}[0-9]{1,5}/m
 
 function EditLabelModal(props) {
-    console.log(props.currentLabel);
+
     const {register, watch, errors, handleSubmit} = useForm({
         mode: "onChange"
     });
@@ -54,7 +54,7 @@ function EditLabelModal(props) {
 
     return(
         <Modal isOpen={props.modalState.isOpen} onRequestClose={() => {
-            props.onRequestClose();
+            props.closeModal();
         }} style={newLabelsModalStyles} contentLabel="New Label Modal">
             <form className={styles.modal_form} onSubmit={handleSubmit(onSubmit)}>
                 <div className={`no-select ${styles.label_title}`}>
@@ -66,12 +66,12 @@ function EditLabelModal(props) {
 
 
                 <div className={styles.label_section}>
-                    <span className={styles.label_section_name}><strong>SKU</strong></span>
+                    <span className={styles.label_section_name}><strong>Name</strong></span>
 
                     <input className={styles.new_label_input} ref={register({
-                        validate: value => skuRegex.test(value)
+                        validate: value => value.length >= 3
 
-                    })} name="labelName" defaultValue="EVI" autoComplete="off" maxLength={6}/>
+                    })} name="labelName" defaultValue={props.currentLabel} autoComplete="off" maxLength={20}/>
                 </div>
 
                 {errors.labelName ?
@@ -79,7 +79,7 @@ function EditLabelModal(props) {
                         <svg className={styles.error_svg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={"1em"}>
                             <path d="M21.74,18.51,14.16,3.33a2.42,2.42,0,0,0-4.32,0L2.26,18.51A2.4,2.4,0,0,0,4.41,22H19.59a2.4,2.4,0,0,0,2.15-3.49ZM12,17a1,1,0,1,1,1-1A1,1,0,0,1,12,17Zm1-5a1,1,0,0,1-2,0V9a1,1,0,0,1,2,0Z"/>
                         </svg>
-                        &nbsp; 20 characters maximum allowed
+                        &nbsp; Needs at least 3 characters
                     </div>
                     :
                     <></>
@@ -118,7 +118,7 @@ function EditLabelModal(props) {
                 {/* Date Created would go here on editLabel */}
                 <div style={{height: "10em", display: 'flex', alignSelf: "center"}}>
                 {(labelState.name !== undefined && labelState.sku !== undefined &&
-                    labelState.name.length > 0 && labelState.sku.length > 0) ?
+                    labelState.name.length >= 3 && labelState.sku.length > 2) ?
                         <div className={styles.card} style={{background: "white"}}>
                             <b>{watch('labelName')}</b>
                             <Barcode text={watch('labelSku')} value={watch('labelSku')} {...labelOptions}/>
