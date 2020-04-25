@@ -3,7 +3,9 @@ import {userService} from "../../../_services/userService";
 
 import LabelsHeader from "./LabelsHeader/LabelsHeader";
 import LabelsGrid from './LabelsGrid/LabelsGrid';
-import LabelsModal from "./LabelsModal/LabelsModal";
+
+import NewLabelModal from "./NewLabelModal/NewLabelModal";
+import EditLabelModal from "./EditLabelModal/EditLabelModal";
 
 function Labels(props) {
     const [groupAndLabels, setGroupAndLabels] = useState({
@@ -35,10 +37,16 @@ function Labels(props) {
 
     return(
         <>
-            {groupAndLabels.group !== undefined && modalState.isOpen == true &&
-                <LabelsModal modalState={modalState} onRequestClose={closeModal} closeModal={closeModal}
-                             currentGroup={groupAndLabels.group}>
-                </LabelsModal>
+
+            {modalState.modalType == "newLabel" && groupAndLabels.group !== undefined && modalState.isOpen == true ?
+                (
+                    <NewLabelModal modalState={modalState} onRequestClose={closeModal} closeModal={closeModal}
+                                   currentGroup={groupAndLabels.group}>
+                    </NewLabelModal>
+                ) :
+                    <EditLabelModal modalState={modalState} onRequestClose={closeModal} closeModal={closeModal}
+                                   currentGroup={groupAndLabels.group}>
+                    </EditLabelModal>
             }
 
             <>

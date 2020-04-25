@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 import React, {useState} from "react";
-import styles from "./LabelsModal.module.css";
+import styles from "./NewLabelModal.module.css";
 
 import { useForm } from "react-hook-form";
 
@@ -27,7 +27,7 @@ const newLabelsModalStyles = {
 // to allow for faster indexing
 const skuRegex = /^[A-Z]{1,3}[0-9]{1,5}/m
 
-function LabelsModal(props) {
+function NewLabelModal(props) {
     const {register, watch, errors, handleSubmit} = useForm({
         mode: "onChange"
     });
@@ -43,7 +43,6 @@ function LabelsModal(props) {
         textPosition: "bottom"
     };
 
-    const [labelData, setLabelData] = useState();
     const onSubmit = data => {
         userService.createLabel(props.currentGroup.name, props.currentGroup.id, data.labelName, data.labelSku).then(
             () => {
@@ -52,15 +51,13 @@ function LabelsModal(props) {
         );
     }
 
-    console.log(watch('labelSku'));
     return(
         <Modal isOpen={props.modalState.isOpen} onRequestClose={() => {
             props.onRequestClose();
-        }} style={newLabelsModalStyles} contentLabel="Example Modal">
+        }} style={newLabelsModalStyles} contentLabel="New Label Modal">
             <form className={styles.modal_form} onSubmit={handleSubmit(onSubmit)}>
                 <div className={`no-select ${styles.label_title}`}>
-                    {props.modalState.modalType === "newLabel"
-                        ?
+                    {props.modalState.modalType === "newLabel" &&
                         <>
                             <h5>New Label in {props.currentGroup.name}</h5>
                             <h5 className={`no-select`}>&nbsp;</h5>
@@ -70,11 +67,6 @@ function LabelsModal(props) {
                                     validate: value => value.length < 21
                                 })} name="labelName" placeholder="Label Title" autoComplete="off" minLength="1"/>
                             </div>
-                        </>
-                        :
-                        <>
-                            <h5>Edit Labels</h5>
-                            <h5 className={`no-select`}>&nbsp;</h5>
                         </>
                     }
                 </div>
@@ -113,11 +105,8 @@ function LabelsModal(props) {
                         &nbsp;Enter at least a capital letter and a number
                     </div>
                     :
-
                     <span className={styles.error_div}>&nbsp;</span>
                 }
-
-
 
                 {/* Date Created would go here on editLabel */}
                 <div style={{height: "10em", display: 'flex', alignSelf: "center"}}>
@@ -138,15 +127,11 @@ function LabelsModal(props) {
                 </div>
 
                 <div className={styles.modal_border}/>
-                {props.modalState.modalType === "newLabel"
-                    ?
-                    <input className={styles.done_button} style={{alignSelf: "center"}} type="submit"/>
-                    :
-                    <input className={styles.done_button} type="submit"/>
-                }
+                <input className={styles.done_button} style={{alignSelf: "center"}} type="submit"/>
+
             </form>
         </Modal>
     );
 }
 
-export default LabelsModal;
+export default NewLabelModal;
