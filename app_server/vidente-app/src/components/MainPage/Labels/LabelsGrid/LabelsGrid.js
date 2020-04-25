@@ -37,7 +37,7 @@ function LabelsGrid(props) {
                                     props.handleCard("editLabel");
                                 }}>
                                     <b>{label.name}</b>
-                                    <Barcode text={label.sku} value={label.name} {...labelOptions}/>
+                                    <Barcode text={label.sku} value={label.sku} {...labelOptions}/>
                                 </div>
                             ))
                         )

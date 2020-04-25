@@ -32,6 +32,8 @@ function LabelsModal(props) {
         mode: "onChange"
     });
 
+    let labelState = {name: watch('labelName'), sku: watch('labelSku')}
+
     let labelOptions = {
         format: "CODE39",
         lineColor: "black",
@@ -50,6 +52,7 @@ function LabelsModal(props) {
         );
     }
 
+    console.log(watch('labelSku'));
     return(
         <Modal isOpen={props.modalState.isOpen} onRequestClose={() => {
             props.onRequestClose();
@@ -65,8 +68,7 @@ function LabelsModal(props) {
                                 <span className={styles.label_section_name}><strong>Title</strong></span>
                                 <input className={styles.new_label_input} ref={register({
                                     validate: value => value.length < 21
-                                })}
-                                       name="labelName" placeholder="Label Title" autoComplete="off"/>
+                                })} name="labelName" placeholder="Label Title" autoComplete="off" minLength="1"/>
                             </div>
                         </>
                         :
@@ -84,7 +86,7 @@ function LabelsModal(props) {
                         &nbsp; 20 characters maximum allowed
                     </div>
                     :
-                    <span style={{alignSelf: "flex-end", marginRight: "1em"}}>&nbsp;</span>
+                    <span className={styles.error_div}>&nbsp;</span>
                 }
 
                 {/*<div className={styles.label_section}>*/}
@@ -111,24 +113,29 @@ function LabelsModal(props) {
                         &nbsp;Enter at least a capital letter and a number
                     </div>
                     :
-                    <span style={{alignSelf: "flex-end", marginRight: "1em"}}>&nbsp;</span>
+
+                    <span className={styles.error_div}>&nbsp;</span>
                 }
 
 
 
                 {/* Date Created would go here on editLabel */}
-
-                {(watch('labelSku') !== undefined && watch('labelName') !== undefined) ?
-                    (
+                <div style={{height: "10em", display: 'flex', alignSelf: "center"}}>
+                {(labelState.name !== undefined && labelState.sku !== undefined &&
+                    labelState.name.length > 0 && labelState.sku.length > 0) ?
                         <div className={styles.card} style={{background: "white"}}>
                             <b>{watch('labelName')}</b>
                             <Barcode text={watch('labelSku')} value={watch('labelSku')} {...labelOptions}/>
                         </div>
-                    )
                     :
-                    <div className={styles.card} style={{background: "white"}}></div>
+                    <div className={styles.add_label_card} id="add-label">
+                        <div className={`no-select ${styles.add_label_card_span}`} >
+                            Complete the fields above to visualize the label
+                        </div>
+                    </div>
 
                 }
+                </div>
 
                 <div className={styles.modal_border}/>
                 {props.modalState.modalType === "newLabel"
