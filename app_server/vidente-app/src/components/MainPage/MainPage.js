@@ -17,7 +17,7 @@ function MainPage(props) {
 
     const handleCard = (modalType, labelPosition ) => {
         setModalState({isOpen: true, modalType: (modalType.length > 0) ? "editLabel" : "newLabel",
-            currentLabel: ""});
+            currentLabel: labels[labelPosition]});
     }
 
     function closeModal() {
@@ -63,7 +63,7 @@ function MainPage(props) {
                     addNewGroup={addNewGroup} deleteGroup={deleteGroup} />
             }
 
-            {/* Only render Labels component if we have received our groups */}
+            {/* Only render Labels component if we have received both groups and labels */}
             {groups !== undefined && labels !== undefined &&
                 <Labels relativePosition={relativePosition} changeRelativePosition={changeRelativePosition}
                         groups={groups} labels={labels} setModalState={setModalState} handleCard={handleCard}

@@ -30,7 +30,11 @@ const skuRegex = /^[A-Z]{1,3}[0-9]{1,5}/m
 function EditLabelModal(props) {
 
     const {register, watch, errors, handleSubmit} = useForm({
-        mode: "onChange"
+        mode: "onChange",
+        defaultValues: {
+            labelName: props.currentLabel.name,
+            labelSku: props.currentLabel.sku
+        }
     });
 
     let labelState = {name: watch('labelName'), sku: watch('labelSku')}
@@ -71,7 +75,7 @@ function EditLabelModal(props) {
                     <input className={styles.new_label_input} ref={register({
                         validate: value => value.length >= 3
 
-                    })} name="labelName" defaultValue={props.currentLabel} autoComplete="off" maxLength={20}/>
+                    })} name="labelName" autoComplete="off" maxLength={20}/>
                 </div>
 
                 {errors.labelName ?
@@ -99,7 +103,7 @@ function EditLabelModal(props) {
                     <input className={styles.new_label_input} ref={register({
                         validate: value => skuRegex.test(value)
 
-                    })} name="labelSku" placeholder="SKU Value" autoComplete="off" maxLength={6}/>
+                    })} name="labelSku" autoComplete="off" maxLength={6}/>
                 </div>
 
                 {errors.labelSku ?
@@ -117,20 +121,17 @@ function EditLabelModal(props) {
 
                 {/* Date Created would go here on editLabel */}
                 <div style={{height: "10em", display: 'flex', alignSelf: "center"}}>
-                {(labelState.name !== undefined && labelState.sku !== undefined &&
-                    labelState.name.length >= 3 && labelState.sku.length > 2) ?
-                        <div className={styles.card} style={{background: "white"}}>
-                            <b>{watch('labelName')}</b>
-                            <Barcode text={watch('labelSku')} value={watch('labelSku')} {...labelOptions}/>
-                        </div>
-                    :
-                    <div className={styles.add_label_card} id="add-label">
-                        <div className={`no-select ${styles.add_label_card_span}`} >
-                            Complete the fields above to visualize the label
-                        </div>
+                    <div className={styles.card} style={{background: "white"}}>
+                        <b>{watch('labelName')}</b>
+                        <Barcode text={watch('labelSku')} value={watch('labelSku')} {...labelOptions}/>
                     </div>
+                    {/*:*/}
+                    {/*<div className={styles.add_label_card} id="add-label">*/}
+                    {/*    <div className={`no-select ${styles.add_label_card_span}`} >*/}
+                    {/*        Complete the fields above to visualize the label*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
 
-                }
                 </div>
 
                 <div className={styles.modal_border}/>
