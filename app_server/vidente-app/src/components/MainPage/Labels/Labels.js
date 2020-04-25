@@ -1,37 +1,35 @@
-import React, {useEffect, useState} from 'react';
-import {userService} from "../../../_services/userService";
+import React from 'react';
 
 import LabelsHeader from "./LabelsHeader/LabelsHeader";
 import LabelsGrid from './LabelsGrid/LabelsGrid';
 
+import NewLabelModal from "./NewLabelModal/NewLabelModal";
+import EditLabelModal from "./EditLabelModal/EditLabelModal";
+
 function Labels(props) {
-    const [groupAndLabels, setGroupAndLabels] = useState({group: undefined, labels: []});
-
-    useEffect(() => {
-        if(props.groups[props.relativePosition[0]]) {
-            userService.getLabels(props.groups[props.relativePosition[0]]._id).then(
-                (json) => {
-                    setGroupAndLabels({group: json.group, labels: json.labels});
-                }
-            );
-        }
-    //    NOTE: don't apply effect if relativePosition prop remains the same!
-    }, [props.relativePosition, props.groups]);
-
     return(
         <>
-            {groupAndLabels.group !== undefined ?
-                <>
-                    <LabelsHeader groupName={groupAndLabels.group.name}/>
-                    <LabelsGrid currentGroup={groupAndLabels.group} labels={groupAndLabels.labels}/>
-                </>
-                :
-                <>
-                    <LabelsHeader groupName={props.groups[0].name}/>
-                    <LabelsGrid currentGroup={groupAndLabels.group} labels={[]}/>
-                </>
+            {props.modalState.modalType === "newLabel"&&
+                <NewLabelModal modalState={props.modalState} onRequestClose={props.closeModal} closeModal={props.closeModal}
+                               currentGroup={props.groups[props.relativePosition[0]]}>
+                </NewLabelModal>
+
             }
 
+            {(props.modalState.modalType === "editLabel") &&
+                <EditLabelModal modalState={props.modalState} closeModal={props.closeModal}
+                                currentGroup={props.groups[props.relativePosition[0]]} currentLabel={props.modalState.currentLabel}>
+                </EditLabelModal>
+            }
+
+            <LabelsHeader handleCard={props.handleCard} groupName={(props.groups[props.relativePosition[0]] === undefined) ?
+                "Edit Groups " :
+                props.groups[props.relativePosition[0]].name
+
+            }/>
+
+            <LabelsGrid currentGroup={props.groups[props.relativePosition[0]]} labels={props.labels}
+                        relativePosition={props.relativePosition} handleCard={props.handleCard}/>
         </>
     );
 }

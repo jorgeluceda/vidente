@@ -8,7 +8,9 @@ function LabelsHeader(props) {
             <div className={styles.headline_contents}>
                 <h5 className={'no-select'}>  {props.groupName} &nbsp; &nbsp;
                 </h5>
-                <div className={styles.button_curved} href="">
+                <div className={styles.button_curved} href="" onClick={() => {
+                    props.handleCard("");
+                }}>
                     <span>
                         <div className={`no-select ${styles.glyph_add}`}>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="glyph-add" aria-hidden="true">
