@@ -6,7 +6,8 @@ export const userService = {
   getAllGroups,
   deleteGroup,
   getLabels,
-  createLabel
+  createLabel,
+  updateLabel
 };
 
 function getAllGroups() {
@@ -42,6 +43,15 @@ function createLabel(groupName, groupId, labelName, labelSku) {
   const requestOptions = {
     method: 'POST', headers: {...authHeader(), 'Content-Type' : 'application/json'},
     body: JSON.stringify({groupName: groupName, groupId: groupId, labelName: labelName, labelSku: labelSku})
+  };
+
+  return fetch(`/api/labels`, requestOptions).then(handleResponses.handleResponse);
+}
+
+function updateLabel(groupId, labelId, labelName, labelSku) {
+  const requestOptions = {
+    method: 'PUT', headers: {...authHeader(), 'Content-Type' : 'application/json'},
+    body: JSON.stringify({groupId: groupId, labelId: labelId, labelName: labelName, labelSku: labelSku})
   };
 
   return fetch(`/api/labels`, requestOptions).then(handleResponses.handleResponse);

@@ -49,8 +49,9 @@ function EditLabelModal(props) {
     };
 
     const onSubmit = data => {
-        userService.createLabel(props.currentGroup.name, props.currentGroup.id, data.labelName, data.labelSku).then(
-            () => {
+        userService.updateLabel(props.currentGroup._id, props.currentLabel._id,
+            data.labelName, data.labelSku).then(() =>
+            {
                 props.closeModal();
             }
         );
