@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import React, {useState} from "react";
+import React from "react";
 import styles from "./EditLabelModal.module.css";
 
 import { useForm } from "react-hook-form";
@@ -33,14 +33,15 @@ function EditLabelModal(props) {
         mode: "onChange",
         defaultValues: {
             labelName: props.currentLabel.name,
-            labelSku: props.currentLabel.sku
+            labelSku: props.currentLabel.sku,
+            labelType: props.currentLabel.type
         }
     });
 
-    let labelState = {name: watch('labelName'), sku: watch('labelSku')}
+    let labelState = {name: watch('labelName'), sku: watch('labelSku'), type: watch('labelType')}
 
     let labelOptions = {
-        format: "CODE39",
+        format: labelState.type,
         lineColor: "black",
         width: 2, height: 100,
         font: "Helvetica",
@@ -50,7 +51,7 @@ function EditLabelModal(props) {
 
     const onSubmit = data => {
         userService.updateLabel(props.currentGroup._id, props.currentLabel._id,
-            data.labelName, data.labelSku).then(() =>
+            data.labelName, data.labelSku, data.labelType).then(() =>
             {
                 props.closeModal();
             }
@@ -66,7 +67,7 @@ function EditLabelModal(props) {
     return(
         <Modal isOpen={props.modalState.isOpen} onRequestClose={() => {
             props.closeModal();
-        }} style={newLabelsModalStyles} contentLabel="New Label Modal">
+        }} style={newLabelsModalStyles} contentLabel="Edit Label Modal">
             <form className={styles.modal_form} onSubmit={handleSubmit(onSubmit)}>
                 <div className={styles.delete_button} onClick={() => {
                     deleteLabel();
@@ -78,7 +79,7 @@ function EditLabelModal(props) {
 
                 <div className={`no-select ${styles.label_title}`}>
                     <>
-                        <h5>Edit Labels
+                        <h5>Edit Label
                         </h5>
                     </>
                 </div>
@@ -102,16 +103,8 @@ function EditLabelModal(props) {
                         &nbsp; Needs at least 3 characters
                     </div>
                     :
-                    <></>
-                    // <span className={styles.error_div}>&nbsp;</span>
+                    <span className={styles.error_div}>&nbsp;</span>
                 }
-
-                {/*<div className={styles.label_section}>*/}
-                {/*    <span className={styles.label_section_name}><strong>Label Type</strong></span>*/}
-
-                {/*    <input className={styles.new_label_input} ref={register}*/}
-                {/*           name="labelType" placeholder="Type of Label" autoComplete="off"/>*/}
-                {/*</div>*/}
 
                 <div className={styles.label_section}>
                     <span className={styles.label_section_name}><strong>SKU</strong></span>
@@ -133,30 +126,35 @@ function EditLabelModal(props) {
                     <span className={styles.error_div}>&nbsp;</span>
                 }
 
+                <div className={styles.label_section}>
+                    <span className={styles.label_section_name}><strong>Type</strong></span>
+                    <select name="labelType" ref={register}>
+                        <option value="CODE39">CODE39</option>
+                        <option value="CODE128">CODE128</option>
+                    </select>
+                </div>
 
+                <span className={styles.error_div}>&nbsp;</span>
 
                 {/* Date Created would go here on editLabel */}
                 <div style={{height: "10em", display: 'flex', alignSelf: "center"}}>
-                    <div className={styles.card} style={{background: "white"}}>
-                        <b>{watch('labelName')}</b>
-                        <Barcode text={watch('labelSku')} value={watch('labelSku')} {...labelOptions}/>
-                    </div>
-                    {/*:*/}
-                    {/*<div className={styles.add_label_card} id="add-label">*/}
-                    {/*    <div className={`no-select ${styles.add_label_card_span}`} >*/}
-                    {/*        Complete the fields above to visualize the label*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
-
+                    {(labelState.name !== undefined && labelState.sku !== undefined && labelState.type !== undefined &&
+                        labelState.name.length > 0 && labelState.sku.length > 0) ?
+                        <div className={styles.card} style={{background: "white"}}>
+                            <b>{watch('labelName')}</b>
+                            <Barcode text={watch('labelSku')} value={watch('labelSku')} {...labelOptions}/>
+                        </div>
+                        :
+                        <div className={styles.add_label_card} id="add-label">
+                            <div className={`no-select ${styles.add_label_card_span}`} >
+                                Complete the fields above to visualize the label
+                            </div>
+                        </div>
+                    }
                 </div>
 
                 <div className={styles.modal_border}/>
-                {props.modalState.modalType === "newLabel"
-                    ?
-                    <input className={styles.done_button} style={{alignSelf: "center"}} type="submit"/>
-                    :
-                    <input className={styles.done_button} type="submit"/>
-                }
+                <input className={styles.submit_button} style={{alignSelf: "center"}} type="submit"/>
             </form>
         </Modal>
     );

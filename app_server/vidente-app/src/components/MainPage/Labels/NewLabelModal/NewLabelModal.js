@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import React, {useState} from "react";
+import React from "react";
 import styles from "./NewLabelModal.module.css";
 
 import { useForm } from "react-hook-form";
@@ -29,13 +29,16 @@ const skuRegex = /^[A-Z]{1,3}[0-9]{1,5}/m
 
 function NewLabelModal(props) {
     const {register, watch, errors, handleSubmit} = useForm({
-        mode: "onChange"
+        mode: "onChange",
+        defaultValues: {
+            labelType: "CODE128"
+        }
     });
 
-    let labelState = {name: watch('labelName'), sku: watch('labelSku')}
+    let labelState = {name: watch('labelName'), sku: watch('labelSku'), type: watch('labelType')}
 
     let labelOptions = {
-        format: "CODE39",
+        format: labelState.type,
         lineColor: "black",
         width: 2, height: 100,
         font: "Helvetica",
@@ -44,7 +47,8 @@ function NewLabelModal(props) {
     };
 
     const onSubmit = data => {
-        userService.createLabel(props.currentGroup.name, props.currentGroup._id, data.labelName, data.labelSku).then(
+        userService.createLabel(props.currentGroup.name, props.currentGroup._id,
+            data.labelName, data.labelSku, data.labelType).then(
             () => {
                 props.closeModal();
             }
@@ -79,13 +83,6 @@ function NewLabelModal(props) {
                     <span className={styles.error_div}>&nbsp;</span>
                 }
 
-                {/*<div className={styles.label_section}>*/}
-                {/*    <span className={styles.label_section_name}><strong>Label Type</strong></span>*/}
-
-                {/*    <input className={styles.new_label_input} ref={register}*/}
-                {/*           name="labelType" placeholder="Type of Label" autoComplete="off"/>*/}
-                {/*</div>*/}
-
                 <div className={styles.label_section}>
                     <span className={styles.label_section_name}><strong>SKU</strong></span>
 
@@ -106,9 +103,18 @@ function NewLabelModal(props) {
                     <span className={styles.error_div}>&nbsp;</span>
                 }
 
-                {/* Date Created would go here on editLabel */}
+                <div className={styles.label_section}>
+                    <span className={styles.label_section_name}><strong>Type</strong></span>
+                    <select name="labelType" ref={register}>
+                        <option value="CODE39">CODE39</option>
+                        <option value="CODE128">CODE128</option>
+                    </select>
+                </div>
+
+                <span className={styles.error_div}>&nbsp;</span>
+
                 <div style={{height: "10em", display: 'flex', alignSelf: "center"}}>
-                {(labelState.name !== undefined && labelState.sku !== undefined &&
+                {(labelState.name !== undefined && labelState.sku !== undefined && labelState.type !== undefined &&
                     labelState.name.length > 0 && labelState.sku.length > 0) ?
                         <div className={styles.card} style={{background: "white"}}>
                             <b>{watch('labelName')}</b>
@@ -120,12 +126,11 @@ function NewLabelModal(props) {
                             Complete the fields above to visualize the label
                         </div>
                     </div>
-
                 }
                 </div>
 
                 <div className={styles.modal_border}/>
-                <input className={styles.done_button} style={{alignSelf: "center"}} type="submit"/>
+                <input className={styles.submit_button} style={{alignSelf: "center"}} type="submit"/>
 
             </form>
         </Modal>

@@ -239,7 +239,7 @@ const labelsCreate = (req, res) => {
                     } else {
                        let labels = user.groups.id(groupId).labels;
 
-                       labels.push({name: req.body.labelName, sku: req.body.labelSku});
+                       labels.push({name: req.body.labelName, sku: req.body.labelSku, type: req.body.labelType});
 
                         user.save(err => {
                             if (err) {
@@ -297,6 +297,7 @@ const labelsUpdateOne = (req, res) => {
 
                         label.name = req.body.labelName;
                         label.sku = req.body.labelSku;
+                        label.type = req.body.labelType;
 
                         user.save(err => {
                             if (err) {

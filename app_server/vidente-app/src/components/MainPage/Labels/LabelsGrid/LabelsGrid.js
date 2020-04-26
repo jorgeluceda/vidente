@@ -19,7 +19,6 @@ const labelPlaceholder = (
 
 function LabelsGrid(props) {
     let labelOptions = {
-        format: "CODE39",
         lineColor: "black",
         width: 2, height: 100,
         font: "Helvetica",
@@ -27,19 +26,29 @@ function LabelsGrid(props) {
         textPosition: "bottom"
     };
 
+    let labels = [];
+
+    if(props.labels != undefined) {
+        props.labels.map((label, i) => (
+            labels.push(
+                <div className={styles.card} style={{background: "white"}} value={i} key={i} onClick={() => {
+                    props.handleCard("editLabel", i);
+                }}>
+                    <b>{label.name}</b>
+                    <Barcode text={label.sku} value={label.sku} format={label.type} {...labelOptions}/>
+                </div>
+            )
+        ))
+    }
     return (
         <>
             <div className={styles.contents_grid}>
-                <ReactPlaceholder ready={props.currentGroup != undefined} customPlaceholder={labelPlaceholder} showLoadingAnimation={true}>
-                    {props.labels.length > 0 ? (
-                            props.labels.map((label, i) => (
-                                <div className={styles.card} style={{background: "white"}} value={i} key={i} onClick={() => {
-                                    props.handleCard("editLabel", i);
-                                }}>
-                                    <b>{label.name}</b>
-                                    <Barcode text={label.sku} value={label.sku} {...labelOptions}/>
-                                </div>
-                            ))
+                <ReactPlaceholder ready={props.labelsLoaded} customPlaceholder={labelPlaceholder} showLoadingAnimation={true}>
+                    {labels.length > 0 ? (
+                        <>
+                            {labels}
+                        </>
+
                         )
                         :
                         (

@@ -137,7 +137,19 @@
     margin-left: 0.5em;
 }
 
-.done_button {
+.submit_button {
     margin-top: 1em;
     align-self: flex-end;
+    display: flex;
+    background: #007aff;
+    color: #fff;
+    min-height: 2rem;
+    border: .05rem solid #007aff;
+    border-radius: 4px;
+    font-size: .9rem;
+    padding-inline-start: 12px;
+    padding-inline-end: 12px;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
 }
