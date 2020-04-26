@@ -65,18 +65,13 @@ function MainPage(props) {
         <div className={styles.main_page}>
             <Header changeLoginStatus={props.changeLoginStatus}></Header>
 
-            {groups !== undefined &&
-                <Groups groups={groups} relativePosition={relativePosition} changeRelativePosition={changeRelativePosition}
-                    addNewGroup={addNewGroup} deleteGroup={deleteGroup} />
-            }
+            <Groups groups={groups} relativePosition={relativePosition} changeRelativePosition={changeRelativePosition}
+                addNewGroup={addNewGroup} deleteGroup={deleteGroup} />
 
-            {/* Only render Labels component if we have received both groups and labels */}
-            {groups !== undefined && labels !== undefined &&
-                <Labels relativePosition={relativePosition} changeRelativePosition={changeRelativePosition}
-                        groups={groups} labels={labels} labelsLoaded={labelsLoaded}
-                        setModalState={setModalState} handleCard={handleCard}
-                        modalState={modalState} closeModal={closeModal}/>
-            }
+            <Labels relativePosition={relativePosition} changeRelativePosition={changeRelativePosition}
+                    groups={groups} labels={labels} labelsLoaded={labelsLoaded}
+                    setModalState={setModalState} handleCard={handleCard}
+                    modalState={modalState} closeModal={closeModal}/>
 
         </div>
     );

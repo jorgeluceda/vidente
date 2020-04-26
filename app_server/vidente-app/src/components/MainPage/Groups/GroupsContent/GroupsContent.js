@@ -39,7 +39,7 @@ function GroupsContent(props) {
                                 <p className={'no-select'} key={i} onClick={() => props.handleChange(i) }>
                                     {/* group / layers icon */}
                                     <span className={styles.group} >
-                                    🏷️ &nbsp; {group.name} </span>
+                                    🗂 &nbsp; {group.name} </span>
                                 </p>
                             ))}
 
