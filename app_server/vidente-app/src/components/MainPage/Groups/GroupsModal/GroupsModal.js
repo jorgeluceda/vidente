@@ -48,6 +48,7 @@ function GroupsModal(props) {
                 }
             }}>
                 {selectedInput[1] === true &&
+                    // remove icon
                     <button className={styles.group_button} onClick={() => setSelectedInput([0, false])}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="2em">
                             <path fill="#464646" d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm3.21,11.79a1,1,0,0,1,0,1.42,1,1,0,0,1-1.42,0L12,13.41l-1.79,1.8a1,1,0,0,1-1.42,0,1,1,0,0,1,0-1.42L10.59,12l-1.8-1.79a1,1,0,0,1,1.42-1.42L12,10.59l1.79-1.8a1,1,0,0,1,1.42,1.42L13.41,12Z"/>
@@ -60,6 +61,7 @@ function GroupsModal(props) {
                 <button className={styles.group_button}>
                     {/* Check button for Create new group*/}
                     {selectedInput[1] === true &&
+                        // check icon
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="2em">
                             <path fill="#464646" d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4.71,7.71-5,5a1,1,0,0,1-1.42,0l-2-2a1,1,0,0,1,1.42-1.42L11,12.59l4.29-4.3a1,1,0,0,1,1.42,1.42Z"/>
                         </svg>
@@ -73,6 +75,7 @@ function GroupsModal(props) {
                                     <button className={styles.group_button} onClick={() => {
                                         props.deleteGroup(group._id);
                                     }}>
+                                        {/* trash icon */}
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.75em">
                                             <path fill="#464646" d="M21 6a1 1 0 0 1-1 1H4A1 1 0 0 1 4 5H9V4.5A1.5 1.5 0 0 1 10.5 3h3A1.5 1.5 0 0 1 15 4.5V5h5A1 1 0 0 1 21 6zM5.5 9v9.5A2.5 2.5 0 0 0 8 21h8a2.5 2.5 0 0 0 2.5-2.5V9zM11 17a1 1 0 0 1-2 0V13a1 1 0 0 1 2 0zm4 0a1 1 0 0 1-2 0V13a1 1 0 0 1 2 0z"/>
                                         </svg>
@@ -82,12 +85,14 @@ function GroupsModal(props) {
                                            name="name" value={group.name} autoComplete="off" onClick={() => {setSelectedInput([i, false])}}/>
                                     {selectedInput[0] === (i) && selectedInput[1] !== true
                                         ?
+                                        // render check icon
                                         <button className={styles.group_button}>
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.75em">
                                                     <path fill="#464646" d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4.71,7.71-5,5a1,1,0,0,1-1.42,0l-2-2a1,1,0,0,1,1.42-1.42L11,12.59l4.29-4.3a1,1,0,0,1,1.42,1.42Z"/>
                                             </svg>
                                         </button>
                                         :
+                                        // render edit icon
                                         <button className={styles.group_button}>
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.75em">
                                                 <path fill="#464646" d="M17,22H5a3,3,0,0,1-3-3V7A3,3,0,0,1,5,4H9A1,1,0,0,1,9,6H5A1,1,0,0,0,4,7V19a1,1,0,0,0,1,1H17a1,1,0,0,0,1-1V15a1,1,0,0,1,2,0v4A3,3,0,0,1,17,22Z"/>
