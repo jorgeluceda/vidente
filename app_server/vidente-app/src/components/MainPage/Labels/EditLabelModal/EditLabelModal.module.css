@@ -5,10 +5,11 @@
     background-color: #F6F8FA;
 }
 
-.label_title {
-    margin-top: 1em;
+.delete_button {
+    display: flex;
+    align-self: flex-end;
+    fill: #F54239;
 }
-
 .label_section {
     margin-left: 1em;
 }

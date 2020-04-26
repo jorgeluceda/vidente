@@ -32,7 +32,8 @@ router
   .route('/labels')
   .get(auth, ctrlGroups.labelsListByCreated)
   .post(auth, ctrlGroups.labelsCreate)
-  .put(auth, ctrlGroups.labelsUpdateOne);
+  .put(auth, ctrlGroups.labelsUpdateOne)
+  .delete(auth, ctrlGroups.labelsDeleteOne);
 
 router
   .route('/register')

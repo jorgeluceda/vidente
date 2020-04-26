@@ -7,7 +7,8 @@ export const userService = {
   deleteGroup,
   getLabels,
   createLabel,
-  updateLabel
+  updateLabel,
+  deleteLabel
 };
 
 function getAllGroups() {
@@ -52,6 +53,15 @@ function updateLabel(groupId, labelId, labelName, labelSku) {
   const requestOptions = {
     method: 'PUT', headers: {...authHeader(), 'Content-Type' : 'application/json'},
     body: JSON.stringify({groupId: groupId, labelId: labelId, labelName: labelName, labelSku: labelSku})
+  };
+
+  return fetch(`/api/labels`, requestOptions).then(handleResponses.handleResponse);
+}
+
+function deleteLabel(groupId, labelId) {
+  const requestOptions = {
+    method: 'DELETE', headers: {...authHeader(), 'Content-Type' : 'application/json'},
+    body: JSON.stringify({groupId: groupId, labelId: labelId})
   };
 
   return fetch(`/api/labels`, requestOptions).then(handleResponses.handleResponse);

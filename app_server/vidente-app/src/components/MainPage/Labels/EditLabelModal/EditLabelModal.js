@@ -57,17 +57,32 @@ function EditLabelModal(props) {
         );
     }
 
+    const deleteLabel = () =>  {
+        userService.deleteLabel(props.currentGroup._id, props.currentLabel._id).then(() => {
+            props.closeModal();
+        })
+    }
+
     return(
         <Modal isOpen={props.modalState.isOpen} onRequestClose={() => {
             props.closeModal();
         }} style={newLabelsModalStyles} contentLabel="New Label Modal">
             <form className={styles.modal_form} onSubmit={handleSubmit(onSubmit)}>
+                <div className={styles.delete_button} onClick={() => {
+                    deleteLabel();
+                }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.75em">
+                        <path fill="#F54239" d="M21 6a1 1 0 0 1-1 1H4A1 1 0 0 1 4 5H9V4.5A1.5 1.5 0 0 1 10.5 3h3A1.5 1.5 0 0 1 15 4.5V5h5A1 1 0 0 1 21 6zM5.5 9v9.5A2.5 2.5 0 0 0 8 21h8a2.5 2.5 0 0 0 2.5-2.5V9zM11 17a1 1 0 0 1-2 0V13a1 1 0 0 1 2 0zm4 0a1 1 0 0 1-2 0V13a1 1 0 0 1 2 0z"/>
+                    </svg>
+                </div>
+
                 <div className={`no-select ${styles.label_title}`}>
                     <>
-                        <h5>Edit Labels</h5>
-                        <h5 className={`no-select`}>&nbsp;</h5>
+                        <h5>Edit Labels
+                        </h5>
                     </>
                 </div>
+                <h5 className={`no-select`}>&nbsp;</h5>
 
 
                 <div className={styles.label_section}>
