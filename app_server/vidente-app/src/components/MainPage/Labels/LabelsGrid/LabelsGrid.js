@@ -19,7 +19,6 @@ const labelPlaceholder = (
 
 function LabelsGrid(props) {
     let labelOptions = {
-        format: "CODE39",
         lineColor: "black",
         width: 2, height: 100,
         font: "Helvetica",
@@ -37,7 +36,7 @@ function LabelsGrid(props) {
                                     props.handleCard("editLabel", i);
                                 }}>
                                     <b>{label.name}</b>
-                                    <Barcode text={label.sku} value={label.sku} {...labelOptions}/>
+                                    <Barcode text={label.sku} value={label.sku} format={label.type} {...labelOptions}/>
                                 </div>
                             ))
                         )

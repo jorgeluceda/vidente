@@ -7,10 +7,10 @@ const labelSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // type: {
-    //     type: String,
-    //     required: true
-    // },
+    type: {
+        type: String,
+        required: true
+    },
     sku: {
         type: String,
         required: true
