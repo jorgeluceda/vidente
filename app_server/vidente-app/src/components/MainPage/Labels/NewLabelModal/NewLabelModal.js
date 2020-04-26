@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import React, {useState} from "react";
+import React from "react";
 import styles from "./NewLabelModal.module.css";
 
 import { useForm } from "react-hook-form";
@@ -126,7 +126,6 @@ function NewLabelModal(props) {
                             Complete the fields above to visualize the label
                         </div>
                     </div>
-
                 }
                 </div>
 

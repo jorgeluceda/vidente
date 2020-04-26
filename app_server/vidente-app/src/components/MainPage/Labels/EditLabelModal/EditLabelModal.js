@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import React, {useState} from "react";
+import React from "react";
 import styles from "./EditLabelModal.module.css";
 
 import { useForm } from "react-hook-form";
@@ -79,7 +79,7 @@ function EditLabelModal(props) {
 
                 <div className={`no-select ${styles.label_title}`}>
                     <>
-                        <h5>Edit Labels
+                        <h5>Edit Label
                         </h5>
                     </>
                 </div>
