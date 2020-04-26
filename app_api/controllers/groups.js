@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-let mongodb = require('mongodb');
-
 const User = mongoose.model('User');
 
 const getUser = (req, res, callback) => {
@@ -295,11 +293,64 @@ const labelsUpdateOne = (req, res) => {
                             .status(404)
                             .json({"message": "Group to delete not found"});
                     } else {
-                        console.log(`groupId: ${groupId}, labelId: ${labelId}`);
                         let label = user.groups.id(groupId).labels.id(labelId);
 
                         label.name = req.body.labelName;
                         label.sku = req.body.labelSku;
+
+                        user.save(err => {
+                            if (err) {
+                                return res
+                                    .status(404)
+                                    .json(err);
+                            } else {
+                                res
+                                    .status(200)
+                                    .json(label);
+                            }
+                        });
+                    }
+                } else {
+                    res
+                        .status(404)
+                        .json({
+                            "message": "No group to delete"
+                        });
+                }
+            });
+    });
+};
+
+const labelsDeleteOne = (req, res) => {
+    let groupId = req.body.groupId;
+    let labelId = req.body.labelId;
+
+    getUser(req, res, (req, res, userId) => {
+        User
+            .findById(userId)
+            .select('groups')
+            .exec((err, user) => {
+                // error trapping and
+                // sending the correct error
+                // response based on the type of
+                // error that occurred.
+                if (!user) {
+                    return res
+                        .status(404)
+                        .json({"message": "User not found"});
+                } else if (err) {
+                    return res
+                        .status(400)
+                        .json(err);
+                }
+
+                if (user.groups && user.groups.length > 0) {
+                    if (!user.groups.id) {
+                        return res
+                            .status(404)
+                            .json({"message": "Group to delete not found"});
+                    } else {
+                        let label = user.groups.id(groupId).labels.id(labelId).remove();
 
                         user.save(err => {
                             if (err) {
@@ -330,5 +381,6 @@ module.exports = {
     groupsDeleteOne,
     labelsListByCreated,
     labelsCreate,
-    labelsUpdateOne
+    labelsUpdateOne,
+    labelsDeleteOne
 };
