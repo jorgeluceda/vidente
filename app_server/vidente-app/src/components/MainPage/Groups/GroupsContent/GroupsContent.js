@@ -37,14 +37,15 @@ function GroupsContent(props) {
 
                             {props.groups.map((group, i) => (
                                 <p className={'no-select'} key={i} onClick={() => props.handleChange(i) }>
+                                    {/* group / layers icon */}
                                     <span className={styles.group} >
-                                    {group.name} </span>
+                                    🏷️ &nbsp; {group.name} </span>
                                 </p>
                             ))}
 
                             <p className={'no-select'} onClick={() => props.handleChange(props.groups.length) }>
                                 <span className={styles.group} >
-                                    Edit Groups </span>
+                                   📝 &nbsp; Edit Groups </span>
                             </p>
                         </div>
                         <div className={styles.border_bottom}/>
