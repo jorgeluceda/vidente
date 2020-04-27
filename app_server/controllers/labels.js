@@ -4,7 +4,7 @@ const apiOptions = {
 };
 
 if(process.env.NODE_ENV == 'production') {
-    apiOptions.server = 'https://vidente-proto.herokuapp.com';
+    apiOptions.server = 'https://vidente.herokuapp.com';
 }
 
 const renderHomePage = (req, res, responseBody) => {
