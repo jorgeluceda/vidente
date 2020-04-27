@@ -4,8 +4,9 @@
 Vidente helps you create, visualize, and group your barcoes as
 quickly as possible, getting your inventory labeled faster.
 
-![](public/images/interactive_label.png) 
-<!--.element height="50%" -->
+
+<img src="public/images/interactive_label.png" alt="" width="250"/>
+
 
 ## Inspiration
 This project was inspired by 
