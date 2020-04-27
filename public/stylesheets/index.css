@@ -106,17 +106,74 @@
   grid-area: il;
   display: flex;
   background-color: #F6F8FA;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+interactive_label > div:nth-child(1) {
+  margin-right: 1em;
+}
+
+.interactive_label > div:nth-child(2) {
+  margin-left: 1em;
+}
+
+.interactive_label_screenshot {
+  width: 40vw;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,.1), 0 10px 13px 0 rgba(0, 0, 0, 0.082);
+}
+
+.responsive_interface {
+  grid-area: ri;
+  display: flex;
+  background-color: #F6F8FA;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  margin: 0 0 0.75em;
 }
 
 .border_bottom {
-    display: flex;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  grid-area: bb;
+  display: flex;
   width: 80%;
   border-bottom: 1px solid #e1e4e8!important;
 }
+
+.footer {
+  grid-area: f;
+  display: flex;
+  flex-direction: column;
+  /*align-content: left;*/
+  background-color: #F6F8FA;
+  color: #4A4B50;
+  /* span to the last column line */
+}
+
+.footer {
+  align-content: center;
+  justify-content: center;
+  padding: 4em 4em;
+}
+
+.footer > h1 {
+  align-self: center;
+}
+
+.footer_images {
+  display: flex;
+  justify-content: center;
+}
+.footer_images > img {
+  padding-right: 2em;
+  align-self: center;
+}
+
+
 
 
 html, body {
@@ -134,7 +191,7 @@ html, body {
 
 html, body {
   margin: 0;
-  background-color: #fff;
+  background-color: #F6F8FA;
 }
 
 small {
@@ -210,8 +267,10 @@ h6 {
     grid-template-areas:
             "h h h"
             "gs gs p"
+            "bb bb bb"
             "il il il"
-            "mc . .";
+            "ri ri ri"
+            "f f f";
   }
 }
 
@@ -222,8 +281,10 @@ h6 {
     grid-template-areas:
             "h h h"
             "gs gs p"
-            "mc mc mc"
-            "cg cg cg";
+            "bb bb bb"
+            "il il il"
+            "ri ri ri"
+            "f f f";
   }
 
   .larger {

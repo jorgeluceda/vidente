@@ -3,7 +3,7 @@ import styles from './Header.module.css';
 
 import {authService} from "../../../_services/authService";
 
-import logo from "./logo.png"
+import logo from "../../../_images/logo.png"
 function Header(props) {
     return (
         <div className={styles.header}>
