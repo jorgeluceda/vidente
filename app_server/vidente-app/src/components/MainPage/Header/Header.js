@@ -3,26 +3,31 @@ import styles from './Header.module.css';
 
 import {authService} from "../../../_services/authService";
 
-
+import logo from "./logo.png"
 function Header(props) {
     return (
         <div className={styles.header}>
-        <a href="/">
+        <button className={styles.header_button} style={{display: "flex", flexDirection: "row", alignItems: "center"}}
+                onClick={() => {
+                    window.open("https://vidente.herokuapp.com/","_self");
+                }}>
             <h5 className="no-select">
-                🔮
+                <img src={logo} style={{width: "1.50em"}} />
             </h5>
-        </a>
-        <h5 style={{color: "white", marginLeft: "0px", fontWeight: 600}}>
-            Vidente
-            {" "}
-        </h5>
+            <h5 style={{color: "white", marginLeft: "0px", fontWeight: 600}}>
+                Vidente
+                {" "}
+            </h5>
+        </button>
 
-        <h6 style={{marginLeft: "0.5rem", justifyContents: "left", fontWeight: 300}}>
+        <button className={styles.header_button} style={{marginLeft: "0rem", justifyContents: "left"}}
+                onClick={() => {
+                    window.open("https://vidente.herokuapp.com/","_self")
+                }}>
             About
-        </h6>
+        </button>
 
-        <h6 style={{fontWeight: 300}}> Profile </h6>
-        <button style={{fontWeight: 300}} onClick={() => {
+        <button className={styles.header_button} onClick={() => {
             authService.logout();
             props.changeLoginStatus(undefined, true);
         }}> Logout</button>
