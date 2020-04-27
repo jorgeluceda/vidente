@@ -3,7 +3,8 @@ extends layout
 block content
     .homepage
         .header
-            .header_button(style="display: flex; flex-direction: row; align-items: center; margin-left: 0.5em")
+            .header_button(style="display: flex; flex-direction: row; align-items: center; margin-left: 0.5em"
+                    onclick=`locationgit.reload()`)
                 h5.no-select
                     img.header_logo(src='/images/logo.png' alt="Vidente Logo")
                     h4(style="margin-left: 0.25em") Vidente
