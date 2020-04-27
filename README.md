@@ -16,7 +16,7 @@ Vidente's features found mainly in app_server/views/
 
 ## Screenshots
 ### Login/Register/Demo Screen
-<img src="public/images/login_screen.png.png" alt="" width="600"/>
+<img src="public/images/login_screen.png" alt="" width="600"/>
 
 ### Main React Application
 <img src="public/images/interactive_label.png" alt="" width="600"/>
