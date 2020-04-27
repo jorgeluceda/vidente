@@ -8,9 +8,8 @@ block content
                 h5.no-select
                     img.header_logo(src='/images/logo.png' alt="Vidente Logo")
                     h4(style="margin-left: 0.25em") Vidente
-            .header_button
-                button.header_button.selected_button
-                    h6.no-select Product
+            .header_button(onclick=`window.open("https://github.com/jorgeluceda/vidente/","_self")`)
+                img(src="/images/github.svg" alt="Github Repository" style="height: 3em;")
 
             .header_button(onclick=`window.open("https://vidente.herokuapp.com/app/","_self")`)
                 button.header_button.try_button
