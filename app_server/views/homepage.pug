@@ -48,12 +48,36 @@ block content
                                 d="M 20 31 L 20 17 L 32 24 Z ")
         .border_bottom
         .interactive_label.section
-            h1.section_title
-                | Interactive Label Creation and Visualization on the Cloud
+            div(style="padding-bottom: 2em;")
+                p Easier for you
+                h6.section_title
+                    | Interactive Label <br/>
+                    | Visualization in <br/>
+                    | the Cloud
+                p
+                    | Spend more time doing the work you want to be doing <br/>
+                    | while having access to your inventory from </br>
+                    | your phone, tablet, or desktop devices.
+            div.section_title
+                div(style="width: 40vw;")
+                    img.interactive_label_screenshot(src="/images/interactive_label.png" alt="Interactive Label Visualization")
 
-        .resposive_interface.section
+
+        .responsive_interface.section
             h1.section_title
-                | Responsive, mobile-first Single-Page Application Interface
+                | Responsive, Mobile-First Application Interface
+
+        .footer
+            h1.section_title
+                | Leverages the following technologies
+
+            div.footer_images
+                img(src="/images/react.svg" alt="Interactive Label Visualization" style="height: 4em;")
+                img(src="/images/nodejs.svg" alt="Interactive Label Visualization" style="height: 6em;")
+                img(src="/images/mongodb.svg" alt="Interactive Label Visualization" style="height: 3em;")
+                img(src="/images/heroku.svg" alt="Interactive Label Visualization" style="height: 4em;")
+
+
     script(src="/javascripts/yt-lazyload.js")
 
     //insert GIF showing this here
