@@ -33,6 +33,7 @@
 .demo_section {
     grid-area: d;
     display: flex;
+    margin-top: 2em;
     padding-bottom: 5em;
     flex-direction: column;
     justify-items: center;
