@@ -7,11 +7,6 @@ import Labels from "./Labels/Labels";
 import styles from './MainPage.module.css';
 
 import { userService } from "../../_services/userService";
-import NewLabelModal from "./Labels/NewLabelModal/NewLabelModal";
-import EditLabelModal from "./Labels/EditLabelModal/EditLabelModal";
-import LabelsHeader from "./Labels/LabelsHeader/LabelsHeader";
-import LabelsGrid from "./Labels/LabelsGrid/LabelsGrid";
-import {load} from "dotenv";
 
 function MainPage(props) {
     const [groups, setGroups] = useState([]);
@@ -72,7 +67,6 @@ function MainPage(props) {
                     groups={groups} labels={labels} labelsLoaded={labelsLoaded}
                     setModalState={setModalState} handleCard={handleCard}
                     modalState={modalState} closeModal={closeModal}/>
-
         </div>
     );
 }
