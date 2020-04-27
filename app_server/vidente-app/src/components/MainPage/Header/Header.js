@@ -12,7 +12,7 @@ function Header(props) {
                     window.open("https://vidente.herokuapp.com/","_self");
                 }}>
             <h5 className="no-select">
-                <img src={logo} style={{width: "1.50em"}} />
+                <img src={logo} alt="Vidente Logo" style={{width: "1.50em"}} />
             </h5>
             <h5 style={{color: "white", marginLeft: "0px", fontWeight: 600}}>
                 Vidente

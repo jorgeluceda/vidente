@@ -28,7 +28,7 @@ function LabelsGrid(props) {
 
     let labels = [];
 
-    if(props.labels != undefined) {
+    if(props.labels !== undefined) {
         props.labels.map((label, i) => (
             labels.push(
                 <div className={styles.card} style={{background: "white"}} value={i} key={i} onClick={() => {
