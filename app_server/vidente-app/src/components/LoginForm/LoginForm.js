@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import {authService} from "../../_services/authService";
 
 import styles from "./LoginForm.module.css";
+import logo from "../../_images/logo.png";
 
 let emailRegex = /^(\D)+(\w)*((\.(\w)+)?)+@(\D)+(\w)*((\.(\D)+(\w)*)+)?(\.)[a-z]{2,}/mi
 
@@ -36,6 +37,18 @@ function LoginForm(props) {
   
     return(
         <div className={styles.login_page}>
+            <button className={styles.header_button} style={{display: "flex", flexDirection: "row", alignItems: "center"}}
+                    onClick={() => {
+                        window.open("https://vidente.herokuapp.com/","_self");
+                    }}>
+                <h5 className="no-select">
+                    <img src={logo} alt="Vidente Logo" style={{width: "2em"}} />
+                </h5>
+                <div style={{color: "#44464A", marginLeft: "0px", fontWeight: 600}}>
+                    Vidente
+                    {" "}
+                </div>
+            </button>
             <div className={styles.card} style={{height: "21.5em"}}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     {formType === "register" &&

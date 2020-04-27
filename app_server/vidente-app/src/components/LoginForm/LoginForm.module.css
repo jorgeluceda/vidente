@@ -69,6 +69,23 @@
     outline: 0;
 }
 
+.header_button {
+    position: absolute;
+    font-weight: 400;
+    font-size: 1em;
+    color: white;
+    background-color: transparent;
+    border-width: 0em;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    line-height: 1.2em;
+    font-size: 1.25rem;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    outline: none;
+}
+
+
 .form_section {
     display: flex;
     flex-direction: column;
