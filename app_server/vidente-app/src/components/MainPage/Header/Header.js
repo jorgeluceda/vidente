@@ -21,8 +21,7 @@ function Header(props) {
             About
         </h6>
 
-        <h6 style={{fontWeight: 300}}> Profile </h6>
-        <button style={{fontWeight: 300}} onClick={() => {
+        <button className={styles.logout_button} onClick={() => {
             authService.logout();
             props.changeLoginStatus(undefined, true);
         }}> Logout</button>

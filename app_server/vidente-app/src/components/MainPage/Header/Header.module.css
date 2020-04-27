@@ -17,15 +17,27 @@
     color: #fff;
 }
 
-.header > h6:nth-child(3) {
-    margin-left: initial;
-    /* margin-left: 90%; */ 
-}
+/*.header > h6:nth-child(3) {*/
+/*    margin-left: initial;*/
+/*    !* margin-left: 90%; *! */
+/*}*/
     
-.header > h6:nth-child(4) {
-    margin-left: auto; 
+.header > h6:nth-child(3) {
+    margin-right: auto;
 }    
 
+.logout_button {
+    font-weight: 300;
+    font-size: 1em;
+    color: white;
+    background-color: transparent;
+    border-width: 0em;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    line-height: 1.2em;
+    font-size: 1.25rem;
+
+}
 
 @media (max-width: 1020px) {
     .header > h6 > h6 {
