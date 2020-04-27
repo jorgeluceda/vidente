@@ -257,10 +257,7 @@ h6 {
   width: 100%;
 
 }
-.embed-responsive-16by9 {
-  height: 0;
-  padding-bottom: 56.25%;
-}
+
 .video-player {
   max-width: 640px;
   position: relative;
@@ -272,4 +269,5 @@ h6 {
   margin: -33px 0 0 -44px;
   position: absolute;
   text-shadow: 0 1px 1px #4ab4d7;
-  top: 50%;}
+  top: 50%;
+}
