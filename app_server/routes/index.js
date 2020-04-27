@@ -9,12 +9,10 @@ const path = require('path');
 /* Locations pages */
 
 router.get('/', ctrlUser.homePage)
-router.get('/groups/', ctrlUser.groups);
 router.get('/app/', function(req, res) {
     res.sendFile(path.join(__dirname, '../vidente-app/build/index.html'));
 });
 
-router.get('/label/', ctrlLabels.labelInfo);
 
 router
     // updates router syntax to leverage locationid
