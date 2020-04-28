@@ -109,7 +109,14 @@ const groupsDeleteOne = (req, res) => {
               .status(404)
               .json({"message": "Group to delete not found"});
           } else {
-            user.groups.id(groupId).remove();
+
+            // only delete if label exists
+            // avoids synchronicity issue
+            let groupToDelete = user.groups.id(groupId);
+            if(groupToDelete) {
+                user.groups.id(groupId).remove();
+            }
+
             user.save(err => {
               if (err) {
                 return res
@@ -351,7 +358,13 @@ const labelsDeleteOne = (req, res) => {
                             .status(404)
                             .json({"message": "Group to delete not found"});
                     } else {
-                        let label = user.groups.id(groupId).labels.id(labelId).remove();
+                        let label = user.groups.id(groupId).labels.id(labelId);
+
+                        // only delete if label exists
+                        // avoids synchronicity issue
+                        if(label) {
+                            label.remove();
+                        }
 
                         user.save(err => {
                             if (err) {
