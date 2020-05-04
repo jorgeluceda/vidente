@@ -33,11 +33,13 @@
   
 .strapline > p {
     padding-left: 1em;
+    padding-top: 0em;
     margin-top: 0em;
     text-decoration: none;
     line-height: 0.25rem;
     align-self: flex-start;
     min-width: 10rem;
+    margin-bottom: 0em;
 }
 
 .favorite_group {
@@ -61,6 +63,22 @@
     min-width: 10em;
     /* padding-left: 4em;
     padding-right: 4em; */
+}
+
+.groupOriginal {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-decoration: none;
+    line-height: 2.30em;
+    font-weight: 500;
+    min-width: 10em;
+}
+
+.groupSvg {
+    width: 0.95em;
 }
 
 .favorite_group_icon {
