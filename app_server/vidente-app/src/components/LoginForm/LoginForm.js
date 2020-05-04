@@ -50,7 +50,7 @@ function LoginForm(props) {
                 </div>
             </button>
             <div className={styles.card} style={{height: "21.5em"}}>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form className={styles.cardForm} onSubmit={handleSubmit(onSubmit)}>
                     {formType === "register" &&
                             <div className={styles.form_section} style={{paddingTop: "0.5em"}}>
                                 <label className={`${styles.large} no-select`}>Name</label>

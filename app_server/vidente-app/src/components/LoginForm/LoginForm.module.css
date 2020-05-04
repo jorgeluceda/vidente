@@ -25,6 +25,12 @@
     transition: all 0.4s cubic-bezier(.25,.8,.25,1);
 }
 
+.cardForm {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2.5em;
+}
+
 .card > b {
     margin-bottom: 0.5rem;
     margin-top: 1rem;
@@ -97,7 +103,9 @@
     border: none;
     outline: none;
     font-size: 1.50em;
+    width: 80%;
 }
+
 .error_div {
     display: flex;
     align-self: flex-start;
